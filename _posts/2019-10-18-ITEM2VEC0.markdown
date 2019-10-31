@@ -1,12 +1,8 @@
 ---
-layout: post
-title:  " [논문리뷰] ITEM2VEC: Neural Item Embedding for Collaborative Filtering "
-date:   2019-10-18 21:19:41 +0900
-categories: Paper Review
-comments: true
-share: true
-featured: true
+title: " [논문리뷰] ITEM2VEC: Neural Item Embedding for Collaborative Filtering "
+tags: Paper Review
 ---
+
 !['recommendation'](https://scholarshipowl.com/blog/wp-content/uploads/2019/01/72710307_s.png)
 # ITEM2VEC: Neural Item Embedding for Collaborative Filtering
 ### 1. Introduction and related work

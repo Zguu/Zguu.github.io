@@ -1,11 +1,6 @@
 ---
-layout: post
-title:  " [논문 리뷰] Factorization Machine"
-date:   2019-10-18 21:19:41 +0900
-categories: Paper Review
-comments: true
-share: true
-featured: true
+title: " [논문 리뷰] Factorization Machine"
+tags: Study
 ---
 
 # Factorization Machines

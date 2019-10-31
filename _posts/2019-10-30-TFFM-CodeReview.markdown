@@ -1,12 +1,8 @@
 ---
-layout: post
-title:  " [코드리뷰] TFFM: TensorFlow FactorizationMachine"
-date:   2019-10-18 21:19:41 +0900
-categories: Code Review
-comments: true
-share: true
-featured: true
+title: " [코드리뷰] TFFM: TensorFlow FactorizationMachine"
+tags: Code Review
 ---
+
 
 ### 데이터 셋 설명
 >RecSys Challenge 2015 데이터

@@ -1,12 +1,8 @@
 ---
-layout: post
-title:  "[베이지안 통계학]사전확률? 사후확률? "
-date:   2019-10-17 21:19:41 +0900
-categories: Data Science
-comments: true
-share: true
-featured: true
+title: "[베이지안 통계학]사전확률? 사후확률? "
+tags: Statistics
 ---
+
 
 # 0. Prior(사전확률)과 Posterior(사후확률)
    베이즈 규칙에서 Prior(사전확률)과 Posterior(사후확률)에 대한 이해를 돕기 위해 간단한 동전의 경우를 살펴보자. 흠집이 없이 아주 대칭의 모양을 지닌('fair한') 동전은 그 동전을 던졌을 때, 50%의 확률로 앞면이, 50%의 확률로 뒷면이 나오게 될 것이다. 하지만 실제 경우에서 동전의 변형 또는 다른 다양한 이유로, 우리는 이 50%, 50% 확률이 때때로 왜곡된다고 생각할 수도 있다.
