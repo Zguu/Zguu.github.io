@@ -20,11 +20,10 @@ tags: PaperReview
 <space>물론, 아이템 데이터만 활용해서 추천 시스템을 구축하는 데에 한계가 있는 경우들도 있다. 이 논문의 저자가 말하듯이, 만약 음원 제공 서비스에서 발생하는 케이스에서 처럼, 유저의 수가 압도적으로 아이템의 수보다 많다면(일반적으로 성공한 음원 서비스에서는 이용자의 수가 음원의 수를 훨씬 뛰어 넘는 것과 같이), 유저 베이스 단독 모델로 가는 것이 좋을 수도 있다. 또한, 유저 개개인에 대한 식별이 불가능한 상태에서 (session과 같은), 실제 소비자들의 구매가 이뤄지는 경우도 있다. 이러한 경우에 각각의 Session 단위로 데이터를 취급하고 분석을 진행하는 것은 컴퓨팅 비용 대비 얻을 수 있는 정보가 상대적으로 작기 때문에 유용하지 않다고 한다.<br>
 <space>최근(2016년 기준) 자연어 처리 분야에서 큰 진전을 얻게 해준 방법론인 Skip-gram with Negative Sampling(word2vec)에 영감을 받아 진행된 이 연구에서는 최종적으로,<b> ''아이템 데이터를 벡터로 치환하고 유사도 계산을 용이하게 할 수 있다는 것을 이 논문은 보여주려 한다.''</b><br>
 
-<a href="https://imgur.com/XG6kJpP.png"><img src="(https://imgur.com/XG6kJpP.png" title="source: imgur.com" width="500px" /></a>
+!['image'](https://imgur.com/XG6kJpP.png)
 
-
+---
 ### 2. SGNS
-
 : Mikolov ['(링크)']((https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf))에 의해 제안된 이 방법론은 문장 내에서 단어를 표현하는 데에 있어서, 다른 단어와의 관계에 대한 정보를 캐치한다.
 
 ### 3. ITEM2VEC - SGNS FOR ITEM SIMILARITY
