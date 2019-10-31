@@ -1,0 +1,35 @@
+---
+layout: post
+title:  " [Study] Vim with Improve"
+date:   2019-10-18 21:19:41 +0900
+categories: Study
+comments: true
+share: true
+featured: true
+---
+
+vim 이쁘게 사용하기 : https://medium.com/sunhyoups-story/vim-%EC%97%90%EB%94%94%ED%84%B0-%EC%9D%B4%EC%81%98%EA%B2%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-5b6b8d546017
+
+ - ~/.vimrc 편집을 통해 vim 편집기를 더욱 보기 좋게 바꿔보자<br>
+ " Syntax Highlighting  <-- 주석 <br>
+if has("syntax")<br>
+syntax on<br>
+endif <- syntax를 가진 파일이라면 syntax기능을 켜준다.
+
+그 외 <br>
+set autoindent<br>
+set cindent<br>
+
+자동인덴트 기능 추가<br>
+set nu<br>
+n번째 줄인지 숫자 표기 추가
+
+완전 초보를 위한 vim : https://nolboo.kim/blog/2016/11/15/vim-for-beginner/
+
+Normal mode(일반모드), Insert mode(입력/편집 모드), Visual mode(비주얼/선택 모드), ex/명령어 모드
+
+입력모드 : i 입력<br>
+노말모드 : esc 입력<br>
+비주얼 모드 : v 입력<br>
+
+:로 시작하는 ex모드에서 write(w)를 입력하면 저장. 새로운 파일이라면 :w와 함께 파일명을 지정해줘야 한다.저장하지 않고 강제종료는 :q!와 같이 !를 덧붙여 준다. :w!는 파일을 덮어쓴다. 외부 쉘 명령어 (cd나 ls 같은) 를 vim 내에서 사용하려면, :! ls 또는 :! pwd 와 같이 써주면 된다.
