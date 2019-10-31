@@ -31,15 +31,16 @@ key: page-about
 Data Science 관련 공부 자료, 개인적인 생각 등을 정리하는 블로그입니다.
 
 ```python
-"Bayesian Statistics, Optimization, Recommendation System, Machine Learning"
+"DOING: Python, PostgreSQL, Presto, Spark, Visualization, Optimization, Statistical Modeling, Recommendation System, Machine Learning, Cat Feeding"
+"TODO : Scala, Bayesian Data Analysis, Deep Recommendation"
 ```
 
 ## Features
 
-- Code Study
-- Paper Study
+- Code Review
+- Paper Review
+- DataBase Query Review
+- Computer Science Study
 - Statistics
 - TextBook Summary
-- MachineLearning
-- DataBase
 - JOB 생각

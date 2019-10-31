@@ -18,5 +18,3 @@ tags: Statistics
 - Model comparison<br>
 
 # 1.
-$test$
-asdjlsfngslkdf

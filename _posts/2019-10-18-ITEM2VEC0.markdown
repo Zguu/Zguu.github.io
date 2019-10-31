@@ -1,6 +1,6 @@
 ---
 title: " [논문리뷰] ITEM2VEC: Neural Item Embedding for Collaborative Filtering "
-tags: Paper Review
+tags: PaperReview
 ---
 
 !['recommendation'](https://scholarshipowl.com/blog/wp-content/uploads/2019/01/72710307_s.png)
