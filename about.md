@@ -31,7 +31,7 @@ key: page-about
 Data Science 관련 공부 자료, 개인적인 생각 등을 정리하는 블로그입니다.
 
 ```python
-print("Hello DS")
+"Bayesian Statistics, Optimization, Recommendation System, Machine Learning"
 ```
 
 ## Features
@@ -39,6 +39,7 @@ print("Hello DS")
 - Code Study
 - Paper Study
 - Statistics
+- TextBook Summary
 - MachineLearning
-- DeepLearning
 - DataBase
+- JOB 생각
