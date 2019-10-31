@@ -26,7 +26,7 @@ titles:
 key: page-about
 ---
 
-![TeXt Theme](https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiinbnprsblAhWZMd4KHa7_AJUQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.wallpaperflare.com%2Fbrown-and-black-cat-cat-landscape-mountains-water-wallpaper-237696&psig=AOvVaw01klHnjvdteXXClvDJ2fnE&ust=1572606751027408)
+![TeXt Theme](https://www.wallpaperflare.com/static/519/793/185/cat-landscape-mountains-water-wallpaper-preview.jpg)
 
 Data Science 관련 공부 자료, 개인적인 생각 등을 정리하는 블로그입니다.
 
