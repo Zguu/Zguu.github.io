@@ -80,7 +80,7 @@ $$P(\theta)$$ 라는 타겟 분포가 $$P(D|\theta) * P(\theta)$$에 비례하�
 위치 $\theta$ 에서 다음 위치 $\theta + 1$ 로 이동할 확률을 $p(\theta -> \theta+1)$ 이라고 표현하자. 그리고 이것은 해당 방향으로 움직이라고 제안할 확률과, 그 제안이 받아들여질 확률의 곱과 같다 ; $$0.5 * min(P(\theta+1) / P(\theta), 1)$$.
 
 
-!['f3'](https://i.imgur.com/IIsP5XQ.png){: width="70%" height="70%"){: .center}
+!['f3'](https://i.imgur.com/IIsP5XQ.png){: width="70%" height="70%"){:.aligncenter}
 !['f4'](https://i.imgur.com/Zmqx1O7.png){: width="30%" height="30%"){: .center}
 
 
