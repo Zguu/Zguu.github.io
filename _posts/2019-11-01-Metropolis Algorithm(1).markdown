@@ -2,7 +2,9 @@
 title: " [Study] Metropolis Algorithm(1)"
 tags: Study Bayesian Algorithm Metropolis Probability
 ---
-# Chapter 7. Inferring a Binomial Proportion via the Metropolis Algorithm ; A simple case of the Metropolis algorithm
+# Chapter 7. Inferring a Binomial Proportion via the Metropolis Algorithm
+
+## A simple case of the Metropolis algorithm
 
 > 사전 확률 분포가 우도 함수와 conjugate 하다면 분석적으로 풀어낼 수 있는 사후 확률 분포를 만들 수 있다. 하지만 theta 값의 분포가 베타 분포를 따르지 않고 따라서 풀기 힘든 경우들도 있다. Grid approximation을 활용해서 이 문제를 어느 정도 해결 할 수도 있다. 하지만 이것 또한 단일 변수를 포함하는 모델의 경우이고, 더욱 변수가 많은 모델의 경우에는 어떻게 될까. 만약 우리가 6개의 변수를 가진 모델을 가졌다고 가정하자. 이런 상황에서 1000개의 격자(grid)로 나누어 모든 경우의 수를 생각하면 10의 18승에 해당하는 엄청 큰 공간을 탐색해야 한다.
 이렇게 격자 방법론도 통하지 않는 경우에, 새로운 방법론을 써야만 한다. <br> 이 챕터는, 우리가 쉽게 알아낼 수 있는(evaluate)함수를 통해 사전 확률 분포가 추정 될 수 있음을 알려준다. 아주 쉽게 말하면, 우리가 $\theta$ 값을 특정하기만 하면, 우리는 $$P(\theta)$$값을 알아낼 수 있다는 것이다.
