@@ -1,6 +1,6 @@
 ---
-title: " [Study] Metropolis Algorithm"
-tags: Study Bayesian Algorithm
+title: " [Study] Metropolis Algorithm(1)"
+tags: Study Bayesian Algorithm Metropolis Probability
 ---
 # Chapter 7. Inferring a Binomial Proportion via the Metropolis Algorithm ; A simple case of the Metropolis algorithm
 

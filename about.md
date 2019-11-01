@@ -30,6 +30,10 @@ key: page-about
 
 Data Science 관련 공부 자료, 개인적인 생각 등을 정리하는 블로그입니다.
 
+```Python
+"머리가 좋은 편이 아니라, 개인적으로 복습을 위한 포스팅과 직역 관련 글들은 글의 수가 상당히 많습니다."
+```
+
 ```python
 "DOING: Python, PostgreSQL, Presto, Spark, Visualization, Optimization, Statistical Modeling, Recommendation System, Machine Learning, Cat Feeding"
 "TODO : Scala, Bayesian Data Analysis, Deep Recommendation"
