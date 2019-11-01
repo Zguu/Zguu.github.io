@@ -34,8 +34,7 @@ tags: Study
 위의 논리를 간단히 표현하면,
 $$P_(move) = P_(proposed) / P_(current)$$가 된다. 이 정치인은 0부터 1까지의 숫자들의 유니폼하게 적혀있는 공평한 스피너를 돌려가며 이러한 선택을 계속 한다.
 
-<center><img src="https://imgur.com/MyexT8g.png" width="300" height="300"></center>
-
+<center><img src="https://imgur.com/MyexT8g.png" width="600" height="600"></center>
 위의 그림과 같이 4번 섬에서 출발한 정치인은 random walk를 지속하게 된다. 4번 섬에서 7번 섬까지는 인구에 따라 계속해서 오른쪽으로 이동하다가 확률적으로 왼쪽으로 가는데에는 힘들어하는 모습이 보인다.
 
 #### 7.1.2 A random walk
