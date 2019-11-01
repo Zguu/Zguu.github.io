@@ -4,12 +4,13 @@ tags: Study
 ---
 # Chapter 7. Inferring a Binomial Proportion via the Metropolis Algorithm
 
+## A simple case of the Metropolis algorithm
+
+
 > 사전 확률 분포가 우도 함수와 conjugate 하다면 분석적으로 풀어낼 수 있는 사후 확률 분포를 만들 수 있다. 하지만 theta 값의 분포가 베타 분포를 따르지 않고 따라서 풀기 힘든 경우들도 있다. Grid approximation을 활용해서 이 문제를 어느 정도 해결 할 수도 있다. 하지만 이것 또한 단일 변수를 포함하는 모델의 경우이고, 더욱 변수가 많은 모델의 경우에는 어떻게 될까. 만약 우리가 6개의 변수를 가진 모델을 가졌다고 가정하자. 이런 상황에서 1000개의 격자(grid)로 나누어 모든 경우의 수를 생각하면 10의 18승에 해당하는 엄청 큰 공간을 탐색해야 한다.
 이렇게 격자 방법론도 통하지 않는 경우에, 새로운 방법론을 써야만 한다. <br> 이 챕터는, 우리가 쉽게 알아낼 수 있는(evaluate)함수를 통해 사전 확률 분포가 추정 될 수 있음을 알려준다. 아주 쉽게 말하면, 우리가 $\theta$ 값을 특정하기만 하면, 우리는 $$P(\theta)$$값을 알아낼 수 있다는 것이다.
 분포로부터 샘플링 할 수 있는 많은 수의 theta 값들로 부터 우리는 사후 확률 $$p( \theta |D)$$의 추정값(approximation)을 얻어낼 수 있다.
 카지노 게임에서 우리가 계속해서 랜덤한 값을 얻을 때, 그를 이용하여 분포를 추정할 수 있듯이, 우리가 사후 확률 분포로부터 계속해서 랜덤으로 얻어낸 값들을 활용하여 사후 확률 분포를 알아낼 수 있다. 이러한 접근법을 Monte Carlo 방법이라고 한다.
-
-## 7.1 A simple case of the Metropolis algorithm
 
 베이지안 추론의 목표는, 파라미터 들에 의한 사후 확률 분포에 대한 좋은 이해를 하는 것이다. 그렇게 하는 한가지 좋은 방법은, 사후 확률 분포로부터 많은 수의 대표값들을 추출하고, 그 값들로부터 분포에 대한 descriptive 통계 수치들을 계산하는 것이다.
 예를 들어, 베타 분포($$beta(\theta|a,b)$$) 에서 우리는 분포의 평균 값과 표준 편차 값이 $a , b$에 의해 분석적으로 계산되고 표현 될 수 있다는 것을 배웠다.
@@ -33,7 +34,7 @@ tags: Study
 위의 논리를 간단히 표현하면,
 $$P_(move) = P_(proposed) / P_(current)$$가 된다. 이 정치인은 0부터 1까지의 숫자들의 유니폼하게 적혀있는 공평한 스피너를 돌려가며 이러한 선택을 계속 한다.
 
-<center><img src="https://imgur.com/MyexT8g.png" height="60%"></center>
+<center><img src="https://imgur.com/MyexT8g.png" width="40%" height="40%"></center>
 위의 그림과 같이 4번 섬에서 출발한 정치인은 random walk를 지속하게 된다. 4번 섬에서 7번 섬까지는 인구에 따라 계속해서 오른쪽으로 이동하다가 확률적으로 왼쪽으로 가는데에는 힘들어하는 모습이 보인다.
 
 #### 1.2 A random walk
