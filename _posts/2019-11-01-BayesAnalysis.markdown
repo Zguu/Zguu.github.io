@@ -34,7 +34,7 @@ tags: Study
 위의 논리를 간단히 표현하면,
 $$P_(move) = P_(proposed) / P_(current)$$가 된다. 이 정치인은 0부터 1까지의 숫자들의 유니폼하게 적혀있는 공평한 스피너를 돌려가며 이러한 선택을 계속 한다.
 
-!['f1'](https://imgur.com/MyexT8g.png){: width="70%" height="70%"}{: .center}
+!['f1'](https://imgur.com/MyexT8g.png){: width="70%" height="70%"){: .center}
 
 위의 그림과 같이 4번 섬에서 출발한 정치인은 random walk를 지속하게 된다. 4번 섬에서 7번 섬까지는 인구에 따라 계속해서 오른쪽으로 이동하다가 확률적으로 왼쪽으로 가는데에는 힘들어하는 모습이 보인다.
 
@@ -48,7 +48,7 @@ $$P_(move) = P_(proposed) / P_(current)$$가 된다. 이 정치인은 0부터 1�
 
 Figure 7.2는 각각의 포지션에 있을 확률을 시간의 함수로 보여준다. 맨 처음 $$t = 1$$에서 이 정치인은 $$\theta = 4$$ 에 있었다. 다음 시간 $$t = 2$$에서 어떤 포지션에 있을 지에 대한 확률을 결정하기 위해서, 움직임의 과정으로 부터 확률들을 고려해보자.
 
-!['f2'](https://i.imgur.com/vXC3wDa.png){: width="70%" height="70%"}{: .center}
+!['f2'](https://i.imgur.com/vXC3wDa.png){: width="70%" height="70%"){: .center}
 
 $$t = 1$$ 에서 $$t= 99$$ 값으로 계속 시행 함에 따라, 특정 점이 특정 theta에 위치할 확률은 시간에 따라 위 그래프와 같게 된다.
 
@@ -80,8 +80,8 @@ $$P(\theta)$$ 라는 타겟 분포가 $$P(D|\theta) * P(\theta)$$에 비례하�
 위치 $\theta$ 에서 다음 위치 $\theta + 1$ 로 이동할 확률을 $p(\theta -> \theta+1)$ 이라고 표현하자. 그리고 이것은 해당 방향으로 움직이라고 제안할 확률과, 그 제안이 받아들여질 확률의 곱과 같다 ; $$0.5 * min(P(\theta+1) / P(\theta), 1)$$.
 
 
-!['f3'](https://i.imgur.com/IIsP5XQ.png){: width="70%" height="70%"}{: .center}
-!['f4'](https://i.imgur.com/Zmqx1O7.png){: width="70%" height="70%"}{: .center}
+!['f3'](https://i.imgur.com/IIsP5XQ.png){: width="70%" height="70%"){: .center}
+!['f4'](https://i.imgur.com/Zmqx1O7.png){: width="30%" height="30%"){: .center}
 
 
 위의 식을 통해서, 앞 뒤 근접 포지션으로 움직이는 transition들 동안, 상대적 transition들의 혹률은 정혹하게 타겟 분포의 상대적 값과 일치한다는 것을 알 수 있다.이 식을 통해 우리는 직관적인 이해를 얻었다. ( 타겟 분포의 값에 비례하여 우리가 결과적으로 해당 포지션에 방문한다는 것)
@@ -89,15 +89,15 @@ $$P(\theta)$$ 라는 타겟 분포가 $$P(D|\theta) * P(\theta)$$에 비례하�
 
 방금의 이야기를 $\theta - 2$ 에서 $\theta + 2$까지의 행렬로 나타내면 다음과 같다.
 
-!['f5'](https://i.imgur.com/qWuOOKA.png){: width="70%" height="70%"}{: .center}
+!['f5'](https://i.imgur.com/qWuOOKA.png){: width="70%" height="70%"){: .center}
 
 위의 행렬을 계산식으로 표현하면 아래와 같다.
 
-!['f6'](https://i.imgur.com/UHNgroW.png){: width="70%" height="70%"}{: .center}
+!['f6'](https://i.imgur.com/UHNgroW.png){: width="70%" height="70%"){: .center}
 
 위와 같이 transition 확률들을 매트릭스 안에 표현하는 것은 유용하다. 이 매트릭스를 사용해서, 모든 장소로 최종적으로 위치하게 될 확률을 확률들의 곱으로 나타낼 수 있다.
 
-!['f7'](https://i.imgur.com/Jx28cUt.png){: width="70%" height="70%"}{: .center}
+!['f7'](https://i.imgur.com/Jx28cUt.png){: width="70%" height="70%"){: .center}
 
 Z는 모든 P(\theta)의 합이며 이것은 타겟 분포에 대한 normalizer로 역할을 한다. $P(\theta)와 P(\theta-1)$, $P(\theta+1)$과의 각각의 대소 관계는 총 4가지 경우의 수를 갖는다.
 
@@ -105,6 +105,6 @@ Z는 모든 P(\theta)의 합이며 이것은 타겟 분포에 대한 normalizer�
 
 케이스 1의 경우에, 식 (7.4)는 다음과 같다.
 
-!['f8'](https://i.imgur.com/Tc16lBQ.png){: width="70%" height="70%"}{: .center}
+!['f8'](https://i.imgur.com/Tc16lBQ.png){: width="70%" height="70%"){: .center}
 
 각 계산식 단계를 따라 정리를 해보면 마지막으로 $$P(\theta)/Z$$ 를 얻게된다. stay한다는 결론을 얻을 수 있다. Metropolis 알고리즘 하에서 타겟 분포가 stable하다는 것을 보여주었다. 이는 우리가 어떤 지점에서 시작하던지 상관 없이 같은 결과를 이끌어 낸다는 것 또한 보여준다. 우리가 어떤 시작점에서 이 알고리즘을 시작하는 가와 상관없이, 이 분포는 자연스럽게 확산(diffusion)하여 다른 포지션으로 이동한다. 이러한 확산은 어떤 안정적인 상태로 자리잡게 되고, 우리의 분포 또한 결국 확정적 상태에 머무르게 될 것을 보여준다.
