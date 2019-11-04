@@ -17,4 +17,12 @@ tags: Statistics
 - Prediction of data values<br>
 - Model comparison<br>
 
-# 1.
+## Bayes' Rule accounting for Data
+
+$$p(\theta|D) = posterior $$<br>
+$$p(D|\theta) = likelihood $$<br>
+$$p(\theta) = prior$$<br>
+$$p(D) = evidence$$<br>
+$$ where the evidence is p(D) = \int d\theta p(D|\theta)p()\theta)
+
+Bayes' Rule : $$p(\theta|D) = p(D|\theta)p(\theta)/p(D)$$
