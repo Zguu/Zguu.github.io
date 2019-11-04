@@ -14,10 +14,22 @@ tags: Code Review
 >A detailed description of the challenge can be found on the website of the RecSys Challenge 2015.
 Accepted contributions will be presented during the RecSys Challenge 2015 Workshop.
 
-### 데이터 전처리 과정 리뷰
-- yoochoose-buy 데이터에는 유저가 구매한 해당 아이템의 Item ID, 해당 아이템의 Category, 구매시기 Timestamp, 구매한 양 **Quantity 정보가 포함 돼있음<br>**
+---
+### Input 데이터와, Output 데이터
 
-- yoochoose-click 데이터에는 구매 정보는 없으며, Timestamp, Item ID, Category 정보만 포함하고 있음. **Quantity 없음**
+X : 각 유저들(또는 세션)이 Click한 카테고리 수치들<br>
+ 해당 유저들이 Buy 절차까지 끝난 카테고리 수치들 (각 유저들이 클릭하거나 구매한 경우의 데이터들을 더미화 시켜서 input 매트릭스로 정리해야한다.)
+
+ * 해당 더미 변수들이 Click 케이스에 해당하는 카테고리 변수인지, Buy 케이스에 해당하는 카테고리 변수인지에 대한 라벨링이 필요하다.
+
+y : 구매한 총 item 의 갯수 (Quantity)
+
+---
+
+### 데이터 전처리 과정 리뷰
+- yoochoose-buy 데이터에는 유저가 구매한 해당 아이템의 Item ID, 해당 아이템의 Category, 구매시기 Timestamp, 구매한 양 **Quantity 정보가 포함 돼있음**<br>
+
+- yoochoose-click 데이터에는 구매 정보는 없으며, Timestamp, Item ID, Category 정보만 포함하고 있음. 구매한 양 **Quantity 정보 포함 돼있지 않음**
 
 ---
 **Initial Data:** <br>
@@ -28,7 +40,8 @@ initial_buys_df.set_index('Session ID', inplace=True)
 initial_clicks_df.set_index('Session ID', inplace=True)
 ```
 
-Timestamp 정보는 이번 예시에서 사용하지 않는다.
+Timestamp 정보는 이번 분석에서 사용하지 않는다.
+
 ~~~python
 initial_buys_df = initial_buys_df.drop('Timestamp', 1)
 initial_clicks_df = initial_clicks_df.drop('Timestamp', 1)
@@ -54,6 +67,7 @@ initial_buys_df['_Session ID'] = initial_buys_df.index
 **One-Hot Encoding (Dummies) :**<br>
 
 어느 정도 정리가 된 1차 데이터 프레임 (initial_buys_df 와 initial_clicks_df)에 대해 모두 더미화 시키는 게 필요하다.
+
 ~~~python
 transformed_buys = pd.get_dummies(initial_buys_df)
 transformed_clicks = pd.get_dummies(initial_clicks_df)
@@ -77,7 +91,7 @@ historical_click_data = historical_click_data.rename(columns=lambda column_name:
 ---
 **Merging Data :**<br>
 
-해당 merge step을 통해 어떤 데이터 프레임을 얻고 싶었던 걸까? 판다스의 merge는 기본적으로 서로 다른 테이블의 같은 컬럼명을 찾고 해당 컬럼들에 대해 inner join 을 시행하게 돼있으므로, index가 같은 Session들에 한해 단순히 column append를 진행하게 된다.
+해당 merge step을 통해, click part, buy part 두 데이터를 병합한다. 판다스의 merge는 기본적으로 서로 다른 테이블의 같은 컬럼명을 찾고 해당 컬럼들에 대해 inner join 을 시행하게 돼있으므로, index가 같은 Session들에 한해 단순히 column append를 진행하게 된다. 똑같은 카테고리 더미 변수이더라도, 해당 변수가 클릭을 통해 생성된 데이터인지 실제 구매까지 이어진 경우에 해당하는 카테고리인지에 대한 구분을 할 수 있는 상황이다.
 
 ~~~python
 merged1 = pd.merge(transformed_buys, historical_buy_data, left_index=True, right_index=True)
