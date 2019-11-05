@@ -11,8 +11,10 @@ tags: Statistics
 우리가 학교나 책을 통해 이 Prior와 Posterior에 대한 개념을 처음 접할 때, 보통 시간 순서로 (이전에 일어난 확률) 과 (이후에 일어난 확률)로 받아들인다. 하지만 이렇게 이해하는 것보다는, 특정한 데이터 셋(우리가 앞에서 본 동전을 던져 실제로 나온 비율의 값들)을 배제했을 때 우리의 믿음을 Prior, 포함시켰을 때 우리의 믿음을 Posterior로 이해하는 것이 낫다.<br>
 데이터를 활용한 추론의 목표에는 크게 세 가지 종류가 있다.
 <center><br>
+- Estimation of parameter values
 - Prediction of data values<br>
-- Model comparison<br></center>
+- Model comparison<br>
+</center>
 ## Bayes' Rule accounting for Data
 - $$p(\theta|D) = posterior$$ 사후확률<br>
 - $$p(D|\theta) = likelihood$$ 가능도<br>
