@@ -9,16 +9,14 @@ tags: Statistics
 예를 들어, 동전 모양이 꽤나 왜곡돼서, 우리는 현재 이 동전을 던지면 20%의 확률로 앞면이, 80%의 확률로 뒷면이 나올 것이라고 믿고 있다. 이렇게 우리가 실제로 동전을 던져보기전에 갖고 있는 사건(event)에 대한 믿음을 사전확률이라고 하자.<br>
 만약, 실제로 동전을 10번 던진 후 관찰 결과, 앞면이 2번, 뒷면이 8번 나왔다면, 우리는 우리가 이 사건 전에 지니고 있던 확률, 즉, Prior(사전확률)에 대한 믿음을 더욱 확고히 하게 된다.<br>
 우리가 학교나 책을 통해 이 Prior와 Posterior에 대한 개념을 처음 접할 때, 보통 시간 순서로 (이전에 일어난 확률) 과 (이후에 일어난 확률)로 받아들인다. 하지만 이렇게 이해하는 것보다는, 특정한 데이터 셋(우리가 앞에서 본 동전을 던져 실제로 나온 비율의 값들)을 배제했을 때 우리의 믿음을 Prior, 포함시켰을 때 우리의 믿음을 Posterior로 이해하는 것이 낫다.<br>
-데이터를 활용한 추론의 목표에는 크게 세 가지 종류가 있다.<center><hr/>
+데이터를 활용한 추론의 목표에는 크게 세 가지 종류가 있다.<center>
 - Prediction of data values<br>
 - Model comparison<br></center>
-
 ## Bayes' Rule accounting for Data
 - $$p(\theta|D) = posterior$$ 사후확률<br>
 - $$p(D|\theta) = likelihood$$ 가능도<br>
 - $$p(\theta) = prior$$ 사전확률<br>
 - $$p(D) = evidence$$ 관측확률<br>
-
 사전확률 = 데이터가 주어지지 않았을 때, theta 값의 분포 함수<br>
 where the evidence is $$p(D) = \int d\theta p(D|\theta)p(\theta) $$<br>
 Bayes' Rule : $$p(\theta|D) = p(D|\theta)p(\theta)/p(D)$$
@@ -36,4 +34,7 @@ Bayes' Rule : $$p(\theta|D) = p(D|\theta)p(\theta)/p(D)$$
 ## Prediction of data values
 우리의 현재 믿음을 사용하여, 우리는 미래 값들의 확률을 예측하길 원한다. 추후에 나타날 수도 있는 표기적 혼란을 피하기 위해 이 데이터 값을 $y$로 설정하자. 예측되는 데이터 값 $y$는 가능한 모든 파라미터 값($\theta$)들에 대하여 단순 평균을 냄으로써 진행된다. :<br>
 <center> $$p(y) = \int d\theta p(y|\theta)p(\theta) $$ </center><br>
-이 값은 잘 들여다보면 정확하게 evidence에 해당한다.
+이 값은 잘 들여다보면 정확하게 evidence에 해당한다.<br>
+<center>
+!['Imgur'](https://imgur.com/utLTyYj.png)
+</center><br>
