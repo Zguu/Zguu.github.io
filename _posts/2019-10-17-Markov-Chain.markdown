@@ -36,6 +36,9 @@ Bayes' Rule : $$p(\theta|D) = p(D|\theta)p(\theta)/p(D)$$
 우리의 현재 믿음을 사용하여, 우리는 미래 값들의 확률을 예측하길 원한다. 추후에 나타날 수도 있는 표기적 혼란을 피하기 위해 이 데이터 값을 $y$로 설정하자. 예측되는 데이터 값 $y$는 가능한 모든 파라미터 값($\theta$)들에 대하여 단순 평균을 냄으로써 진행된다. :<br>
 <center> $$p(y) = \int d\theta p(y|\theta)p(\theta) $$ </center><br>
 이 값은 잘 들여다보면 정확하게 evidence에 해당한다.<br>
+예를 들어서, 위의 Figure 최상단 그래프의 사전확률을 봐보자. 해당 믿음들에 관해 동전을 던질 때 H(head)를 얻게 될 확률 예측은 다음과 같다.
 <center>
 !['Imgur'](https://imgur.com/utLTyYj.png)
 </center><br>
+현재 모델의 믿음이 주어졌을 때, 각각의 가능한 데이터 수치의 확률들이 예측 값임에 주목해야한다.
+## Model Comparison
