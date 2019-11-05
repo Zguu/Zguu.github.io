@@ -16,10 +16,10 @@ tags: Statistics
 </center>
 
 ## Bayes' Rule accounting for Data
-- $$p(\theta|D) = posterior$$ 사후확률<br>
-- $$p(D|\theta) = likelihood$$ 가능도<br>
-- $$p(\theta) = prior$$ 사전확률<br>
-- $$p(D) = evidence$$ 관측확률<br>
+$$p(\theta|D) = posterior$$ 사후확률<br>
+$$p(D|\theta) = likelihood$$ 가능도<br>
+$$p(\theta) = prior$$ 사전확률<br>
+$$p(D) = evidence$$ 관측확률<br>
 사전확률 = 데이터가 주어지지 않았을 때, theta 값의 분포 함수<br>
 where the evidence is $$p(D) = \int d\theta p(D|\theta)p(\theta) $$<br>
 Bayes' Rule : $$p(\theta|D) = p(D|\theta)p(\theta)/p(D)$$
