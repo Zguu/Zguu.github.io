@@ -27,3 +27,7 @@ $$p(D) = evidence , 관측확률$$<br>
 
 $$ where the evidence is p(D) = \int d\theta p(D|\theta)p()\theta) $$<br>
 Bayes' Rule : $$p(\theta|D) = p(D|\theta)p(\theta)/p(D)$$
+
+## An example with coin flipping
+
+[Imgur](https://imgur.com/Kmd35Rn)
