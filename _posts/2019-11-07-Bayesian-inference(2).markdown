@@ -10,4 +10,4 @@ tags: Bayesian Statistics Inference Prior Posterior Likelihood Evidence
 동전을 던져서 head가 나오는 확률은 파라미터에 대한 함수로 볼 수 있다 : $$p(y=1|\theta) = f(\theta)$$. 우리는 특정한 간단한 함수로 이를 추정하며 identity 함수: $$p(y=1|\theta)=f(\theta)$$라고 하자. 이항분포 전제 조건(배타사건)에 따라, $$p(y=1|\theta)=\theta$$가 된다. 이 두 공식을 하나의 식으로 표현하면 다음과 같다:<br>
 <center>$$p(y|\theta)={\theta}^y{(1-\theta)}^{(1-y)}$$</center><br>
 위의 공식은 Bernoulli distribution(베르누이 분포)로 불려진다. 베르누이 분포는 두 개의 discrete(이산)변수에 대한 확률 분포이며, 이때 $\theta$값은 고정 돼 있다고 생각한다. 특히, 확률들의 총 합은 1이며, 이에 대한 식은 다음과 같이 표현한다.<br>
-<center>$$sum_y p(y|\theta)=p(y=1|\theta)+p(y=0|\theta) = \theta + (1-\theta) = 1$$.</center><br>
+<center>$$\sum_y p(y|\theta)=p(y=1|\theta)+p(y=0|\theta) = \theta + (1-\theta) = 1$$.</center><br>
