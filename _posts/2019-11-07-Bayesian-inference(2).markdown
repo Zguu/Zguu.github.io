@@ -8,14 +8,16 @@ tags: Bayesian Statistics Inference Prior Posterior Likelihood Evidence
 베이지안 분석에서, 우리는 동전이 head를 보여 줄 가능한 확률들에 대한 몇몇 믿음에서 분석을 시작한다. 그리고, 우리는 베이즈 규칙을 사용해서 사후 분포를 추론한다. 베이즈 규칙은 우리로 하여금 likelihood함수를 특정하도록 요구하며, 이것은 다음 섹션의 주제가 될 것이다.
 ## The Likelihood function: Bernoulli distribution
 동전을 던져서 head가 나오는 확률은 파라미터에 대한 함수로 볼 수 있다 : $$p(y=1|\theta) = f(\theta)$$. 우리는 특정한 간단한 함수로 이를 추정하며 identity 함수: $$p(y=1|\theta)=f(\theta)$$라고 하자. 이항분포 전제 조건(배타사건)에 따라, $$p(y=1|\theta)=\theta$$가 된다. 이 두 공식을 하나의 식으로 표현하면 다음과 같다:<br>
-<center>$$p(y|\theta)={\theta}^y{(1-\theta)}^{(1-y)}    (5.1)$$</center><br>
+<center>$$p(y|\theta)={\theta}^y{(1-\theta)}^{(1-y)}\qquad(5.1)$$</center><br>
 위의 공식은 Bernoulli distribution(베르누이 분포)로 불려진다. 베르누이 분포는 두 개의 discrete(이산)변수에 대한 확률 분포이며, 이때 $\theta$값은 고정 돼 있다고 생각한다. 특히, 확률들의 총 합은 1이며, 이에 대한 식은 다음과 같이 표현한다.<br>
 <center>$$\sum_y p(y|\theta)=p(y=1|\theta)+p(y=0|\theta) = \theta + (1-\theta) = 1$$</center><br>
 (5.1)식은 주어진 $\theta$ 값에서 datum $y$가 나올 확률을 계산하는 $\theta$에 대한 $likelihood function$으로 볼 수 있다. 베르누이 분포는 두개의 $y$ 값에 대한 이산 분포에 해당하지만, $likelihood function$은 연속 변수 $\theta$에 해당하는 함수임을 확인하자. likelihood function은 각각의 $\theta$값들에 대한 확률을 계산해주지만 이것은 확률 분포가 아님을 알아야한다. 만약 우리가 $$y=1$$이라고 가정한다면, $$\int_{0}^{1} d\theta {\theta}^y(1-\theta)^{(1-y)} = \int_{0}^{1} d\theta \theta =1/2\ne 1$$ 이기 때문에 확률 분포로 볼 수는 없다.<br>
 베이지안 추론에서, 함수 $$p(y|\theta)$$는 불확실한 변수인 파라미터 값 $\theta$와, 고정되며 알려진 값 $y$의 데이터로 생각이 된다. 그러므로 $$p(y|\theta)$$는 일반적으로 $\theta$에 대한 likelihood function으로 볼려지며, 식 (5.1)은 $Bernoulli Likelihood function$ 으로 불려진다. <br>
  우리가 동전을 $N$번 던지고 그때 나오는 데이터의 셋을 $$D={y1,...,y_N}$$로 표현하게 되면, 그때 이 특정 집합 값을 얻게 될 확률은 각각 결과 확률들의 총 곱과 같을 것이다.:
 <center>$$p({y1,...,y_N}|\theta) = \prod_{i} p(y_i|\theta)$$</center><br>
-<center>$$ = \prod_{i} \theta^{y_i} (1-\theta)^{(1-y_i)}    (5.2)$$</center><br>
+<center>$$ = \prod_{i} \theta^{y_i} (1-\theta)^{(1-y_i)}\qquad(5.2)$$</center><br>
 만약 동전을 던지는 행위의 집합들에서 head가 나오는 횟수를 $$z=sum_{i}^{N} y_i$$라고 한다면, (5.2)식은 다음과 같이 작성될 수 있다.<br>
-<center>$$p(z,N|\theta)=\theta^z(1-\theta)^{(N-z)}    (5.3)$$</center><br>
+<center>$$p(z,N|\theta)=\theta^z(1-\theta)^{(N-z)}\qquad(5.3)$$</center><br>
 ## A description of beliefs: The beta distribution
+이번 챕터에서, 우리는 믿음에 대한 사후 분포의 수학적 형태를 유도하기 위해 순전히 수학적 분석만을 사용할 것이다. 수치적인 approximation은 사용하지 않는다. 이를 진행하기 위해서 우리의 사전 믿음에 대한 수학적인 묘사가 우선 필요하다. 즉, [0,1] 범위에 존재하는 $\theta$값들을 활용하여, 사전 믿음 확률을 계산하기 위한 수학적인 식이 필요하다.<br>
+원칙적으로는, [0,1] 사이의 정의역을 취할 수 있는 어떠한 확률 밀도 함수를 사용해도 된다. 그러나 우리가 베이즈 룰을 적용하려고 할 때, 수학적 계산의 편의를 위해 두가지 신중히 고려해야 할 사안들이 있다. 첫째, 베이즈 규칙의 분자에 해당하는 $$p(y|\theta)$$ 값과 $$p(\theta)$$의 곱이 $$p(\theta)$$와 같은 형태의 함수 결과를 보여주면, 편리할 것이다. 이러한 경우에, 사전 믿음과 사후 믿음은 모두 같은 형태의 함수를 사용해서 묘사가 된다. 이러한 특성을 사용하게 되면, 우리가 이후 추가적인 데이터를 포함시키고, 또 다른 사후 분포를 이끌어 낼 때, 또 다시 사전 믿음과 같은 형태로 이끌어내는 용이함을 준다. 그러므로, 얼마나 많은 데이터를 우리가 포함시키느냐에 상관없이, 우리는 항상 같은 함수적 형태를 띄는 사후분포를 보여줄 수 있다. 둘째로, 우리는 베이즈 규칙의 분모에 해당하는 $$\int d\theta p(y|\theta)p(\theta)$$가 분석적으로 solvable하기를 희망할 것이다. 이러한 특성 또한 함수 $$p(\theta)$$의 형태가 얼마나 $$p(y|\theta)$$의 형태와 관련이 있는지에 영향을 바들 것이다. 
