@@ -27,3 +27,5 @@ tags: Bayesian Statistics Inference Prior Posterior Likelihood Evidence
 이러한 형태의 확률 밀도는 $$beta distribution$$이라고 불려진다. 공식적으로 이 베타 분포는 $a$와 $b$ 두개의 파라미터를 갖고 있다. 확률 밀도는 다음과 같이 정의된다. <br>
 <center>$$p(\theta|a,b)=beta(\theta;a,b)$$<br>$$=\theta^{(a-1)}(1-\theta)^{(b-1)}/B(a,b)\qquad(5.4)$$<br>
 여기서 $B(a,b)$는 단순한 normalizing 상수이며 이것은 베타 분포 하 면적이 1로 적분되도록 돕는 역학을 한다.<br>
+베타 분포는 [0,1] 구간에 있는 $\theta$값들에 대해서만 정의가 된다는 것을 기억하자. $a$ 값과 $b$ 값은 양수이다. (5.4)식의 베타 분포의 정의에서 $\theta$ 값은 $$(a-1)$$ 만큼 제곱되고, $$(1-\theta)$$ 값은 $$(b-1)$$만큼 제곱된다는 것에 유의하자. 또한, 베타 함수, $$B(a,b)$$를 베타 분포,$$beta(\theta;a,b)$$와 혼동하지 않도록 하자. 베타 함수는 $\theta$에 대한 함수가 아니다. Figure 5.1의 각각의 panel들은 다양한 $$a,b$$값들에 대한 베타 분포를 보여준다.
+!['Imgur'](https://imgur.com/RJw088s.png)
