@@ -1,5 +1,5 @@
 ---
-title: " [베이지안 통계학] "
+title: " [베이지안 추론] Binomial Proportion 추론"
 tags: Bayesian Statistics Inference Prior Posterior Likelihood Evidence
 ---
 
@@ -30,5 +30,5 @@ tags: Bayesian Statistics Inference Prior Posterior Likelihood Evidence
 베타 분포는 [0,1] 구간에 있는 $\theta$값들에 대해서만 정의가 된다는 것을 기억하자. $a$ 값과 $b$ 값은 양수이다. (5.4)식의 베타 분포의 정의에서 $\theta$ 값은 $$(a-1)$$ 만큼 제곱되고, $$(1-\theta)$$ 값은 $$(b-1)$$만큼 제곱된다는 것에 유의하자. 또한, 베타 함수, $$B(a,b)$$를 베타 분포, $$beta(\theta;a,b)$$와 혼동하지 않도록 하자. 베타 함수는 $\theta$에 대한 함수가 아니다. Figure 5.1의 각각의 panel들은 다양한 $$a,b$$값들에 대한 베타 분포를 보여준다.<br>
 !['Imgur'](https://imgur.com/RJw088s.png)
 ## Specifying a beta prior
-우리의 사전 믿음을 묘사하는 베타 분포에 대해 조금 더 구체화해보자. 베타 분포의 평균과 분산 값에 대해 아는 것은 유용할 것이다. $$beta(\theta;a,b)$$의 평균 값 $$\bar{\theta}\ =\ a/(a+b)$$ 이다. 그러므로 $$a\ =\ b$$일 때, 평균은 0.5이며, $a$값이 상대적으로 커지면 커질 수록 평균도 커지게 된다. 베타 분포의 표준 편차는 $$\sqrt{\bar{\theta}(1-\bar{\theta})/(a+b+1)}이다. 이 표준편차 값은 $$a\ +\ b$$ 값이 커지면 커질수록 작아지게 된다.<br>
-사전 분포 안의 $a$와 $b$값은 각각 이전에 관측된 데이터들로 생각해볼 수 있다. 마치 $$a\ + \ b$$번의 동전 던지기에서 $a$번의 head와 $b$번의 tail이 나온 경우로 생각해 볼 수 있다. 
+우리의 사전 믿음을 묘사하는 베타 분포에 대해 조금 더 구체화해보자. 베타 분포의 평균과 분산 값에 대해 아는 것은 유용할 것이다. $$beta(\theta;a,b)$$의 평균 값 $$\bar{\theta}\ =\ a/(a+b)$$ 이다. 그러므로 $$a\ =\ b$$일 때, 평균은 0.5이며, $a$값이 상대적으로 커지면 커질 수록 평균도 커지게 된다. 베타 분포의 표준 편차는 $$\sqrt{\bar{\theta}(1-\bar{\theta})/(a+b+1)}$$이다. 이 표준편차 값은 $$a\ +\ b$$ 값이 커지면 커질수록 작아지게 된다.<br>
+사전 분포 안의 $a$와 $b$값은 각각 이전에 관측된 데이터들로 생각해볼 수 있다. 마치 $$a\ + \ b$$번의 동전 던지기에서 $a$번의 head와 $b$번의 tail이 나온 경우와 같다고 이해하면 된다.
