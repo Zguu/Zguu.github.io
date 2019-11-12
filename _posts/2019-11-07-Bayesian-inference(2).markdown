@@ -36,6 +36,6 @@ tags: Bayesian Statistics Inference Prior Posterior Likelihood Evidence
 <center>$$a\ = mn$$and$$b\ =\ (1-m)n\qquad(5.6)$$</center>
 $$a,b$$ 값이 아니라, 평균이나 표준편차의 관점에서 시작해서 원하는 베타 분포의 평태를 취하는 방법도 있다. 하지만 이 방법에서, 표준 편차값이 0.289 값보다 커지면 안되는 데에 조심해야한다(uniform density 형태가 되기 때문). 평균 $m$, 표준편차 $s$를 갖는 베타 밀도에 있어서 shape parameter들은 다음과 같다.<br>
 !['Imgur2'](https://imgur.com/iUySKrP.png)
-만약 $$m = .5$$ 이고 $$s = 0.28867$$이라면 식 (5.6)은 $$a = 1, b = 1$$임을 의미한다. 다른 예시로는, 만약 $$m = .5$$ 이고 s = 0.1이라면 a = 12, b = 12임을 의미한다. 즉 $$beta(\theta,12,12)$$ 밀도.<br>
-대부분의 적용에서 우리는 a값과 b값 모두 1이상인 경우를 다룬다. 하지만 몇몇 경우에서는 a 또는 b가 1미만인 경우도 다루게 된다. 예시로, 우리가 만약에 동전이 fair하지 않고 tricky한 동전이라서 head나 tail만 나올 것이라고 생각한다면, bimodal beta($\theta$; .5, .5) 사전 분포가 적절한 사전 믿음에 대한 묘사일 것이다.(Figure 5.1 참고)
+만약 $$m = .5$$ 이고 $$s = 0.28867$$이라면 식 (5.6)은 $$a = 1, b = 1$$임을 의미한다. 다른 예시로는, 만약 $$m = .5$$ 이고 $$s = 0.1$$이라면 $$a = 12, b = 12$$임을 의미한다. 즉, $$beta(\theta,12,12)$$ 밀도.<br>
+대부분의 적용에서 우리는 $a$값과 $b$값 모두 1이상인 경우를 다룬다. 하지만 몇몇 경우에서는 $a$ 또는 $b$가 1미만인 경우도 다루게 된다. 예시로, 우리가 만약에 동전이 fair하지 않고 tricky한 동전이라서 head나 tail만 나올 것이라고 생각한다면, bimodal beta($\theta$; .5, .5) 사전 분포가 적절한 사전 믿음에 대한 표현일 것이다.(Figure 5.1 참고)
 ## The posterior beta
