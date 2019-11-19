@@ -64,4 +64,16 @@ $\ $ 수식 (7.6)의 왼쪽 항에 있는 적분을 이산화하는 것에 대�
 > 간단한 구분 구적법을 진행한다.
 
 대괄호 안에 있는 항인 $$\Delta \theta p({\theta}_j)$$는 ${\theta}_j$ 주변에서의 작은 구간의 확률 질량으로 볼 수 있다. 전체 샘플링 된 수를 $N$으로 표현하고, 해당 구간 $$j^{th}$$에서 $\theta$값을 얻는 횟수를 $$n_j$$로 표현하자. 샘플이 많아지면 많아질 수록,
-$${n}_j/N \approx \Delta \theta p({\theta}_j)$$가 성립하게 된다. 그래서 다음과 같은 식이 성립하게 된다: $$\int d\theta f(\theta) p(\theta) \approx \sum_{j}[\Delta \theta p({\theta}_j)] f({\theta}_j) \approx \sum_{j} [n_j / N] f({\theta}_j) = 1/N \sum_j n_j f({\theta}_j)$$. 다르게 얘기하면, 우리가 $j_{th}$ 구간에서 $\theta$ 값을 샘플링 할 때마다, another iteration of the interval's representative value,$$f({\theta})$$를 summation에 추가해준다. 하지만, 구간의 대표값을 사용할 필요는 없다; 단지 샘플링된 $\theta$ 값의 함수 값인 $$f(\theta)$$만을 사용한다. 샘플링된 ${\theta}_j$는 이미 $j^{th}$ 구간에 존재하기 때문이다. 따라서 근사식은 다음과 같이 되며 이는 수식 (7.6)과 같다. $$\int d\theta f(\theta)p(\theta) \approx 1/N \sum_{j} n_j f({\theta}_j) \approx 1/N \sum_{{\theta}_i \approx p(\theta)}^N f({\theta}_i). 
+$${n}_j/N \approx \Delta \theta p({\theta}_j)$$가 성립하게 된다. 그래서 다음과 같은 식이 성립하게 된다: $$\int d\theta f(\theta) p(\theta) \approx \sum_{j}[\Delta \theta p({\theta}_j)] f({\theta}_j) \approx \sum_{j} [n_j / N] f({\theta}_j) = 1/N \sum_j n_j f({\theta}_j)$$. 다르게 얘기하면, 우리가 $j_{th}$ 구간에서 $\theta$ 값을 샘플링 할 때마다, another iteration of the interval's representative value,$$f({\theta})$$를 summation에 추가해준다. 하지만, 구간의 대표값을 사용할 필요는 없다; 단지 샘플링된 $\theta$ 값의 함수 값인 $$f(\theta)$$만을 사용한다. 샘플링된 ${\theta}_j$는 이미 $j^{th}$ 구간에 존재하기 때문이다. 따라서 근사식은 다음과 같이 되며 이는 수식 (7.6)과 같다. $$\int d\theta f(\theta)p(\theta) \approx 1/N \sum_{j} n_j f({\theta}_j) \approx 1/N \sum_{{\theta}_i \approx p(\theta)}^N f({\theta}_i).
+### 7.3.2 Prediction
+$\ $베이지안 추론의 두 번째 분석 목표는 subsequent 데이터 값들에 대한 예측을 하는 것이다. $$y\ \in\ {0, 1}$$ 의 데이터에 대하여, $y$의 에측될 확률은 $$p(y|D) = \int d\theta p(y|\theta) p(\theta|D)$$이다. 이 식이 수식 (7.6)의 왼쪽 항과 같은 형태를 취하고 있음을 숙지하자. 따라서, 해당 식을 $y$가 1과 같을 예측 확률에 적용해보면, 우리는 다음을 얻는다.<br>
+!['Img4'](https://imgur.com/PevvXyX.png)
+>계속해서 비슷한 형태의 수식들이 계속해서 나오고 있지만, 미세하게 다름을 인지해야 한다. 수식 (7.5)와 비교해보자.
+
+### 7.3.3 Model comparison: Esitmation of $p(D)$
+$\ $ 이번 섹션은 우선 스킵해둔다.
+
+
+## 7.4 MCMC in BUGS
+$\ $섹션 7.2.1로 돌아가보면, Metropolis 알고리즘은 제약 사항이 꽤 많았었다: proposal 분포가 사후 분포와 잘 맞아떨어져야 했고, 초기 구간에서 샘플들은 burn-in 됐다. 또한, 샘플링 chain이 충분히 오랫동안 작동해야 했다. R에서 이런 제약 사항들이 자동으로 고려되어 작동되는 패키지는 이미 존재한다. BUGS (Bayesian inference Using Gibbs sampling). 나머지 챕터에서 우리는 Gibbs sampling에 대해 조금 더 깊게 알아보도록 하자.<br>
+$\ $Gibbs sampling은 Metropolis 알고리즘의 일종이다. 우리는 BUGS의 OpenBUGS 버전을 예를 들어 사용하도록 한다. 해당 패키지는 베이지안 모델을 사용하며 MCMC 사후 샘플들을 생성해낸다.
