@@ -1,0 +1,15 @@
+---
+title: " [Machine Learning] MLE vs MAP"
+tags: Machine Learning MLE MAP ParameterEstimation
+---
+
+# MLE vs MAP
+$ \$ 베이즈 통계학을 공부하면서 항상 궁금증이 명확히 풀리지 않았던 부분을 오늘은 짚고 넘어가자. 일반 통계학에서 다뤘던 MLE 접근과 MAP 사이의 비교를 하며 두 개념을 정리하자.<br>
+MLE(Maximum Likelihood Estimation) vs MAP(Maximum A Posterior)<br>
+
+MLE : Point Estimation, 점 추정에 해당한다.<br>
+parameter1 = (constant[best]) <br>
+MAP : Interval Estimation, 구간 추정에 해당한다.<br>
+parameter1 = (constant[best]) $$\pm \alpha$$<br>
+
+테스트 
