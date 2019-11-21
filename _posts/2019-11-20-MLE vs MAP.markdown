@@ -33,7 +33,9 @@ $\ $MLE와 MAP의 가장 큰 차이점은, MAP는 **사전정보** 를 활용한
 <center> $$P(\theta|D) = P(D|\theta)P(\theta)/P(D)$$ </center><br>
 
 
-$\ $<center> $$\hat{\theta_{MAP}} = argmax\left\{Posteriori\right\} \\= argmax {P(\theta|D)\\= argmax {P(D|\theta)P(\theta)/P(D)} \\= argmax {P(D|\theta)P(\theta)} = argmax\left\{log P(D|\theta) + log P(\theta)\right\}$$</center><br>
+$\ $<center> $$
+\hat{\theta_{MAP}} = argmax\left\{Posteriori\right\} \\= argmax {P(\theta|D)\\= argmax {P(D|\theta)P(\theta)/P(D)} \\= argmax {P(D|\theta)P(\theta)} = argmax\left\{log P(D|\theta) + log P(\theta)\right\}
+$$</center><br>
 
 MLE : Point Estimation, 점 추정에 해당한다.<br>
 parameter1 = (constant[best]) <br>
