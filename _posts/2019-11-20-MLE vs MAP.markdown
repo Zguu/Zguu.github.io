@@ -26,15 +26,14 @@ $\ $MLE가 완벽한 방법론이었다면, 우리가 또 다른 어떤 것을 �
 > 위의 주사위 편향의 예시와 연결해서 이해해보자
 
 MLE 수식 표현에 대해 정리하고 MAP로 넘어가자.<br>
-<center> $$\hat{\theta_{ML}} = argmax\left\{ Likelihood \right\} = argmax {P(D|\theta)}$$</center>
+<center>$$\hat{\theta_{ML}} = argmax\left\{ Likelihood \right\} = argmax {P(D|\theta)}$$</center>
 <center> $$Likelihood\ \ L = \prod_{i=1}^{n} P(y_i | x_i ; \theta)$$</center><br>
 ## 2. Maximum A Posteriori
 $\ $MLE와 MAP의 가장 큰 차이점은, MAP는 **사전정보** 를 활용한다는 것이다. 이렇게 사전정보를 활용하는 MAP의 특성이 MLE에 비해 우월한 결과를 보여주는 경우도 있지만, 반대의 경우도 있다. 아주 당연한 얘기지만, 적절치 못한 사전정보를 MAP에 포함시키게 되면 모델이 생각만큼 좋은 결과를 보여주지는 못한다. 베이즈 규칙에서의 사후확률(Posteriori), 사전확률(Prior), 가능도(Likelihood) 사이의 식은 다음과 같이 표현된다.<br>
 <center> $$P(\theta|D) = P(D|\theta)P(\theta)/P(D)$$ </center><br>
 
 
-$\ $<center> $$
-\hat{\theta_{MAP}} = argmax\left\{Posteriori\right\} \\= argmax {P(\theta|D)\\= argmax {P(D|\theta)P(\theta)/P(D)} \\= argmax {P(D|\theta)P(\theta)} = argmax\left\{log P(D|\theta) + log P(\theta)\right\}
+$\ $<center>$$\hat{\theta_{MAP}} = argmax\left\{Posteriori\right\} \ \= argmax {P(\theta|D)\ \= argmax {P(D|\theta)P(\theta)/P(D)} \ \= argmax {P(D|\theta)P(\theta)} = argmax\left\{log P(D|\theta) + log P(\theta)\right\}
 $$</center><br>
 
 MLE : Point Estimation, 점 추정에 해당한다.<br>
