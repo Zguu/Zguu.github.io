@@ -23,7 +23,7 @@ $\ $지금까지 살펴본 베이지안 규칙에 의한 두비율에 대한 추
 ## 8.2 The posterior via exact formal analysis
 $\ $분석적 방벙을 통해 우리가 베이즈 규칙에 대한 해답을 찾으려 할 때, 어떤 종류의 사전 확률 함수가 해당 추론을 가능하게 할까? 챕터 5에서 우리는 single 비율들에 대한 베르누이 우도 함수에 conjugate한 베타 분포를 배웠기 때문에, 베타 분포라고 답을 할 수도 있을 것이다. 또한, 우리는 베타 분포의 곱들이 베르누이 함수들의 곱과 conjugate할 것이라고 가늠할 수 있다.<br>
 $\ $이 것을 간단히 증명할 수 있다. 첫재로, 베타 분포는 다음과 같은 형태를 갖고 있다. $$beta(\theta|a,b) = \theta^{(a-1)} (1-\theta)^{(b-1)}/B(a,b)$$<br>
-여기에서 $$B(a,b)$$는 normalizing 항이며, 다음이 성립한다. $$B(a,b) = \int_0^1 d\theta\theta^{(a-1)}(1-\theta)^{(b-1)}$$. $\theta_1$에 대한 사전분포를 $$beta(\theta_1|a_1,b_1)$$, $\theta_2$에 대한 사전분포를 beta(\theta_2|a_2,b_2)$$로 표현한다. 그렇다면 아래와 같은 식을 얻을 수 있다.
+여기에서 $$B(a,b)$$는 normalizing 항이며, 다음이 성립한다. $$B(a,b) = \int_0^1 d\theta\theta^{(a-1)}(1-\theta)^{(b-1)}$$. $$\theta_1$$에 대한 사전분포를 $$beta(\theta_1|a_1,b_1)$$, $$\theta_2$$에 대한 사전분포를 $$beta(\theta_2|a_2,b_2)$$로 표현한다. 그렇다면 아래와 같은 식을 얻을 수 있다.
 !['Img3'](https://imgur.com/gIVdyZJ.png)
 수식 (8.3)의 좌항은 확률밀도함수이고, 우항의 분자에 해당하는 부분은 베타분포의 곱이다. 이 수식을 이용해, 베이지안 업데이트가 일어나는 과정은 아래 Figure 8.1에 잘 나타나 있다.<br>
 !['Img4'](https://imgur.com/MDIzB01.png)
