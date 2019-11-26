@@ -75,4 +75,10 @@ $\ $Gibbs sampling은 proposal 분포의 필요성을 줄여주지만, 추가적
 각각의 random walk에서 스텝들이 파라미터 축에 평행하다는 것에 주목하자. 각각의 스텝이 오직 하나의 파라미터에 의존하여 변하기 때문에 당연한 일이다. 각각의 점들에서의 walk는 다른 파라미터에 의해 방향을 바꾸며, 스스로 되돌아가거나 같은 방향을 반복하지 않는다. 이러한 성질은 파라미터들에 걸쳐 주기적으로 순서를 따르기 때문이다. ($$\theta_1, \theta_2, \theta_1, \theta_2 ...$$) Figure 8.5에서 보이는 깁스 샘플링의 결과를 Figure 8.3에서 보였던 Metropolis 알고리즘의 결과와 비교해본다면, $$P(D)$$값은 거의 비슷한 것을 알 수 있다. 하지만 Metropolis 알고리즘에 의해 생성된 샘플들에서의 대부분의 점들이 여러번 보여졌다는 점을 Figure 8.3은 보여주지 않는데, 이는 해당 점들로부터 멀리 떨어진 점들이 rejected 됐기 때문이다.
 >필자는 Figure 8.3에 보이지 않는 proposed 움직임들이 있으며, 왜 보이지 않는 지에 대해 설명하려 한 듯 하다.
 
-ddddd
+그러므로, 제안된 $T$번의 점프의 발자취에서, 깁스 샘플링은 $T$개의 distinct한 포인트들을 갖지만, Metropolis sampling 방법에서는 $T$ distinct point들보다는 훨씬 적은 개수의 포인트들을 갖게 된다. 이러한 점에서, Metropolis 샘플들은 깁스 샘플들에 비해 울창한 샘플들의 모습이라고 말할 수 있으며 덜 효율적인 방법론이라는 결론이 내려진다.<br>
+#### 8.4.2.1 Disadvantages of Gibbs Sampling
+$\ $지금까지, Metropolis 알고리즘 대비 깁스 샘플링의 이점에 대해 강조를 해왔지만, 제약점에 대해서도 짚고 넘어가야 할 필요가 있다.
+- 우리는 각각의 파라미터들이 서로에 의한 조건부 확률을 유도할 수 있어야만 한다.
+- 이러한 조건부 확률 분포로부터 샘플들을 생성해낼 수 있어야한다.
+$\ $추가적으로 한가지 단점이 더 존재하는데, 깁스 샘플링은 한 번에 한개의 파라미터에 의해서만 변하므로, 변수들간에 매우 높은 상관관계를 보여줄 때는 이 방법이 힘들 수 있다. 나중에 우리는 파라미터들이 강하게 상관관계에 있느 적용 사항에 대해 확인할 것이다. 이는 Figure 16.4에 잘 나타나있다 (p. 347).<br>
+Its shape is a narrow ridge along the diagonal of the parameter space, and you are inside, within, this narrow ridge. Now imagine doing Gibbs sampling from this poste- rior. You are in the ridge somewhere, and you are contemplating a step along a parameter axis. Because the ridge is narrow and diagonal, a step along a parameter axis quickly en- counters the wall of the ridge, and so your step size must be small. This is true no matter which parameter axis you face along. Therefore you can take only small steps and only very gradually explore the length of the diagonal ridge. On the other hand, if you were stepping according to a Metropolis sampler, whereby your proposal distribution included changes of both parameters at once, then you could jump in the diagonal direction and quickly explore the length of the ridge.
