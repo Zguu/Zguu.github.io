@@ -28,10 +28,11 @@ key: page-about
 
 ![TeXt Theme](https://www.wallpaperflare.com/static/519/793/185/cat-landscape-mountains-water-wallpaper-preview.jpg)
 
-Data Science 관련 공부 자료, 개인적인 생각 등을 정리하는 블로그입니다. 내용이 부실하거나 잘못된 부분에 대한 지적은 언제나 환영입니다.
+Data Science 관련 공부 자료, 개인적인 생각 등을 정리하는 블로그입니다. <br>
+내용이 부실하거나 잘못된 부분에 대한 지적은 언제나 환영입니다.
 
 ```python
-"머리가 좋은 편이 아니라, 개인적으로 복습을 위한 포스팅과 직역 관련 글들은 글의 수가 상당히 많은 점 양해해주세요."
+"KeepLearning!!!"
 ```
 
 
