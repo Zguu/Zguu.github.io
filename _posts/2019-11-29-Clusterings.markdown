@@ -34,7 +34,10 @@ Mean shift 알고리즘은 K-means 와는 다르게, 미리 cluster의 갯수를
 # DBSCAN (Density-Based Spatial Clustering of Application with Noise)
 $\ $DBSCAN은 mean shift와 비슷하게 데이터들의 밀도를 활용한 클러스터링 방법으로, 해당 공간에 데이터들이 주어졌을 때, 가장 가까이 위치하고 있는 점들을 그룹화한다.
 
-1. 다른 클러스터링 방법들과 비슷하게, 특정 점에서 알고리즘이 시작한다.
+1. 다른 클러스터링 방법들과 비슷하게, 특정 점에서 알고리즘을 시작한다.
 2. **특정 점** 을 기준으로 거리가 $$\epsilon$$ 내에 있는 모든 점을 이웃으로 인지하는데, 인지되는 이웃이 우리가 미리 잡아 놓은 수 minPoints 이상이면, **특정 점** 은 core points로 구분한다.
 3. **어떤 점** 이 core point와 $\epsilon$거리에는 있지만, 막상 이 점 주변에는 minPoints 이상의 점이 없는 경우, 이 **어떤 점** 은 cluster 내에는 있지만, core points는 아니고 directly reachable인 점으로 구분한다.
 4. core points도 아니고, directly reachable points도 아닌 경우에는, outliers 또는 noise points로 구분한다.
+
+아래의 그림을 보면 조금 더 쉽게 이해된다.
+!['Img7'](https://imgur.com/7kl2Owj.png)
