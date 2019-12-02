@@ -14,3 +14,8 @@ tags: Probability Distribution Poisson Binomial
 <center>$$\lim_{n \to \infty}\frac{n!}{(n-k)!} \cdots (1)$$</center>
 <center>$$\lim_{n \to \infty}(1-\frac{\lambda}{n})^n} \cdots (2)$$</center>
 <center>$$\lim_{n \to \infty}(1-\frac{\lambda}{n})^{(-k)}} \cdots (3)$$</center>
+여기에서, (1)번 식은 다음과 같이 정리된다.
+<center>$$\lim_{n \to \infty}frac{n(n-1)\cdots (n-k+1)}{n^k} = 1$$</center>
+해당 식은 분모와 분자의 $n$의 차수가 같으므로, 간단히 1로 수렴한다.
+(2)번에 해당하는 식은 다음과 같이 변형할 수 있다.
+<center>$$\lim_{n \to \infty}\left\{(1-\frac{\lambda}{n})^{(-frac{n}{\lambda})}\right\}^(-n)$$</center>
