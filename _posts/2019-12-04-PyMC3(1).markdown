@@ -3,14 +3,15 @@ title: " [베이지안 with Python] PyMC3를 활용해 Binomial 추론하기"
 tags: Bayesian Python Binomial prior posterior
 ---
 
-# PyMC3를 활용한 동전 던지기
+# PyMC3를 활용한 샘플링
+## Coin Toss Example
 
 prior(사전분포), likelihood(가능도), posterior(사후분포)가 어떤 관계를 갖는지 실제 파이썬 코드로 구현해보며 확인해보자. 파이썬에서 사용할 수 있는 베이즈 최적화 모듈은 PyMC가 있다. 파이썬 3에 최적화된 PyMC3를 사용한다. PyMC2와는 어느정도 차이가 있으므로, 주의하며 사용하자. 동전 던지기 (coin flipping) 예시는 결과가 0아니면 1만 나오는 Binomial 사건이므로, prior로 beta prior를 택했다.
 
 PyMC 모듈을 사용해, 사후분포와 가능도가 변할 때 어떻게 사후분포가 변하는 지 확인할 수 있다.
 아래의 모든 예시들은 PyMC3의 pm.find_MAP() 최적화 접근과 pm.Metropolis() 샘플링 방법론을 사용했다. 이 방법론들에 대한 구체적인 이야기는 이전 이론 노트 페이지에 설명 돼 있다. 추후에 코드와 함께 또 다시 설명할 예정이다. 이번 예시에서는 사전분포, 가능도, 사후분포들의 관계만 시각적으로 확인한다.
 
->MCMC는 사전분포와 가능도의 곱인 $$P(\theta)P(D|\theta)$$를 계산하고, random walk의 반복을 통해 사후분포를 추정한다.
+>MCMC는 사전분포와 가능도의 곱인 $$P(\theta)P(D \theta)$$를 계산하고, random walk의 반복을 통해 사후분포를 추정한다.
 
 ```python
 n = 100
@@ -53,3 +54,30 @@ beta = 50
 niter = 1000
 ```
 사전분포는 그대로 alpha = beta = 50, 주어진 데이터는 100회 중 98번이 앞면이 나온다. 사전분포는 그대로지만, 주어진 데이터가 나올 가능도는 $p$값이 1에 가까운 쪽으로 치우진다. 그 결과로 사후 분포 또한 오른쪽으로 이동하게 됐다.
+
+## Estimating Mean and standard Deviation of normal distribution
+$\ $ 정규분포 $$ X ~ N(\mu, \sigma^2)$$ 에 대하여 평균과 표준편차에 대한 추정을 진행해보자.<br>
+$\ $ 총 100개의 데이터 셋을 생성한다. 평균은 10, 표준편차는 2로 잡고, 이 정규분포에서 총 100개의 데이터 셋을 생성한다. (observed Data Set)
+우리가 추정하고자 하는 $\mu$와 $\sigma$에 대해, 가능도 함수는 Normal distribution이므로, pm.Normal()을 가능도 함수로 설정한다. 샘플링 함수는 pm.NUTS()를 사용했으며, 이에 대한 설명은 잠시 스킵한다.
+```python
+# generate observed data
+N = 100
+_mu = np.array([10])
+_sigma = np.array([2])
+y = np.random.normal(_mu, _sigma, N)
+
+niter = 1000
+with pm.Model() as model:
+    # define priors
+    mu = pm.Uniform('mu', lower=0, upper=100, shape=_mu.shape)
+    sigma = pm.Uniform('sigma', lower=0, upper=10, shape=_sigma.shape)
+
+    # define likelihood
+    y_obs = pm.Normal('Y_obs', mu=mu, sd=sigma, observed=y)
+
+    # inference
+    start = pm.find_MAP()
+    step = pm.Slice()
+    trace = pm.sample(niter, step, start, random_seed=123, progressbar=True)
+```
+<center><img src="https://imgur.com/vAKgqjB.png" width="60%" height="60%"></center>
