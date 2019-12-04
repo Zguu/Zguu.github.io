@@ -56,7 +56,7 @@ niter = 1000
 사전분포는 그대로 alpha = beta = 50, 주어진 데이터는 100회 중 98번이 앞면이 나온다. 사전분포는 그대로지만, 주어진 데이터가 나올 가능도는 $p$값이 1에 가까운 쪽으로 치우진다. 그 결과로 사후 분포 또한 오른쪽으로 이동하게 됐다.
 
 ## Estimating Mean and standard Deviation of normal distribution
-$\ $ 정규분포 $$ X ~ N(\mu, \sigma^2)$$ 에 대하여 평균과 표준편차에 대한 추정을 진행해보자.<br>
+$\ $ 정규분포 $$ X \thicksim N(\mu, \sigma^2)$$ 에 대하여 평균과 표준편차에 대한 추정을 진행해보자.<br>
 $\ $ 총 100개의 데이터 셋을 생성한다. 평균은 10, 표준편차는 2로 잡고, 이 정규분포에서 총 100개의 데이터 셋을 생성한다. (observed Data Set)
 우리가 추정하고자 하는 $\mu$와 $\sigma$에 대해, 가능도 함수는 Normal distribution이므로, pm.Normal()을 가능도 함수로 설정한다. 샘플링 함수는 pm.NUTS()를 사용했으며, 이에 대한 설명은 잠시 스킵한다.
 ```python
@@ -80,4 +80,12 @@ with pm.Model() as model:
     step = pm.Slice()
     trace = pm.sample(niter, step, start, random_seed=123, progressbar=True)
 ```
-<center><img src="https://imgur.com/vAKgqjB.png" width="60%" height="60%"></center>
+
+```python
+plt.figure(figsize=(10,4))
+plt.subplot(1,2,1);
+plt.hist(trace['mu'][-niter/2:,0], 25, histtype='step');
+plt.subplot(1,2,2);
+plt.hist(trace['sigma'][-niter/2:,0], 25, histtype='step');
+```
+<center><img src="https://imgur.com/vAKgqjB.png" width="90%" height="60%"></center>
