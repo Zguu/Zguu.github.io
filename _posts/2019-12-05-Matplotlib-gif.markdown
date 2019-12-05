@@ -39,4 +39,4 @@ ff = ffmpy.FFmpeg(
 
 ff.run()
 ```
-<center><img src="https://imgur.com/zdvSxCB.gif" width=80% height=80%></center>
+<center><img src="https://imgur.com/zdvSxCB.gif" width="80%" height="60%"></center>
