@@ -1,5 +1,5 @@
 ---
-title: " [파이썬 팁] matplotlib Plot GIF로 저장하기"
+title: " [파이썬 팁] Plot들 여러개를 움직이는 GIF로 저장하기"
 tags: Bayesian Python Binomial prior posterior
 ---
 
