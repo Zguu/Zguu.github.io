@@ -92,7 +92,7 @@ plt.hist(trace['sigma'][-niter/2:,0], 25, histtype='step');
 
 
 ```python
-N = 1000
+N = 100
 _mu = np.array([10])
 _sigma = np.array([2])
 y = np.random.normal(_mu, _sigma, N)
