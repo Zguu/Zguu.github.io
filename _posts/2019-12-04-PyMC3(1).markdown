@@ -88,8 +88,40 @@ plt.hist(trace['mu'][-niter/2:,0], 25, histtype='step');
 plt.subplot(1,2,2);
 plt.hist(trace['sigma'][-niter/2:,0], 25, histtype='step');
 ```
-<center><img src="https://imgur.com/vAKgqjB.png" width="90%" height="60%"></center>
+<center><img src="https://imgur.com/ViYOoEt.png" width="90%" height="60%"></center>
 
+
+```python
+N = 1000
+_mu = np.array([10])
+_sigma = np.array([2])
+y = np.random.normal(_mu, _sigma, N)
+
+niter = 1000
+
+with pm.Model() as model:
+    ## prior distributions
+
+    mu = pm.Uniform('mu', lower = 0, upper = 20, shape = _mu.shape)
+    sigma = pm.Uniform('sigma', lower=0, upper = 3, shape = _sigma.shape)
+
+    ## likelihood
+    y_obs = pm.Normal('Y_obs', mu = mu, sd=sigma, observed = y)
+
+    # inference
+    start = pm.find_MAP()
+    step = pm.NUTS()
+    trace = pm.sample(niter, step, start,  random_seed = 123, progressbar = True)
+    pm.traceplot(trace);
+
+plt.subplot(1,2,1);
+plt.hist(trace['mu'], bins = 50, alpha = 0.5, color = 'orange');
+plt.title("Inference for Mu", fontsize = 15)
+plt.subplot(1,2,2);
+plt.title("Inference for Sigma", fontsize = 15)
+plt.hist(trace['sigma'], bins = 50, alpha = 0.5, color = 'orange');
+```
+<center><img src="https://imgur.com/iZfxrfr.png" width="90%" height="60%"></center>
 ## Estimating parameters of a linear regression model
 $\ $우리가 친숙하게 알고있는 선형 회귀 모델의 파라미터들을 추정해보자. <br>
 <center>$$ y \thicksim ax + b $$</center>

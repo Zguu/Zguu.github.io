@@ -47,4 +47,4 @@ ff.run()
 ```
 <center><img src="https://imgur.com/zdvSxCB.gif" width="60%" height="60%"></center>
 
-**완성된 gif파일. 앞으로 유용하게 써먹을 듯 하다. 끗
+**완성된 gif파일. 앞으로 유용하게 써먹을 듯 하다. 끗**
