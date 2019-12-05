@@ -1,14 +1,15 @@
 ---
 title: " [파이썬 팁] Plot들 여러개를 움직이는 GIF로 저장하기"
-tags: Bayesian Python Binomial prior posterior
+tags: Python Matplotlib GIF 
 ---
 
-그나마 간단하게 GIF로 움직이는 plot 저장하기
+몇 줄 안되는 코드로 간단하게 GIF 움직이는 plot 저장하기
 ## 필요한 것들
-matplotlib
-celluliod
-ffmpeg (brew)
-ffmpy(pip install)
+
+- matplotlib
+- celluliod
+- ffmpeg (brew)
+- ffmpy(pip install)
 
 ```python
 from matplotlib import pyplot as plt
@@ -39,4 +40,4 @@ ff = ffmpy.FFmpeg(
 
 ff.run()
 ```
-<center><img src="https://imgur.com/zdvSxCB.gif" width="80%" height="60%"></center>
+<center><img src="https://imgur.com/zdvSxCB.gif" width="60%" height="60%"></center>
