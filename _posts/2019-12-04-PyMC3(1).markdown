@@ -1,5 +1,5 @@
 ---
-title: " [베이지안 with Python] PyMC3를 활용해 Binomial 추론하기"
+title: " [베이지안 with Python] PyMC3를 활용해 실제 추론해보기"
 tags: Bayesian Python Binomial prior posterior
 ---
 
@@ -89,3 +89,42 @@ plt.subplot(1,2,2);
 plt.hist(trace['sigma'][-niter/2:,0], 25, histtype='step');
 ```
 <center><img src="https://imgur.com/vAKgqjB.png" width="90%" height="60%"></center>
+
+## Estimating parameters of a linear regression model
+$\ $우리가 친숙하게 알고있는 선형 회귀 모델의 파라미터들을 추정해보자. <br>
+<center>$$ y \thicksim ax + b $$</center>
+다음과 같이 error term 을 포함한 식으로 표현할 수 있다.<br>
+<center> $$ y = ax + b + \epsion $$ </center>
+이는 다음의 확률분포에서 $y$ 값에 대한 샘플링으로 이해할 수 있다.<br>
+<center>$$ y \thicksim N(ax+b, \sigma^2)$$</center><br>
+이제, PyMC3를 이용해서 해당 회귀 모델의 파라미터들인 $$ a,b,\sigma$$에 대한 추론을 진행하자. 각 파라미터들에 사전분포는 다음과 같이 정의하고 시작한다.
+<center>$$a \thicksim N(0,100)$$</center>
+<center>$$b \thicksim N(0,100)$$</center>
+<center>$$\tau \thicksim Gamma(0.1, 0.1)$$</center><br>
+Likelihood 함수는 정규분포 확률함수, 샘플러는 마찬가지로 NUTS 를 사용했다.
+
+```python
+# observed data
+n = 11
+_a = 6
+_b = 2
+x = np.linspace(0, 1, n)
+y = _a*x + _b + np.random.randn(n)
+
+n_iter = 100
+
+with pm.Model() as model:
+    a = pm.Normal('a', mu=0, sd=20)
+    b = pm.Normal('b', mu=0, sd=20)
+    sigma = pm.Uniform('sigma', lower=0, upper=20)
+
+    y_est = a*x + b # simple auxiliary variables
+
+    likelihood = pm.Normal('y', mu=y_est, sd=sigma, observed=y)
+    # inference
+    start = pm.find_MAP()
+    step = pm.NUTS() # Hamiltonian MCMC with No U-Turn Sampler
+    trace = pm.sample(niter, step, start, random_seed=123, progressbar=True)
+    pm.traceplot(trace);
+```
+<center><img src="https://imgur.com/Y5Q0GP4.png" width="60%" height="60%"></center>
