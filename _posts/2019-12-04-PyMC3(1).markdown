@@ -94,7 +94,7 @@ plt.hist(trace['sigma'][-niter/2:,0], 25, histtype='step');
 $\ $우리가 친숙하게 알고있는 선형 회귀 모델의 파라미터들을 추정해보자. <br>
 <center>$$ y \thicksim ax + b $$</center>
 다음과 같이 error term 을 포함한 식으로 표현할 수 있다.<br>
-<center> $$ y = ax + b + \epsion $$ </center>
+<center> $$ y = ax + b + \epsilon $$ </center>
 이는 다음의 확률분포에서 $y$ 값에 대한 샘플링으로 이해할 수 있다.<br>
 <center>$$ y \thicksim N(ax+b, \sigma^2)$$</center><br>
 이제, PyMC3를 이용해서 해당 회귀 모델의 파라미터들인 $$ a,b,\sigma$$에 대한 추론을 진행하자. 각 파라미터들에 사전분포는 다음과 같이 정의하고 시작한다.
@@ -127,4 +127,4 @@ with pm.Model() as model:
     trace = pm.sample(niter, step, start, random_seed=123, progressbar=True)
     pm.traceplot(trace);
 ```
-<center><img src="https://imgur.com/Y5Q0GP4.png" width="60%" height="60%"></center>
+<center><img src="https://imgur.com/4ZyUYGv.png" width="80%" height="60%"></center>
