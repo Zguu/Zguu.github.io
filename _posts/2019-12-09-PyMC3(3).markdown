@@ -4,3 +4,38 @@ tags: Bayesian Python Financial Prediction LossFunction
 ---
 
 # Financial prediction
+$\ $미래 실제 주식 수익률이 1% 정도로 매우 작다고 가정해보자. 주식 수익률 예측 모델에서는 기존의 제곱오차손실 방법을 사용하기에는 뚜렷한 한계점이 있다. 예를 들어 모델의 예측을 통해 우리가 3%의 수익을 얻었을 때와, 모델의 예측을 통해 1%의 손실을 봤을 때, 제곱오차손실 방법론은 이를 같은 loss로 취급한다.
+<center>$$ (0.01 - (-0.01))^2 = (0.01 - 0.03)^2 = 0.004 $$</center>
+$\ $즉, 방향의 개념 또는 양수, 음수의 개념을 포함할 수 없다는 것이 문제가 된다. 다음의 그래프를 보면서 조금 더 자세히 살펴보자.
+```python
+figsize(12.5, 4)
+
+
+def stock_loss(true_return, yhat, alpha = 100.):
+    if true_return * yhat < 0:
+        #opposite signs, not good
+        return alpha*yhat**2 - np.sign(true_return)*yhat \
+                        + abs(true_return)
+    else:
+        return abs(true_return - yhat)
+
+
+true_value = .05
+pred = np.linspace(-.04, .12, 75)
+
+plt.plot(pred, [stock_loss(true_value, _p) for _p in pred], \
+        label = "Loss associated with\n prediction if true value = 0.05", lw =3)
+plt.vlines(0, 0, .25, linestyles="--")
+
+plt.xlabel("prediction")
+plt.ylabel("loss")
+plt.xlim(-0.04, .12)
+plt.ylim(0, 0.25)
+
+true_value = -.02
+plt.plot(pred, [stock_loss(true_value, _p) for _p in pred], alpha = 0.6, \
+        label = "Loss associated with\n prediction if true value = -0.02", lw =3)
+plt.legend()
+plt.title("Stock returns loss if true value = 0.05, -0.02");
+```
+<center><img src="https://imgur.com/sec02fI.png" width="80%" height="80%"></center>
