@@ -72,4 +72,22 @@ plt.legend(loc="upper left");
 ```
 <center><img src="https://imgur.com/AOfAj7L.png" width="80%" height="80%"></center>
 $\ $모델이 출력하는 trading signal과 실제 수익률 간의 관계를 다음과 같이 표현하자.
-<center>$$ R = \alpha + \betax + \epsilon$$</center>
+<center>$$ R = \alpha + \beta x + \epsilon$$</center>
+여기에서 $$\alpha, \beta$$는 아직 알려지지 않은 값이며, $$\epsilon \thicksim Normal(0,\sigma)$$가 성립한다. $$\alpha, \beta$$ 에 대한 가장 흔한 확률분포는 Normal 사전분포이다. 이에 대한 사후확률분포 추론을 진행하자.
+```python
+import pymc3 as pm
+
+with pm.Model() as model:
+    std = pm.Uniform("std", 0, 100)
+
+    beta = pm.Normal("beta", mu=0, sd=100)
+    alpha = pm.Normal("alpha", mu=0, sd=100)
+
+    mean = pm.Deterministic("mean", alpha + beta*X)
+
+    obs = pm.Normal("obs", mu=mean, sd=std, observed=Y)
+
+    trace = pm.sample(100000, step=pm.Metropolis())
+    burned_trace = trace[20000:]  
+```
+<center><img src="https://imgur.com/Cl1V10d.png" width="80%" height="80%"></center>
