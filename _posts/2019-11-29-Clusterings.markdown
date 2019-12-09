@@ -26,7 +26,7 @@ $\ $sliding-window-based 알고리즘의 관점에서 보면, mean shift는 원�
 
 <center><img src="https://imgur.com/B8BE0A5.gif" width="60%" height="60%"></center>
 Mean shift 알고리즘은 K-means 와는 다르게, 미리 cluster의 갯수를 정해줄 필요는 없다. 비슷하게 band-width를 우리가 지정하긴 하지만 이 값은 cluster의 값을 우리가 사전에 정하는 것과는 분명 다르다.
-# DBSCAN (Density-Based Spatial Clustering of Application with Noise)
+## DBSCAN (Density-Based Spatial Clustering of Application with Noise)
 $\ $DBSCAN은 mean shift와 비슷하게 데이터들의 밀도를 활용한 클러스터링 방법으로, 해당 공간에 데이터들이 주어졌을 때, 가장 가까이 위치하고 있는 점들을 그룹화한다.
 
 1. 다른 클러스터링 방법들과 비슷하게, 특정 점에서 알고리즘을 시작한다.
