@@ -124,8 +124,8 @@ def showcase_loss(guess, true_price, risk = 80000):
 1. 우리가 실제가격(true price)보다 낮은 가격을 제시(guess)하고, 제시한 가격과 실제 가격의 차이가 250 이내라면, 실제 가격의 *2배* 를 보상으로 받는다.
 2. 사람마다 이 쇼케이스를 대하는 마음가짐이 다를텐데, 그 default risk를 risk로 표현한다. 누군가는 백만장자라서 해당 쇼케이스에서 아무것도 얻지 못해도 상관이 없을 것이다. 이런 경우의 risk는 0으로 볼 수 있고, 완전 반대의 경우는 그 risk가 매우 클 것이다. 이 경우에는 risk를 80000으로 설정했다. risk 변화에 따른 loss 최소화는 아래에서 더 얘기한다.
 3. 마지막 else 문에서는, 우리가 제시한 가격이 실제가격보다 낮고, 실제가격과 차이가 250 초과로 차이가 날 때인데, 왜 저렇게 loss를 잡는지는... 아직 잘 이해가 안된다. 해당 손실함수를 활용하여, risk에 따른 손실함수의 추이를 확인해보자.
+
 ```python
-figsize(12.5, 7)
 def showdown_loss(guess, true_price, risk = 80000):
         loss = np.zeros_like(true_price)
         ix = true_price < guess
@@ -134,7 +134,6 @@ def showdown_loss(guess, true_price, risk = 80000):
         loss[close_mask] = -2*true_price[close_mask]
         loss[ix] = risk
         return loss
-
 
 guesses = np.linspace(5000, 50000, 70)
 risks = np.linspace(30000, 150000, 6)

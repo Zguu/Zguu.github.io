@@ -1,0 +1,6 @@
+---
+title: " [베이지안 with Python] 'Financial prediction'"
+tags: Bayesian Python Financial Prediction LossFunction
+---
+
+# Financial prediction
