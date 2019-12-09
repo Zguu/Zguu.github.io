@@ -15,11 +15,11 @@ $\ $'The Price is Right' 쇼케이스에서 가격을 최적화하는 베이지�
 5. 써낸 가격이 실제 가격보다 $250 이내라면 참가자는 승리하고 상품을 경품으로 받는다.
 
 지금까지의 방송들을 종합해서, 실제 가격이 정규분포를 따른다고 가정한다. <br>
-<center>True Price $\thicksim$ Normal($$\mu_p, \sigma_p$$)</center>
+<center>$$True Price \thicksim Normal(\mu_p, \sigma_p)</center>
 <center>$$\mu_p = 35000, \sigma_p = 7500$$</center>
 각가의 상품에 대한 가격들 또한 정규분포를 따른다.<br>
 <center> $$Prize_i \thicksim Normal(\mu_i,\sigma_i), i = 1,2$$</center>
-각각의 상품이 $$\mu_i$$를 가질 것이라고 추측하지만, 이에 대한 불확실성은 $$\sigam_i$$ 파라미터를 통해 표현된다.<br>
+각각의 상품이 $$\mu_i$$를 가질 것이라고 추측하지만, 이에 대한 불확실성은 $$\sigma_i$$ 파라미터를 통해 표현된다.<br>
 실제 가격 True Price 는 다음과 같이 표현될 것이다. $$Price_1 + Price_2 + \epsilon$$. 각 상품은 캐나다 토론토로 가는 여행권, 그리고 눈 제설기이다.<br>
 각 상품들의 가격들을 다음과 같이 정규분포로 표현하자.
 <center>$$snowblower \thicksim Normal(3000,500)$$</center>
@@ -62,7 +62,7 @@ plt.autoscale(tight=True)
 p3 = plt.Rectangle((0, 0), 1, 1, fc=sp3.get_facecolor()[0])
 plt.legend([p3], [sp3.get_label()]);
 ```
-<center><img src="https://imgur.com/qzH2VJp.png" width="60%" height="60%"></center>
+<center><img src="https://imgur.com/qzH2VJp.png" width="80%" height="80%"></center>
 <br>
 $\ $위의 세 그래프는 각각 전체가격과, 제설기 가격, 토론토 여행권에 대한 사전확률분포를 보여준다. 이 사전확률분포들을 활용한 사후확률분포를 추정해보자.
 ```python
@@ -108,7 +108,7 @@ plt.vlines(price_trace.mean(), 0, 1.1*np.max(_hist[0]), \
            label = "posterior's mean", linestyles="-.")
 plt.legend(loc = "upper left");
 ```
-<center><img src="https://imgur.com/3stQx2U.png" width="60%" height="60%"></center>
+<center><img src="https://imgur.com/3stQx2U.png" width="80%" height="80%"></center>
 <br>
 $\ $우리가 원래 전체가격에 대해서 믿고있던 평균 값은 35000이었다. 하지만 각 상품들의 사전확률분포를 포함하여 전체가격에 대한 사후확률을 추론한 결과, 바로 위의 그래프처럼 약 20000의 값으로 확률분포의 평균 값을 추정하였다. 이는 원래 가격이 35000에 비해 15000이나 낮아진 값이며, 각 상품이 갖고 있던 불확실성을 반영한 결과이다. 일반적인 빈도주의자 관점에서는 불확실성을 포함시키지 않기 때문에, 전체 가격이 단순히 $$\mu_1 + \mu_2 = 35000$$이라고 말할 수 있지만, ***naive Bayesian*** 관점에서는, 사후분포의 평균 값을 새로운 추정 값으로 결정하며 이 과정에서 자연스럽게 불확실성(표준편차들에 의한)이 반영됐다. 하지만 활용 가능한 여분의 정보가 더 있다. 이를 포함시키기 위해 loss function을 생각해보자.
 ```python
@@ -120,3 +120,5 @@ def showcase_loss(guess, true_price, risk = 80000):
     else:
         return np.abs(true_price - guess - 250)
 ```
+위와 같은 loss function이 제시됐을 때, 이 손실함수가 내포하고 있는 논리는 무엇일까? 처음에 이 쇼케이스의 진행 방식에 생략된 것들이 있는데 그것들은 다음과 같다.
+1.                                                                                                                                                        
