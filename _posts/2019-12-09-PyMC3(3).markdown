@@ -39,3 +39,37 @@ plt.legend()
 plt.title("Stock returns loss if true value = 0.05, -0.02");
 ```
 <center><img src="https://imgur.com/sec02fI.png" width="80%" height="80%"></center>
+$\ $plot생성 파이썬 코드에서도 확인 할 수 있고, plot에서 직접적으로 보여지지만, 해당 plot은 다음과 같은 크게 세개의 특징을 보여주고 있다.
+1. 실제 주식수익률(참값)과, 모델이 제시한 수익률(모델값)이 같은 경우에 loss는 0이다.
+2. 참값과 모델값의 부호가 같은 경우에, 손실은 참값과 모델값의 차이 값에 비례해 선형적으로 증가한다.
+3. 참값과 모델값의 부호가 다른 경우에, 손실은 참값과 모델값의 차이 값에 비례해 비선형적(제곱)으로 증가한다.
+
+1번은 너무나도 당연한 이야기이고, 2번과 3번에 대해 이야기를 나누기 전에 우리가 먼저 이해하고 넘어가야 할 것이 있다. 2, 3번에 따르면 이 상황에서 손실은 무조건적으로 늘어난다는 것인데, 실제 주식수익률에 비해 모델이 제시한 수익률이 높으면 해당 모델은 무조건적으로 훌륭한 모델이지 않은가? 왜 손실이 더 늘어나지?
+> 모델이 돈을 더 많이 줄 기회를 준건데 왜 손실함수는 손실에 계속 늘어난다고 말할까
+
+금융에서는 수익률을 높이는 게 무조건적으로 좋은 상황이 아니라, 하방 수익률을 예측해야 하는 경우도 있다. 즉, 실제 수익률에 대하여 정확한 값을 예측하는 경우가 아니라면, 손실로 볼 수 밖에 없다.<br>
+이제, 2, 3번의 증가 추이에 관한 이야기를 더 해보자. 해당 그래프를 잘 보면, 예측이 0인 지점을 기준으로 선형적 추이와 비선형적 추이가 변하는 것을 볼 수 있는데, 이는 우리가 수익률의 부호를 맞추지 못하면 어마어마하게 손실이 증가한다는 것을 반영한다.
+> 그래서 항상 최소제곱손실을 손실함수로 쓸수는 없다! 다른 것도 고려해야 돼! 라고 저자는 외치는 건가
+
+미래 수익률을 아주 잘 예측하는 모델이 주어졌을 때, 해당 모델이 출력하는 trading signal에 대해 회귀분석을 해보자. 현재 주어진 데이터셋은 인위적인 것이다.
+```python
+## Code to create artificial data
+N = 100
+X = 0.025*np.random.randn(N)
+Y = 0.5*X + 0.01*np.random.randn(N)
+
+ls_coef_ = np.cov(X, Y)[0,1]/np.var(X)
+ls_intercept = Y.mean() - ls_coef_*X.mean()
+
+plt.scatter(X, Y, c="k")
+plt.xlabel("trading signal")
+plt.ylabel("returns")
+plt.title("Empirical returns vs trading signal")
+plt.plot(X, ls_coef_*X + ls_intercept, label = "Least-squares line")
+plt.xlim(X.min(), X.max())
+plt.ylim(Y.min(), Y.max())
+plt.legend(loc="upper left");
+```
+<center><img src="https://imgur.com/AOfAj7L.png" width="80%" height="80%"></center>
+$\ $모델이 출력하는 trading signal과 실제 수익률 간의 관계를 다음과 같이 표현하자.
+<center>$$ R = \alpha + \betax + \epsilon$$</center>
