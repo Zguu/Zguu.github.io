@@ -13,8 +13,8 @@ $/ $단어의 어감이 한국어로 넘어오면서 이질감이 생기는데, 
 ### 감마분포
 $\ $양의 실수에 걸쳐 분포하는 감마분포는 다음과 같이 표기한다. $$ X \thicksim Gamma(\alpha, \beta)$$. 사실 감마분포는 랜덤 변수의 지수 분포에 대한 일반화된 형태이며 다음과 같다. :<br>
 <center>$$Exp(\beta) \thicksim Gamma(1,\beta)$$</center>
-$$\alpha$$값은 이 분포의 확률밀도함수의 형태에 더욱 flexibility를 더해주며, 따라서 주관적인 사전분포를 더욱 정확히 표현하도록 돕는다. $$Gamma(\alpha, \beta)$$에 대한 밀도 함수는 다음과 같다 :<br>
-<center>$$f(\ x|\alpha,\beta) = \frac{\beta^\alpha x^{(\alpha - 1)} e^{(-\beta x)}{\Gamma(\alpha)}$$</center>
+$$\alpha$$값은 이 분포의 확률밀도함수의 형태에 더욱 flexibility를 더해주며, 따라서 주관적인 사전분포를 더욱 정확히 표현하도록 돕는다. $$Gamma(\alpha, \beta)$$에 대한 밀도 함수는 다음과 같다 :
+<center>$$f(\ x |\alpha,\beta) = \frac{\beta^\alpha x^{(\alpha - 1)} e^{(-\beta x)}{\Gamma(\alpha)}$$</center>
 여기에서 $$\Gamma(\alpha)$$는 감마 '함수'이며, $$(\alpha,\beta)$$ 값의 쌍에 따라 다음과 같이 변한다.
 ```python
 figsize(12.5, 5)
