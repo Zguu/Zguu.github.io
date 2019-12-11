@@ -33,6 +33,8 @@ plt.legend(title=r"$\alpha, \beta$ - parameters");
 <center><img src="https://imgur.com/bdVtysm.png" width="80%" height="80%"></center>
 ### The Wishart 분포
 $\ $지금까지, 스칼라인 랜덤 변수를 봐왔으나, 랜덤 매트릭스 형태에 대한 분포 또한 존재한다. 특히, Wishart 분포는 모든 ***positive semi-definite matrice*** 에 대한 분포이다. 이것이 왜 유용한가 하면, 공분산 매트릭스들은 ***positive definite matrice*** 이고, 따라서, Wishart 분포가 공분산 매트릭스에 대한 적절한 사전분포로 사용될 수 있기 때문이다. 아래의 $$5\ X\ 5$$형태와 $$20\ X\ 20$$형태의 Wishart 분포를 참고하자.
+>positive definite matrices :
+
 ```python
 n = 4
 for i in range(10):
@@ -49,7 +51,7 @@ plt.suptitle("Random matrices from a Wishart Distribution");
 $\ $해당 매트릭스들이 symmetry라는 점에 주목하자. 이 점에 대해 약간의 문제가 추후 발생할 수는 있으나, 이 점에 대해 나중에 구체적으로 다루기로 한다.
 ### 베타분포
 $\ $베타분포는 베이지안 추론에서 자주 사용돼며 이 책의 내용들에서 이미 자주 봐왔다. 랜덤 변수 $X$가 베타 분포로 표현돼 있으면 $$(\alpha,\beta)$$ 파라미터 쌍을 이용해 다음과 같이 확률밀도 함수를 표현한다. :<br>
-<center>$$ \f_X (x|\alpha,\beta) = \frac{x^{(\alpha - 1)}(1-x)^{(\beta - 1)}}{B(\alpha,\beta)}$$</center>
+<center>$$f_X (x|\alpha,\beta) = \frac{x^{(\alpha - 1)}(1-x)^{(\beta - 1)}}{B(\alpha,\beta)}$$</center>
 여기에서 또한 $B$는 베타 '함수'이며, 랜덤 변수 $X$는 오직 범위 [0, 1]에서만 정의된다.
 ```python
 figsize(12.5, 5)
@@ -67,4 +69,4 @@ plt.ylim(0)
 plt.legend(loc = 'upper left', title="(a,b)-parameters");
 ```
 <center><img src="https://imgur.com/jkKIvjU.png" width="80%" height="80%"></center>
-$\ $특히 비율이나 확률 $p$를 $$Beta(\alpha,\beta)$$로 설정하면 편할 수 있다. 이항분포에서 얻게되는 데이터를 우리가 관측하고 있다고 하자.$$X \thicksim Binomial(N,p)$$이고 우리가 $p$를 모르는 상태이다. 이 경우에 우리의 사후분포는 다시 베타분포를 따르게 된다. 즉다시 말하면, 다음을 따른다. $$p|X \thicksim Beta(\alpha + X, \beta + N - X)$$. 마지막으로 강조하면..! 이항분포를 따르는 관측과 Beta 사전분포를 결합하면 다시 Beta 사후분포로 표현할 수 있다. 이것은 상당히 유용항 특성이므로 잘 기억하자.
+$\ $특히 비율이나 확률 $p$ 를 $$Beta(\alpha,\beta)$$ 로 설정하면 편할 수 있다. 이항분포에서 얻게되는 데이터를 우리가 관측하고 있다고 하자.$$X \thicksim Binomial(N,p)$$이고 우리가 $p$ 를 모르는 상태이다. 이 경우에 우리의 사후분포는 다시 베타분포를 따르게 된다. 즉, 다시 말하면, 다음을 따른다. $$p|X \thicksim Beta(\alpha + X, \beta + N - X)$$. 마지막으로 강조하면..! 이항분포를 따르는 관측과 Beta 사전분포를 결합하면 다시 Beta 사후분포로 표현할 수 있다. 이것은 상당히 유용항 특성이므로 잘 기억하자.
