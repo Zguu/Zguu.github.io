@@ -106,7 +106,7 @@ class BayesianStrategy(object):
 위의 gif파일에서도 보이듯이, Pull을 진행함에 따라, 세번째 밴딧이 0.8 초과로 높은 보상을 주는 확률에 대해 점점 확실성이 높아지게 된다.
 
 ## 해당 결과는 얼마나 좋은 것일까? (A measure of Good)
-$\ $가장 보상을 잘 주는 밴딧을 택해서 항상 해당 밴딧만 택하는 것이 절대적으로 좋은 방법일 것이다. 이 best 밴딧의 확률을 $$w_{opt}$로 표현하자. ***total regret of a strategy*** 를 다음과 같이 정의하자.<br>
+$\ $가장 보상을 잘 주는 밴딧을 택해서 항상 해당 밴딧만 택하는 것이 절대적으로 좋은 방법일 것이다. 이 best 밴딧의 확률을 $$w_{opt}$$로 표현하자. ***total regret of a strategy*** 를 다음과 같이 정의하자.<br>
 <center>$$ R_T = \sum_{i=1}^{T} (w_{opt} - w_{B(i)})$$</center>
 <center>$$ = Tw^* - \sum_{i=1}^{T} w_{B(i)}$$</center>
 위의 식에서, $$w_{B(i)}$$는 $i$번째 라운드에서, 선택된 밴딧의 보상이다.
