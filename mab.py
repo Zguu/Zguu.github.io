@@ -72,4 +72,4 @@ class BayesianStrategy(object):
 
         self.bb_score = np.r_[self.bb_score, bb_score]
         self.choices = np.r_[self.choices, choices]
-        return 
+        return
