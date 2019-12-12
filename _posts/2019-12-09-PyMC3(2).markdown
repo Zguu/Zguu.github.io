@@ -20,11 +20,11 @@ $\ $'The Price is Right' 쇼케이스에서 가격을 최적화하는 베이지�
 <center>$$True Price \thicksim Normal(\mu_p, \sigma_p)$$</center>
 <center>$$\mu_p = 35000, \sigma_p = 7500$$</center>
 각가의 상품에 대한 가격들 또한 정규분포를 따른다.<br>
-<center> $$Prize_i \thicksim Normal(\mu_i,\sigma_i), i = 1,2$$</center>
+<center> $$Prize_i \thicksim Normal(\mu_i,\sigma_i),\  i = 1,2$$</center>
 각각의 상품이 $$\mu_i$$를 가질 것이라고 추측하지만, 이에 대한 불확실성은 $$\sigma_i$$ 파라미터를 통해 표현된다.<br>
 실제 가격 True Price 는 다음과 같이 표현될 것이다. $$Price_1 + Price_2 + \epsilon$$. 각 상품은 캐나다 토론토로 가는 여행권, 그리고 눈 제설기이다.<br>
 각 상품들의 가격들을 다음과 같이 정규분포로 표현하자.
-<center>$$snowblower \thicksim Normal(3000,500)$$</center>
+<center>$$Snow\ blower \thicksim Normal(3000,500)$$</center>
 <center>$$Toronto \thicksim Normal(12000,3000)$$</center>
 만약 우리가 68.2%의 확률로 토론토로 가는 여행권이 1 표준편차만큼 떨어져있다고 믿는다면, 68.2%의 신뢰도로 이 여행권은 [9000, 15000] 의 범위에 존재할 것이다.
 ```python
@@ -159,7 +159,7 @@ plt.xlim(5000, 30000);
 <center><img src="https://imgur.com/eekWwJm.png" width="80%" height="80%"></center>
 
 ## Optimization
-기대손실을 최소화하기 위해 scipy.optimize 모듈에서 fmin 함수를 사용한다.
+기대손실을 최소화하기 위해 `scipy.optimize` 모듈에서 `fmin` 함수를 사용한다.
 ```python
 import scipy.optimize as sop
 

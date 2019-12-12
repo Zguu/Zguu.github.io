@@ -5,10 +5,11 @@ tags: Probability Distribution Poisson Binomial
 
 # 푸아송 분포의 확률질량함수
 $\ $ 기초적인 확률분포 중 하나인 푸아송 분포의 확률질량함수를 유도해보자. 푸아송분포의 정의만 잘 숙지하면 생각보다 간단하게 이항분포 확률질량함수로부터 식을 유도할 수 있다.<br>
-푸아송분포는, 특정 시간 $t$내에 사건이 몇 번 일어날 지에 대한 확률분포이다. 이항분포에서 시행 수 $n$이 무한하게 크고, 각 시행에서 사건이 일어날 확률 $p$가 충분히 작다면, 기댓값 $\lambda$는 단순히 $n$과 $p$의 곱일 것이다.
+푸아송분포는, 특정 시간 $t$ 내에 사건이 몇 번 일어날 지에 대한 확률분포이다. 이항분포에서 시행 수 $n$이 무한하게 크고, 각 시행에서 사건이 일어날 확률 $p$가 충분히 작다면, 기댓값 $\lambda$는 단순히 $n$ 과 $p$의 곱일 것이다.
 
 <center>$$\lambda = np$$</center>
-<center>$$n = total\ trials, p = times\  the\  chance\  of\  success\  for\  each\  of\  those\  trials$$</center><br>
+<center>$$n = total\ trials, $$</center>
+<center>$$p = times\  the\  chance\  of\  success\  for\  each\  of\  those\  trials$$</center><br>
 > ex) $$ n = 50, p = 2/5, \lambda = 20 $$
 
 * Binomial Distribution
