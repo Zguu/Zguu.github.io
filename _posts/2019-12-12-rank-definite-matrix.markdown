@@ -36,7 +36,8 @@ $\ $k번째 pivot 값은 다음과 같이 쉽게 계산할 수 있다.
 <center>$$d_3 = \begin{vmatrix} 2 & -1 & 0 \\ -1 & 2 & -1 \\ 0 & -1 & 2 \end{vmatrix} = 4$$</center>
 $$d_1, d_2, d_3 > 0 $$ 이므로, positive definite 행렬임이 확인된다.
 
-> 2x2 행렬 $$\begin{pmatrix} a & b \\ c & d \end{pmatrix}$$ 에서 det() = ad-bc 로 쉽게 계산할 수 있다.<br>
- 마찬가지로, 3x3 행렬 $$\begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}$$ 에서 det() = a(ei-fh) - b(di-fg) + c(dh-eg)로 상대적으로 쉽게 계산 할 수 있다. 하지만, 행렬 차원수가 커짐에 따라 이러한 방법도 점점 복잡해진다.
+> 2x2 행렬 $$\begin{pmatrix} a & b \\ c & d \end{pmatrix}$$ 에서 $$determinant = ad\ -\ bc$$ 로 쉽게 계산할 수 있다.<br>
+ 마찬가지로, 3x3 행렬 $$\begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}$$ 에서 $$determinant = a(ei\ -\ fh) - b(di\ -\ fg) + c(dh\ -\ eg)$$로 상대적으로 쉽게 계산 할 수 있다. 하지만, 행렬 차원수가 커짐에 따라 이러한 방법도 점점 복잡해진다.
 
 ## energy-based definition
+$\ $조금 더 행렬스러운 계산 접근으로 positive definite를 정의해보자. $$\mathbf{x} \ne 0$$인 $$\mathbf{x}$$가 $A$의 고유벡터라면, 이 경우에 다음이 성립한다. $$\mathbf{x}^T\mathbf{Ax} = \lambda \mathbf{x}^T \mathbf{x}$$
