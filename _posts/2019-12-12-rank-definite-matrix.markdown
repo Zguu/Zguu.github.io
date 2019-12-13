@@ -5,7 +5,7 @@ tags: LinearAlgebra Rank FullRank PositiveDefinite SemiPositiveDefinite
 
 # Positive Definite 행렬
 ## 고유값으로 정의되지만..
-<center>***A matrix is positive definite if it's symmetric and all its eigenvalues are positive***</center>
+>***<center>A matrix is positive definite if it's symmetric and all its eigenvalues are positive</center>***
 > 아주 간단한 정의이다. 행렬이 대칭행렬이고 고유값들이 모두 양수이면 된다고 한다. 하지만 여기서 바로 한가지 걱정이 생겨야 한다.
   아 고유값 저거 귀찮게 언제 다 계산하지?!
 
