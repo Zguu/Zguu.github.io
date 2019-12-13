@@ -5,7 +5,7 @@ tags: LinearAlgebra Rank FullRank PositiveDefinite SemiPositiveDefinite
 
 # Positive Definite 행렬
 ## 고유값으로 정의되지만..
->***<center>A matrix is positive definite if it's symmetric and all its eigenvalues are positive</center>***
+***<center>A matrix is positive definite if it's symmetric and all its eigenvalues are positive</center>***
 > 아주 간단한 정의이다. 행렬이 대칭행렬이고 고유값들이 모두 양수이면 된다고 한다. 하지만 여기서 바로 한가지 걱정이 생겨야 한다.
   아 고유값 저거 귀찮게 언제 다 계산하지?!
 
@@ -27,3 +27,11 @@ tags: LinearAlgebra Rank FullRank PositiveDefinite SemiPositiveDefinite
 행렬의 대각선에 있는 값들은 각각 1, -3 이며 해당 pivot 값들 중 1개는 양수이며 1개는 음수이다. 따라서 eigenvalue 또한 (우리가 계산은 아직 안해봤지만) 1개는 양수이고 1개는 음수임을 알 수 있다.
 
 ## pivot 계산도 쉽지가 않은데..?
+$\ $k번째 pivot 값은 다음과 같이 쉽게 계산할 수 있다.
+<center>$$d_k = \frac{det(A_k)}{det(A_{k-1})}$$</center>
+여기에서 $$A_k$$는 upper left k x k submatrix에 해당한다. 다음 범위 $$1 \le k \le n$$ 에 해당하는 모든 $k$에 대하여 다음이 $$det(A_k)$$ 성립한다면 모든 pivot 값들은 양수임이 확인 될 것이다. 따라서 모든 submatrix 의 determinants 값이 양수임을 확인하면 된다. 아래의 행렬이 positive definite일지 계산해보자.
+<center>$$\begin{pmatrix} 2 & -1 & 0 \\ -1 & 2 & -1 \\ 0 & -1 & 2 \end{pmatrix}$$</center>
+$$d_1$$ = 2
+$$d_2 = \begin{vmatrix} 2 & -1 \\ -1 & 2 \end{vmatrix}$$ = 3
+$$d_3 = \begin{vmatrix} 2 & -1 & 0 \\ -1 & 2 & -1 \\ 0 & -1 & 2 \end{vmatrix}$$ = 4
+$$d_1, d_2, d_3 > 0 $$ 이므로, positive definite 행렬임이 확인된다.
