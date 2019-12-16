@@ -47,5 +47,7 @@ $\ $즉, 다음과 같이 positive definite 매트릭스에 대한 정의를 이
 ***<center>A matrix is positive definite if $$\mathbf{x}^T\mathbf{Ax} > 0$$ for all vectors $$\mathbf{x}\ \ne 0.$$</center>***
 $\ $물리학에서 상태 $$\mathbf{x}$$에 있는 시스템의 **energy** 는 보통 $$\mathbf{x}^T\mathbf{Ax}$$ (또는, $$\frac{1}{2}\mathbf{x}^T\mathbf{Ax}$$)로 자주 표현되기 때문에 이와 같이 positive definite 매트릭스를 정의하는 것을 ***energy-based definition*** 으로 부른다. 이를 활용하여 positive definite 매트릭스에 대한 또다른 정의를 유도해볼 수도 있다.<br>
 ### $$R^TR$$ definition of positive definite
-$\ $ 구성 column들이 서로 독립적이며 직사각형 형태인 매트릭스 $$R$$ 이 있다고 했을 때, $$ A = R^TR $$ 로 작성될 수 있는 모든 매트릭스 $$A$$는 positive definite 매트릭스이다. ***$$ A = R^TR $$ 를 만족하는 $A$는 positive definite 매트릭스이다.*** 라는 이 정의는 energy-based 정의를 이용해 쉽게 증명될 수 있다.
+$\ $ 구성 column들이 서로 독립적이며 직사각형 형태인 매트릭스 $$R$$ 이 있다고 했을 때, $$ A = R^TR $$ 로 작성될 수 있는 모든 매트릭스 $$A$$는 positive definite 매트릭스이다. ***$$ A = R^TR $$ 를 만족하는 $A$는 positive definite 매트릭스이다.*** 라는 이 정의는 energy-based 정의를 이용해 쉽게 증명될 수 있다. 아래의 식을 보자.
 <center>$$\mathbf{x}^T\mathbf{Ax} = \mathbf{x}^T\mathbf{R}^T\mathbf{Rx} = (\mathbf{Rx}^T)(\mathbf{Rx}) = \lVert \mathbf{Rx}\rVert^2$$</center>
+$\ $만약 $$R$$의 열들이 linearly independent 이고, $$\mathbf{x} \ne 0$$ 이라면, $$\mathbf{Rx} \ne 0$$ 이 성립하며, 따라서 $$\mathbf{x}^T\mathbf{Ax} > 0$$ 을 만족한다. 최종적인 $$\lVert \mathbf{Rx}\rVert^2$$ 값이 양수이므로, 결과적으로 $$\mathbf{x}^T\mathbf{Ax} > 0$$ 을 만족한다. 따라서 다음과 같이 positive definite 매트릭스에 대해 정의할 수 있다.
+***<center>A matrix $A$ is positive definite if and only if it can be written as $$A = R^TR$$ for some possibly rectangular matrix $R$ with independent columns</center>***
