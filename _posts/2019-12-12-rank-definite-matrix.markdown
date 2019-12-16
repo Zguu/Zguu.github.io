@@ -51,3 +51,12 @@ $\ $ 구성 column들이 서로 독립적이며 직사각형 형태인 매트릭
 <center>$$\mathbf{x}^T\mathbf{Ax} = \mathbf{x}^T\mathbf{R}^T\mathbf{Rx} = (\mathbf{Rx}^T)(\mathbf{Rx}) = \lVert \mathbf{Rx}\rVert^2$$</center>
 $\ $만약 $$R$$의 열들이 linearly independent 이고, $$\mathbf{x} \ne 0$$ 이라면, $$\mathbf{Rx} \ne 0$$ 이 성립하며, 따라서 $$\mathbf{x}^T\mathbf{Ax} > 0$$ 을 만족한다. 최종적인 $$\lVert \mathbf{Rx}\rVert^2$$ 값이 양수이므로, 결과적으로 $$\mathbf{x}^T\mathbf{Ax} > 0$$ 을 만족한다. 따라서 다음과 같이 positive definite 매트릭스에 대해 정의할 수 있다.
 ***<center>A matrix $A$ is positive definite if and only if it can be written as $$A = R^TR$$ for some possibly rectangular matrix $R$ with independent columns</center>***
+$\ $마지막으로, 해당 매트릭스의 모든 고유값이 전부 양수가 아니라, 0 이상을 만족할 때에는, ***positive definite***가 아니라 ***positive semidefinite*** 라고 말한다. 다음 매릭스가 ***positive semidefinite*** 를 만족하기 위해서는 $b$의 값이 어떻게 돼야할 지 계산해보자.<br>
+<center>$$\begin{pmatrix} 2 & -1 & b \\ -1 & 2 & -1 \\ b & -1 & 2 \end{pmatrix}$$</center>
+$\ $위 매트릭스의 determinant가 항상 0 이상이 되도록 하는 $b$의 값을 찾는 문제와 같다.<br>
+<center>$$d_3 = \begin{vmatrix} 2 & -1 & b \\ -1 & 2 & -1 \\ b & -1 & 2 \end{vmatrix} $$</center>
+<center>$$= 2(4-1) - (-1)(-2+b) + b(1-2b)$$</center>
+<center>$$= -2b^2 + 2b + 4 \geq 0 </center>
+<center>$$\Rightarrow b^2 - b -2 \leq 0</center>
+<center>$$(b-2)(b+1) \leq 0</center>
+<center>$$\therefore -1 \leq b \leq 2$$</center>
