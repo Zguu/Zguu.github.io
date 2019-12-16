@@ -56,7 +56,30 @@ $\ $마지막으로, 해당 매트릭스의 모든 고유값이 전부 양수가
 $\ $위 매트릭스의 determinant가 항상 0 이상이 되도록 하는 $b$의 값을 찾는 문제와 같다.<br>
 <center>$$d_3 = \begin{vmatrix} 2 & -1 & b \\ -1 & 2 & -1 \\ b & -1 & 2 \end{vmatrix} $$</center>
 <center>$$= 2(4-1) - (-1)(-2+b) + b(1-2b)$$</center>
-<center>$$= -2b^2 + 2b + 4 \geq 0 </center>
-<center>$$\Rightarrow b^2 - b -2 \leq 0</center>
-<center>$$(b-2)(b+1) \leq 0</center>
+<center>$$= -2b^2 + 2b + 4 \geq 0 $$</center>
+<center>$$\Rightarrow b^2 - b -2 \leq 0$$</center>
+<center>$$(b-2)(b+1) \leq 0$$</center>
 <center>$$\therefore -1 \leq b \leq 2$$</center>
+
+A (real) symmetric matrix has a complete set of orthogonal eigenvectors for which the corresponding eigenvalues are are all real numbers. For non-symmetric matrices this can fail. For example, a rotation in two dimensional space has no eigenvector or eigenvalues in the real numbers, you must pass to a vector space over the complex numbers to find them.
+
+If the matrix is additionally positive definite, then these eigenvalues are all positive real numbers. This fact is much easier than the first, for if 𝑣 is an eigenvector with unit length, and 𝜆 the corresponding eigenvalue, then
+
+𝜆=𝜆𝑣𝑡𝑣=𝑣𝑡𝐴𝑣>0
+where the last equality uses the definition of positive definiteness.
+
+The importance here for intuition is that the eigenvectors and eigenvalues of a linear transformation describe the coordinate system in which the transformation is most easily understood. A linear transformation can be very difficult to understand in a "natural" basis like the standard coordinate system, but each comes with a "preferred" basis of eigenvectors in which the transformation acts as a scaling in all directions. This makes the geometry of the transformation much easier to understand.
+
+For example, the second derivative test for the local extrema of a function 𝑅2→𝑅 is often given as a series of mysterious conditions involving an entry in the second derivative matrix and some determinants. In fact, these conditions simply encode the following geometric observation:
+
+If the matrix of second derivatives is positive definite, you're at a local minimum.
+If the matrix of second derivatives is negative definite, you're at a local maximum.
+Otherwise, you are at neither, a saddle point.
+You can understand this with the geometric reasoning above in an eigenbasis. The first derivative at a critical point vanishes, so the rates of change of the function here are controlled by the second derivative. Now we can reason geometrically
+
+In the first case there are two eigen-directions, and if you move along either the function increases.
+In the second, two eigen-directions, and if you move in either the function decreases.
+In the last, there are two eigen-directions, but in one of them the function increases, and in the other it decreases.
+Since the eigenvectors span the whole space, any other direction is a linear combination of eigen-directions, so the rates of change in those directions are linear combinations of the rates of change in the eigen directions. So in fact, this holds in all directions (this is more or less what it means for a function defined on a higher dimensional space to be differentiable). Now if you draw a little picture in your head, this makes a lot of sense out of something that is quite mysterious in beginner calculus texts.
+
+This applies directly to one of your bullet points
