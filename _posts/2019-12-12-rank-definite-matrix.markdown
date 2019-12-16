@@ -39,5 +39,13 @@ $$d_1, d_2, d_3 > 0 $$ 이므로, positive definite 행렬임이 확인된다.
 > 2x2 행렬 $$\begin{pmatrix} a & b \\ c & d \end{pmatrix}$$ 에서 $$determinant = ad\ -\ bc$$ 로 쉽게 계산할 수 있다.<br>
  마찬가지로, 3x3 행렬 $$\begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}$$ 에서 $$determinant = a(ei\ -\ fh) - b(di\ -\ fg) + c(dh\ -\ eg)$$로 상대적으로 쉽게 계산 할 수 있다. 하지만, 행렬 차원수가 커짐에 따라 이러한 방법도 점점 복잡해진다.
 
-## energy-based definition
-$\ $조금 더 행렬스러운 계산 접근으로 positive definite를 정의해보자. $$\mathbf{x} \ne 0$$인 $$\mathbf{x}$$가 $A$의 고유벡터라면, 이 경우에 다음이 성립한다. $$\mathbf{x}^T\mathbf{Ax} = \lambda \mathbf{x}^T \mathbf{x}$$
+## energy-based definition & $$R^TR$$ definition
+### energy-based definition of positive definite
+$\ $조금 더 행렬스러운 계산 접근으로 positive definite를 정의해보자. $$\mathbf{x} \ne 0$$인 $$\mathbf{x}$$가 $A$의 고유벡터라면, 이 경우에 다음이 성립한다. $$\mathbf{x}^T\mathbf{Ax} = \lambda \mathbf{x}^T \mathbf{x}$$<br>
+$\ $여기에서, 만약 $$\lambda > 0$$ 이라면, $$\mathbf{x}^T\mathbf{x} > 0 $$ 이므로, 항상 다음이 성립해야만 한다. $$\mathbf{x}^T\mathbf{Ax} > 0$$.<br>
+$\ $즉, 다음과 같이 positive definite 매트릭스에 대한 정의를 이끌어낼 수 있다.
+***<center>A amatrix is positive definite if $$\mathbf{x}^T\mathbf{Ax} > 0$$ for all vectors $$\mathbf{x}\ \ne 0.$$</center>***
+$\ $물리학에서 상태 $$\mathbf{x}$$에 있는 시스템의 **energy** 는 보통 $$\mathbf{x}^T\mathbf{Ax}$$ (또는, $$\frac{1}{2}\mathbf{x}^T\mathbf{Ax}$$)로 자주 표현되기 때문에 이와 같이 positive definite 매트릭스를 정의하는 것을 ***energy-based definition*** 으로 부른다. 이를 활용하여 positive definite 매트릭스에 대한 또다른 정의를 유도해볼 수도 있다.<br>
+### $$R^TR$$ definition of positive definite
+$\ $ 구성 column들이 서로 독립적이며 직사각형 형태인 매트릭스 $$R$$ 이 있다고 했을 때, $$ A = R^TR $$ 로 작성될 수 있는 모든 매트릭스 $$A$$는 positive definite 매트릭스이다. 위의 정의 ( $$ A = R^TR $$ 를 만족하는 $A$는 positive definite 매트릭스라는)는 energy-based 정의를 이용해 증명할 수 있다.
+<center></center>
