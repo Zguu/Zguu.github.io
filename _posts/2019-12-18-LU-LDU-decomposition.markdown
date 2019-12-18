@@ -34,9 +34,9 @@ $\ $ 우리가 GE 과정에서 행렬들을 triangular 형태로 만들기 위�
 
 ## LU decomposition
 $\ $위에서 우리는 어떤 행렬 $X$는 $$LX = U$$ 형태로 표현될 수 있다는 점에 배웠다. 여기에서 $L$ 함수의 inverse matrix만 간단히 좌변과 우변의 좌측 항에 곱해주게 되면 $$ X = L^{-1}U $$ 형태를 얻는다. $$L^{-1}$$ 은 또 다시 lower triangular matrix 형태를 띄게 되므로 결과적으로는, $$ X = LU $$ 형태를 보여준다. 다시 예를 들어보자. <br>
-<center>$$A = \begin{bmatrix} 3 & 4 \\ 6 & 5 \end{bmatrix}$$</center>
-<center>$$\begin{bmatrix} 1 & 0 \\ -2 & 1 \end{bmatrix}\begin{bmatrix} 3 & 4 \\ 6 & 5 \end{bmatrix}$$ = \begin{bmatrix} 3 & 4 \\ 0 & -3 \end{bmatrix}</center>
-위와 같이 GE 결과를 $$LA = A^{\prime}$$ 형태로 표현한 후, $L$행렬의 역함수를 구해서 양변의 좌측에 곱해준다. $$\begin{bmatrix} 1 & 0 \\ -2 & 1 \end{bmatrix}$$ 행렬의 역함수는 $$\begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}$$이며, 해당 역함수를 양 변에 곱한 형태는 다음과 같다.
+<center>$$X = \begin{bmatrix} 3 & 4 \\ 6 & 5 \end{bmatrix}$$</center>
+<center>$$\begin{bmatrix} 1 & 0 \\ -2 & 1 \end{bmatrix}\begin{bmatrix} 3 & 4 \\ 6 & 5 \end{bmatrix} = \begin{bmatrix} 3 & 4 \\ 0 & -3 \end{bmatrix}$$</center>
+위와 같이 GE 결과를 $$LX = X^{\prime}$$ 형태로 표현한 후, $L$행렬의 역함수를 구해서 양변의 좌측에 곱해준다. $$\begin{bmatrix} 1 & 0 \\ -2 & 1 \end{bmatrix}$$ 행렬의 역함수는 $$\begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}$$이며, 해당 역함수를 양 변에 곱한 형태는 다음과 같다.
 <center>$$\begin{bmatrix} 3 & 4 \\ 6 & 5 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}\begin{bmatrix} 3 & 4 \\ 0 & -3 \end{bmatrix}$$</center>
 즉, 원래 행렬 $X$가 완벽하게 lower triangular matrix인 $L$과, upper triangular matrix인 $U$ 두 행렬의 곱으로 표현됐다.
 > references
