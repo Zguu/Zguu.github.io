@@ -9,4 +9,6 @@ $\ $수학 특히, 행렬 이론에서 ***Permutation matrix*** 는 모든 행�
 $\ $ 다음과 같이 $m$ 개의 원소들이 정의역으로 주어지면 $m$ 개의 치역을 반환하는 단순한 함수의 형태이다.
 <center>$$\pi : \left\{ 1,...,m \right\} \rightarrow \left\{1,...,m\right\}$$</center>
 아래와 같이 표현될 수도 있다.
-<center>$$\begin{pmatrix} 1 & 2 & \cdots & m \\ \pi(1) & \pi(2) \cdots \pi(m) \end{pmatrix}$$</center>
+<center>$$\begin{pmatrix} 1 & 2 & \cdots & m \\ \pi(1) & \pi(2) & \cdots \pi(m) \end{pmatrix}$$</center>
+$\ $ $m x m$ 형태의 Permutation matrix $$P_\pi = (p_{ij})$$ 는 다음과 같이 표현된다.
+<center>$$ P_\pi = \begin{bmatrix} \mathbf{e}_{\pi(1)} \\\mathbf{e}_{\pi(2)} \\\mathbf{e}_{\pi(3)} \\\mathbf{e}_{\pi(4)} \\\mathbf{e}_{\pi(5)} \end{bmatrix} = \begin{bmatrix} \mathbf{e}_1 \\ \mathbf{e}_2 \\ \mathbf{e}_3 \\ \mathbf{e}_4 \\ \mathbf{e}_5 \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 & 1 \end{bmatrix}. $$</center>
