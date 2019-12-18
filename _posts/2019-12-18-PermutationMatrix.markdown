@@ -20,6 +20,6 @@ $\ $위의 예시에서, 각 $$\mathbf{e}_j$$는 $m$ 의 길이를 가진 row ve
 
 ## Example
 $\ $ $$P_\pi$$가 $$A$$ 와 곱해지는 과정에서 왼쪽 또는 오른쪽 어디에 위치하느냐에 따라 ***column representation*** 인지, ***row representation*** 인지 결정된다. 일반적으로는 왼편에 곱해져서 $$PA$$의 형태를 띄는 경우, ***column representation***, 오른편에 곱해져서 $$AP$$의 형태를 띄는 경우는 ***row representation*** 에 해당한다. 아래의 그림을 참고하자.
-<center><img src="https://imgur.com/NacjmsF" width="80%" height="80%"></center>
+<center><img src="https://imgur.com/NacjmsF.png" width="80%" height="80%"></center>
 
 > reference : https://en.wikipedia.org/wiki/Permutation_matrix
