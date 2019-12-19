@@ -10,13 +10,13 @@ tags: LinearAlgebra SVD Decomposition Factorization
 ### Unitary Matrix
 아주 간단하게 말해서, $$AA^T = I$$ 를 만족하는 A 를 unitary matrix 라고 한다. 자기 자신의 전치행렬 transpose가 역행렬인 경우 $$A^T = A^{-1}$$, 해당 행렬은 unitary matrix 라고 칭한다. Orthogonal Matrix 와 같은 형태이며, 해당 행렬에 대한 예시는 다음과 같다.
 #### Examples
-- $$ M = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$$
-- $$ M = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$$
-- $$ M = \begin{bmatrix} 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 1 & 0 & 0 & 0 \\ 0 1 & 0 & 0 \end{bmatrix}$$
-- $$ M = \begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}$$
+$$\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$$
+$$\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$$
+$$\begin{bmatrix} 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{bmatrix}$$
+$$\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}$$
 ### Conjugate Transpose
 $\ $Conjugate Transpose는 말 그대로 행렬을 전치(transpose)해주고, 해당 복소수(complex)들을 그에 대한 conjugate 값으로 대체해주는 것이다. ***Hermitian conjugate, bedaggered matrix, adjoint matrix, transjugate*** 등 다양한 이름으로 불린다고 한다. 표기 또한 다양하며 아래의 예시를 보면 쉽게 어떤 개념인지 확인할 수 있다. ***bedaggered matrix*** 라는 이름은 아무래도 이 행렬을 표기할 때에 dagger 모양을 이용해서 표현하기 때문에 그런듯 하다 ($$ U^{\dagger}$$). Conjugate Transpose 행렬에 대한 정의는 다음과 같이 표기한다.<br>
-<center>$$\mathbf{A}^H = (\bar{\mathbf{A}})^T = \bar{\mathbf{A}^T}$$</center>
+<center>$$\mathbf{A}^H = (\bar{\mathbf{A}})^T = \bar{{\mathbf{A}^T}}$$</center>
 예시는 다음과 같다.
 <center> $$ A = \begin{bmatrix} 1 & -2-i & 5 \\ 1 + i & i & 4 - 2i \end{bmatrix}$$</center>
 행렬 $A$가 위와 같다면, 그에 대한 tranpose는 다음과 같다.
