@@ -13,7 +13,8 @@ tags: LinearAlgebra SVD Decomposition Factorization
 $\ $Conjugate Transpose는 말 그대로 행렬을 전치(transpose)해주고, 해당 복소수(complex)들을 그에 대한 conjugate 값으로 대체해주는 것이다. ***Hermitian conjugate, bedaggered matrix, adjoint matrix, transjugate*** 등 다양한 이름으로 불린다고 한다. 표기 또한 다양하며 아래의 예시를 보면 쉽게 어떤 개념인지 확인할 수 있다. ***bedaggered matrix*** 라는 이름은 아무래도 이 행렬을 표기할 때에 dagger 모양을 이용해서 표현하기 때문에 그런듯 하다 ($$ U^{\dagger}$$).
 
 ## SVD
-$\ $ SVD 행렬 분해는 $M$라는 행렬을 $$U\Sigma V^T$$ 총 3개의 행렬로 분해한다. $$m \times n$$ 형태의 행렬 $M$이 있을 때, 이 행렬을 $$m \times m$$ 모양인 행렬 $U$, $$m \times n$$ 모양인 행렬 $\Sigma$, 마지막으로 $$n \times n$$ 모양인 행렬 $$V^T$$ 총 3개로 분해하게 된다. 여기에서 $$\Sigma$$ 행렬을 가운데로 왼쪽과 오른쪽에 위치하는 $$M$$, $$V^T$$행렬을 각각 ***left-singular vectors***, ***right-singular vectors*** 로 지칭한다. 뒤에서 다시 예시를 보며 다루겠지만, $$U$$, $$V^T$$ 행렬은 모두 unitary matrix에 해당한다. 또한, $$\Sigma$$ 행렬은 정사각형의 diagonal matrix 이며, diagonal 원소들은 모두 0 이상의 값을 갖는다. 실제 행렬을 SVD 방법론으로 분해해보면서, $$M, \Sigma, V^T$$ 행렬의 각 계산법에 대해 익히고, SVD 가 갖는 의미에 대해 살펴보자.
+$\ $ SVD 행렬 분해는 $M$라는 행렬을 $$U\Sigma V^T$$ 총 3개의 행렬로 분해한다. $$m \times n$$ 형태의 행렬 $M$이 있을 때, 이 행렬을 $$m \times m$$ 모양인 행렬 $U$, $$m \times n$$ 모양인 행렬 $\Sigma$, 마지막으로 $$n \times n$$ 모양인 행렬 $$V^T$$ 총 3개로 분해하게 된다. 여기에서 $$\Sigma$$ 행렬을 가운데로 왼쪽과 오른쪽에 위치하는 $$M$$, $$V^T$$행렬을 각각 ***left-singular vectors***, ***right-singular vectors*** 로 지칭한다. <br>
+$\ $뒤에서 다시 예시를 보며 다루겠지만, $$U$$, $$V^T$$ 행렬은 모두 unitary matrix에 해당한다. 또한, $$\Sigma$$ 행렬은 정사각형의 diagonal matrix 이며, diagonal 원소들은 모두 0 이상의 값을 갖는다. 실제 행렬을 SVD 방법론으로 분해해보면서, $$M, \Sigma, V^T$$ 행렬의 각 계산법에 대해 먼저 익히고, SVD 가 갖는 의미에 대해 살펴보자.
 > real matrix 에서는 특정 행렬($$A$$)의 전치 행렬 (transpose)를 $$A^T$$로 표현하지만, real matrix를 확장한 complex matrix에서는 conjugate transpose의 개념을 적용해야하며, 이에 대한 표기는 다양하나 일반적으로 $$A^{* \ast}, A^{\dagger}$$와 같이 표기하는 것이 맞다. 하지만 이번 포스팅에서는 편의를 위해 일반적인 전치 행렬 표현 $$A^T$$를 주로 사용할 것이다.
 
 1. 행렬 $M$이 주어졌을 때, $U$ 행렬은 $$MM^T$$의 orthonormal eigenvector 이다.
@@ -33,7 +34,7 @@ $\ $실제 행렬을 보며 위의 계산 방법을 적용해보자.
 <center>$$\therefore \lambda = 8, 2, 0$$</center>
 <center>Also... singular values are $$\sigma_1 = 2\sqrt{2}, \sigma_2 = \sqrt{2}, \sigma_3 = 0$$</center>
 
-$$\lambda = 8$$일 때, eigenvector $$x_1$$은 $$(\frac{1}{\sqrt{6}},\frac{2}{\sqrt{6}} ,\frac{1}{\sqrt{6}})$$ 이다. 마찬가지로, $$\lambda = 2$$일 때, eigenvector $$x_2$$은 $$(-\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}} ,1\frac{1}{\sqrt{3}})$$ , $$\lambda = 0$$일 때, eigenvector $$x_3$$은 $$(\frac{1}{\sqrt{2}},0 ,-\frac{1}{\sqrt{2}})$$ 이다. 따라서, 이를 종합해 우리가 원하는 ***left-singular vectors*** 는 다음과 같은 행렬 형태로 표현한다.
+$$\lambda = 8$$일 때, eigenvector $$\mathbf{x}_1$$은 $$(\frac{1}{\sqrt{6}},\frac{2}{\sqrt{6}} ,\frac{1}{\sqrt{6}})$$ 이다. 마찬가지로, $$\lambda = 2$$일 때, eigenvector $$\mathbf{x}_2$$은 $$(-\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}} ,1\frac{1}{\sqrt{3}})$$ , $$\lambda = 0$$일 때, eigenvector $$\mathbf{x}_3$$은 $$(\frac{1}{\sqrt{2}},0 ,-\frac{1}{\sqrt{2}})$$ 이다. 따라서, 이를 종합해 우리가 원하는 ***left-singular vectors*** 는 다음과 같은 행렬 형태로 표현한다.
 <center>$$ U = \begin{bmatrix} \frac{1}{\sqrt{6}} &  -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} \\ \frac{2}{\sqrt{6}} & \frac{1}{\sqrt{3}} & 0 \\ \frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\end{bmatrix}$$.</center>
 
 정리해보면, 위의 $U$ 행렬은 $$MM^T$$행렬의 eigenvectors들을 이용해 표현했다. 그런데 여기서 사실 중요한 것은 해당 eigenvector들이 orthonormal 하도록 normalize를 꼭 해줘야 한다는 것이다.
@@ -42,3 +43,16 @@ $$\lambda = 8$$일 때, eigenvector $$x_1$$은 $$(\frac{1}{\sqrt{6}},\frac{2}{\s
 마찬가지로 $V$행렬을 구해보면, 이번에는 $$MM^T$$가 아닌 $$M^T$$ 행렬의 eigenvector들의 형태로 표현한다. 위의 $M$ 행렬의 $$M^TM$$를 계산해보면 다음과 같다.
 <center>$$M^TM = \begin{bmatrix} 2 & 2\sqrt{2} & 0 \\ 2\sqrt{2} & 6 & 2 \\ 0 & 2 & 2 \end{bmatrix}$$</center>
 이에 대한 eigenvalues, eigenvectors 들을 위에서와 같은 방식으로 계산하면 다음과 같다.
+
+$$\lambda = 8$$일 때, eigenvector $$\mathbf{y}_1$$은 $$(\frac{1}{\sqrt{6}},\frac{3}{\sqrt{12}} ,\frac{1}{\sqrt{12}})$$ 이다. 마찬가지로, $$\lambda = 2$$일 때, eigenvector $$\mathbf{y}_2$$은 $$(\frac{1}{\sqrt{3}},0 ,-\frac{2}{\sqrt{6}})$$ , $$\lambda = 0$$일 때, eigenvector $$\mathbf{y}_3$$은 $$(\frac{1}{\sqrt{2}},-\frac{1}{2} ,\frac{1}{2})$$ 이다. 이를 종합해서 ***right-singular vectors$*** 행렬인 $V$ 를 표현하면 다음과 같다.
+
+<center>$$ V = \begin{bmatrix} \frac{1}{\sqrt{6}} &  \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} \\ \frac{3}{\sqrt{12}} & 0 & -\frac{1}{2} \\ \frac{1}{\sqrt{12}} & -\frac{2}{\sqrt{6}} & \frac{1}{2}\end{bmatrix}$$.</center>
+
+우리가 구하고자 한 $$U, V$$행렬은 모두 구했고, $\Sigma$ 행렬은 eigenvalues들을 통해 다음과 같이 간단하게 표현할 수 있다. $$\Sigma = \begin{bmatrix} 2\sqrt{2} & 0 & 0 \\ 0 & \sqrt{2} & 0 \\ 0 & 0 & 0 \end{bmatrix}$$
+
+위에서 모두 구한 $$U, \Sigma, V$$ 행렬들의 곱은 $M$과 같다.
+<center>$$ \begin{bmatrix} 0 & 1 & 1 \\ \sqrt{2} & 2 & 0 \\ 0 & 1 & 1 \end{bmatrix} = \begin{bmatrix} \frac{1}{\sqrt{6}} &  -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} \\ \frac{2}{\sqrt{6}} & \frac{1}{\sqrt{3}} & 0 \\ \frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\end{bmatrix}\begin{bmatrix} 2\sqrt{2} & 0 & 0 \\ 0 & \sqrt{2} & 0 \\ 0 & 0 & 0 \end{bmatrix}begin{bmatrix} \frac{1}{\sqrt{6}} &  \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} \\ \frac{3}{\sqrt{12}} & 0 & -\frac{1}{2} \\ \frac{1}{\sqrt{12}} & -\frac{2}{\sqrt{6}} & \frac{1}{2}\end{bmatrix}^T$$</center>
+<center>$$M = U\Sigma V$$</center>
+
+> 위에서 언급했던, <br>
+3. $$MM^T$$와, $$M^TM$$에서 각각 얻은 고유값들 중에 양수인 값들의 루트 값을 이용해 diagonal한 matrix를 생성했을 때, 해당 행렬은 $$\Sigma$$가 된다. 이 부분을 상기하자.
