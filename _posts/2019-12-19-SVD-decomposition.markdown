@@ -6,7 +6,7 @@ tags: LinearAlgebra SVD Decomposition Factorization
 # SVD (Singular Value Decomposition)
 $ \$LU 행렬분해는 하나의 행렬을 두개의 행렬로 분해했고, LDU 행렬분해는 하나의 행렬을 세개의 행렬로 분해했었다. SVD는 고유값 분해 (EigenValue Decomposition)의 한계점을 극복할 수 있기에 유용하다. 고유값 분해는 일반적으로 정사각 행렬에만 적용이 가능한 데에 반해, SVD는 직사각행렬의 분해에도 사용이 될 수 있으며, 다양한 형태의 추가적인 분해가 가능하다.
 ## Unitary Matrix, Conjugate Transpose
-$\ $ SVD 연산에 있어서 각 행렬들이 갖는 특징 중 대표적인 것이 Unitary or orthogonal 행렬들이 존재한다는 것, 그리고 각 행렬들의 Conjugate transpose를 빈번히 계산해야한다는 것이다. 사실 이 개념들에 대해 몰라도 연산을 따라오는 데에 큰 문제는 없으나, 엄밀한 SVD 의 정의가 이 두 개념을 포함해야만 하므로, 간단하게 설명한다. 
+$\ $ SVD 연산에 있어서 각 행렬들이 갖는 특징 중 대표적인 것이 Unitary or orthogonal 행렬들이 존재한다는 것, 그리고 각 행렬들의 Conjugate transpose를 빈번히 계산해야한다는 것이다. 사실 이 개념들에 대해 몰라도 연산을 따라오는 데에 큰 문제는 없으나, 엄밀한 SVD 의 정의가 이 두 개념을 포함해야만 하므로, 간단하게 설명한다.
 ### Unitary Matrix
 아주 간단하게 말해서, $$AA^T = I$$ 를 만족하는 A 를 unitary matrix 라고 한다. 자기 자신의 전치행렬 transpose가 역행렬인 경우 $$A^T = A^{-1}$$, 해당 행렬은 unitary matrix 라고 칭한다. Orthogonal Matrix 와 같은 형태이며, 해당 행렬에 대한 예시는 다음과 같다.
 #### Examples
@@ -16,7 +16,7 @@ $\ $ SVD 연산에 있어서 각 행렬들이 갖는 특징 중 대표적인 것
 <center>$$\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}$$</center>
 ### Conjugate Transpose
 $\ $Conjugate Transpose는 말 그대로 행렬을 전치(transpose)해주고, 해당 복소수(complex)들을 그에 대한 conjugate 값으로 대체해주는 것이다. ***Hermitian conjugate, bedaggered matrix, adjoint matrix, transjugate*** 등 다양한 이름으로 불린다고 한다. 표기 또한 다양하며 아래의 예시를 보면 쉽게 어떤 개념인지 확인할 수 있다. ***bedaggered matrix*** 라는 이름은 아무래도 이 행렬을 표기할 때에 dagger 모양을 이용해서 표현하기 때문에 그런듯 하다 ($$ U^{\dagger}$$). Conjugate Transpose 행렬에 대한 정의는 다음과 같이 표기한다.<br>
-<center>$$\mathbf{A}^H = (\bar{\mathbf{A}})^T = \bar{{\mathbf{A}^T}}$$</center>
+<center>$$\mathbf{A}^H = (\bar{\mathbf{A}})^T = \bar{\mathbf{A}^T}$$</center>
 예시는 다음과 같다.
 <center> $$ A = \begin{bmatrix} 1 & -2-i & 5 \\ 1 + i & i & 4 - 2i \end{bmatrix}$$</center>
 행렬 $A$가 위와 같다면, 그에 대한 tranpose는 다음과 같다.
