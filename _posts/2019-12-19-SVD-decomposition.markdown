@@ -26,7 +26,7 @@ tranpose 이후에 각 원소들을 conjugate 값으로 바꾼다.
 ## SVD
 $\ $ SVD 행렬 분해는 $M$라는 행렬을 $$U\Sigma V^T$$ 총 3개의 행렬로 분해한다. $$m \times n$$ 형태의 행렬 $M$이 있을 때, 이 행렬을 $$m \times m$$ 모양인 행렬 $U$, $$m \times n$$ 모양인 행렬 $\Sigma$, 마지막으로 $$n \times n$$ 모양인 행렬 $$V^T$$ 총 3개로 분해하게 된다. 여기에서 $$\Sigma$$ 행렬을 가운데로 왼쪽과 오른쪽에 위치하는 $$M$$, $$V^T$$행렬을 각각 ***left-singular vectors***, ***right-singular vectors*** 로 지칭한다. <br>
 $\ $뒤에서 다시 예시를 보며 다루겠지만, $$U$$, $$V^T$$ 행렬은 모두 unitary matrix에 해당한다.(아래 이미지 참고) <br>
-<center><img src="https://imgur.com/LR6wFKb.png" width="80%" height="80%"></center>
+<center><img src="https://imgur.com/LR6wFKb.png" width="50%" height="50%"></center>
 
 또한, $$\Sigma$$ 행렬은 정사각형의 diagonal matrix 이며, diagonal 원소들은 모두 0 이상의 값을 갖는다. 실제 행렬을 SVD 방법론으로 분해해보면서, $$M, \Sigma, V^T$$ 행렬의 각 계산법에 대해 먼저 익히고, SVD 가 갖는 의미에 대해 살펴보자.
 > real matrix 에서는 특정 행렬($$A$$)의 전치 행렬 (transpose)를 $$A^T$$로 표현하지만, real matrix를 확장한 complex matrix에서는 conjugate transpose의 개념을 적용해야하며, 이에 대한 표기는 다양하나 일반적으로 $$A^{* \ast}, A^{\dagger}$$와 같이 표기하는 것이 맞다. 하지만 이번 포스팅에서는 편의를 위해 일반적인 전치 행렬 표현 $$A^T$$를 주로 사용할 것이다.
