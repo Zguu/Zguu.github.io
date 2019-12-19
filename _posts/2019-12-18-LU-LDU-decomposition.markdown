@@ -57,10 +57,10 @@ $\ $위에서 우리는 어떤 행렬 $X$는 $$LX = U$$ 형태로 표현될 수 
 위의 세 개 행렬을 곱한 $L$행렬($$(ZYX)^{-1}$$) 을 양변의 좌측에 곱해주면, 마찬가지로 $$ A = LU $$로 표현됨을 알 수 있다. 결과적으로, 사이즈가 더 큰 행렬들에 대해서도 lower triangular matrix를 연속적으로 계속 곱함으로써, upper triangular matrix를 만들어낼 수 있음을 알 수 있다.
 
 ## LDU Decomposition
-$\ $ LDU 분해는, 위에서 진행한 LU 분해에서 한 발자국 더 나아간 것인데, LU 분해에서 얻은 upper triangular matrix에 해당하는 matrix U 를 diagonal matrix인 D와, 새로운 upper triangular matrix U로 분해하는 것이다. U 에 해당하는 $$\begin{bmatrix} 3 & 4 \\ 0 & -3 \end{bmatrix}$$을 분해해보면 아래와 같다.
+$\ $ LDU 분해는, 위에서 진행한 LU 분해에서 한 발자국 더 나아간 것인데, LU 분해에서 얻은 upper triangular matrix에 해당하는 matrix $U$ 를 diagonal matrix인 $D$와, 새로운 upper triangular matrix $U$로 분해하는 것이다. $U$ 에 해당하는 $$\begin{bmatrix} 3 & 4 \\ 0 & -3 \end{bmatrix}$$을 분해해보면 아래와 같다.
 <center>$$\begin{bmatrix} 3 & 4 \\ 0 & -3 \end{bmatrix} = \begin{bmatrix} 3 & 0 \\ 0 & -3 \end{bmatrix}\begin{bmatrix} 1 & \frac{4}{3} \\ 0 & 1 \end{bmatrix}$$</center>
-결과적으로 D 행렬과 U 행렬로 분해됐으며, 위와 같은 분해가 항상 가능하다는 것은 직접 손으로 분해해보면 쉽게 깨닫는다.
-위에서 진행했던 LU decomposition 과정을 LDU 로 확장시키며 행렬 분해에 대한 내용을 끝마친다.
+결과적으로 $D$ 행렬과 $U$ 행렬로 분해됐으며, 위와 같은 분해가 항상 가능하다는 것은 직접 손으로 분해해보면 쉽게 깨닫는다.
+
 <center>$$\begin{bmatrix} 3 & 4 \\ 6 & 5 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}\begin{bmatrix} 3 & 4 \\ 0 & -3 \end{bmatrix}$$</center>
 
 <center> $$ X = LU $$ </center>
@@ -68,6 +68,8 @@ $\ $ LDU 분해는, 위에서 진행한 LU 분해에서 한 발자국 더 나아
 <center>$$\rightarrow \begin{bmatrix} 3 & 4 \\ 6 & 5 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}\begin{bmatrix} 3 & 0 \\ 0 & -3 \end{bmatrix}\begin{bmatrix} 1 & \frac{4}{3} \\ 0 & 1 \end{bmatrix}$$</center>
 
 <center> $$ X = LDU $$ </center>
+
+위에서 진행했던 LU decomposition 과정을 LDU 로 확장시키며, LU, LDU 행렬 분해에 대한 내용을 마무리한다! 끗
 
 > references
 https://math.stackexchange.com/questions/266355/necessity-advantage-of-lu-decomposition-over-gaussian-elimination
