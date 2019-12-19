@@ -3,7 +3,7 @@ title: " [선형대수학] SVD (Singular Value Decomposition)"
 tags: LinearAlgebra SVD Decomposition Factorization
 ---
 
-# SVD
+# SVD (Singular Value Decomposition)
 
 ## Unitary Matrix, Conjugate Transpose
 
