@@ -41,16 +41,33 @@ $\ $위에서 우리는 어떤 행렬 $X$는 $$LX = U$$ 형태로 표현될 수 
 즉, 원래 행렬 $X$가 완벽하게 lower triangular matrix인 $L$과, upper triangular matrix인 $U$ 두 행렬의 곱으로 표현됐다. 우리가 목표로 했던 Matrix decompoistion (분햬)를 완성했다. 물론, 위의 GE 과정에서 pivot들의 위치에 따라 permutation matrix 를 곱해서 진행해야하는 경우도 있지만, 우리는 위와 같은 간단한 예시만을 살펴보았다. 추가적으로 해당 LU decompoistion 이 $$3 \times 3$$ 행렬과 같은 더 큰 사이즈의 matrix에도 적용이 되는지 아래를 통해 살펴보자.
 
 <center>$$\begin{bmatrix} 3 & 2 & 1 \\ 6 & 2 & 5 \\ 9 & 1 & 8 \end{bmatrix}$$</center>
-아래와 같이 GE 결과 행렬을 우항에, 해당 결과 행렬을 만들기 위한 행렬 곱 형태를 좌항에 적어준다.
+아래와 같이 row reduction을 한 번 진행한 GE 중간 결과 행렬을 우측 항에, 해당 결과 행렬을 만들기 위한 행렬 곱 형태를 좌측 항에 적어준다.
 <center>$$\begin{bmatrix} 1 & 0 & 0 \\ -2 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}\begin{bmatrix} 3 & 2 & 1 \\ 6 & 2 & 5 \\ 9 & 1 & 8 \end{bmatrix} = \begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 9 & 1 & 8 \end{bmatrix}$$</center>
-위의 세 개 행렬에서 우항에 있는 행렬을 추가적으로 GE를 계속 진행한다.
+
+위의 세 개 행렬에서 우측 항에 있는 GE 중간 결과 행렬에 대해 추가적으로 GE를 계속 진행한다.
+
 <center>$$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -3 & 0 & 1 \end{bmatrix}\begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 9 & 1 & 8 \end{bmatrix} = \begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 0 & -5 & 5 \end{bmatrix}$$</center>
 
 <center>$$\begin{bmatrix} 1 & 0 & 0 \\ -\frac{5}{2} & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}\begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 0 & -5 & -5 \end{bmatrix} = \begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 0 & 0 & -\frac{5}{2} \end{bmatrix}$$</center>
 
-최종적으로 우항에 GE가 완성된 형태로 만들었다. 첫 번째 행렬 $$\begin{bmatrix} 3 & 2 & 1 \\ 6 & 2 & 5 \\ 9 & 1 & 8 \end{bmatrix}$$ 에 총 3개의 행렬을 순차적으로 곱함으로써, GE 결과물에 해당하는 행렬 $$\begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 0 & 0 & -\frac{5}{2} \end{bmatrix}$$ 를 얻었다. 정리해보면, 원래 행렬 $A$의 좌측에 총 3개의 행렬 $$X, Y, Z$$를 곱함으로써 GE 결과 행렬 $$A^{\prime}$$ 을 얻었다.
+최종적으로 우항에 GE가 완성된 형태로 만들었다. 정리해보면, 첫 번째 행렬 $$\begin{bmatrix} 3 & 2 & 1 \\ 6 & 2 & 5 \\ 9 & 1 & 8 \end{bmatrix}$$ 에 총 3개의 행렬을 순차적으로 곱함으로써, GE 결과물에 해당하는 행렬 $$\begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 0 & 0 & -\frac{5}{2} \end{bmatrix}$$ 를 얻었다.  원래 행렬 $A$의 좌측에 총 3개의 행렬 $$X, Y, Z$$를 곱함으로써 GE 결과 행렬 $$A^{\prime}$$ 을 얻었다.
 <center>$$\begin{bmatrix} 1 & 0 & 0 \\ -\frac{5}{2} & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -3 & 0 & 1 \end{bmatrix}\begin{bmatrix} 1 & 0 & 0 \\ -2 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}\begin{bmatrix} 3 & 2 & 1 \\ 6 & 2 & 5 \\ 9 & 1 & 8 \end{bmatrix} = \begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 0 & 0 & -\frac{5}{2} \end{bmatrix}$$</center>
 <center>$$(ZYX)A = A^{\prime}$$</center>
+
+위의 세 개 행렬을 곱한 $L$행렬($$(ZYX)^{-1}$$) 을 양변의 좌측에 곱해주면, 마찬가지로 $$ A = LU $$로 표현됨을 알 수 있다. 결과적으로, 사이즈가 더 큰 행렬들에 대해서도 lower triangular matrix를 연속적으로 계속 곱함으로써, upper triangular matrix를 만들어낼 수 있음을 알 수 있다.
+
+## LDU Decomposition
+$\ $ LDU 분해는, 위에서 진행한 LU 분해에서 한 발자국 더 나아간 것인데, LU 분해에서 얻은 upper triangular matrix에 해당하는 matrix U 를 diagonal matrix인 D와, 새로운 upper triangular matrix U로 분해하는 것이다. U 에 해당하는 $$\begin{bmatrix} 3 & 4 \\ 0 & -3 \end{bmatrix}$$을 분해해보면 아래와 같다.
+<center>$$\begin{bmatrix} 3 & 4 \\ 0 & -3 \end{bmatrix} = \begin{bmatrix} 3 & 0 \\ 0 & -3 \end{bmatrix}\begin{bmatrix} 1 & \frac{4}{3} \\ 0 & 1 \end{bmatrix}$$</center>
+결과적으로 D 행렬과 U 행렬로 분해됐으며, 위와 같은 분해가 항상 가능하다는 것은 직접 손으로 분해해보면 쉽게 깨닫는다.
+위에서 진행했던 LU decomposition 과정을 LDU 로 확장시키며 행렬 분해에 대한 내용을 끝마친다.
+<center>$$\begin{bmatrix} 3 & 4 \\ 6 & 5 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}\begin{bmatrix} 3 & 4 \\ 0 & -3 \end{bmatrix}$$</center>
+
+<center> $$ X = LU $$ </center>
+
+<center>$$\rightarrow \begin{bmatrix} 3 & 4 \\ 6 & 5 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}\begin{bmatrix} 3 & 0 \\ 0 & -3 \end{bmatrix}\begin{bmatrix} 1 & \frac{4}{3} \\ 0 & 1 \end{bmatrix}$$</center>
+
+<center> $$ X = LDU $$ </center>
 
 > references
 https://math.stackexchange.com/questions/266355/necessity-advantage-of-lu-decomposition-over-gaussian-elimination
