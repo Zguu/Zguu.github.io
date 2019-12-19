@@ -8,10 +8,21 @@ tags: LinearAlgebra SVD Decomposition Factorization
 ## Unitary Matrix, Conjugate Transpose
 
 ### Unitary Matrix
-아주 간단하게 말해서, $$AA^T = I$$ 를 만족하는 A 를 unitary matrix 라고 한다. 자기 자신의 전치행렬 transpose가 역행렬인 경우 $$A^T = A^{-1}$$, 해당 행렬은 unitary matrix 라고 칭한다.
+아주 간단하게 말해서, $$AA^T = I$$ 를 만족하는 A 를 unitary matrix 라고 한다. 자기 자신의 전치행렬 transpose가 역행렬인 경우 $$A^T = A^{-1}$$, 해당 행렬은 unitary matrix 라고 칭한다. Orthogonal Matrix 와 같은 형태이며, 해당 행렬에 대한 예시는 다음과 같다.
+#### Examples
+- $$ M = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$$
+- $$ M = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$$
+- $$ M = \begin{bmatrix} 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 1 & 0 & 0 & 0 \\ 0 1 & 0 & 0 \end{bmatrix}$$
+- $$ M = \begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}$$
 ### Conjugate Transpose
-$\ $Conjugate Transpose는 말 그대로 행렬을 전치(transpose)해주고, 해당 복소수(complex)들을 그에 대한 conjugate 값으로 대체해주는 것이다. ***Hermitian conjugate, bedaggered matrix, adjoint matrix, transjugate*** 등 다양한 이름으로 불린다고 한다. 표기 또한 다양하며 아래의 예시를 보면 쉽게 어떤 개념인지 확인할 수 있다. ***bedaggered matrix*** 라는 이름은 아무래도 이 행렬을 표기할 때에 dagger 모양을 이용해서 표현하기 때문에 그런듯 하다 ($$ U^{\dagger}$$).
-
+$\ $Conjugate Transpose는 말 그대로 행렬을 전치(transpose)해주고, 해당 복소수(complex)들을 그에 대한 conjugate 값으로 대체해주는 것이다. ***Hermitian conjugate, bedaggered matrix, adjoint matrix, transjugate*** 등 다양한 이름으로 불린다고 한다. 표기 또한 다양하며 아래의 예시를 보면 쉽게 어떤 개념인지 확인할 수 있다. ***bedaggered matrix*** 라는 이름은 아무래도 이 행렬을 표기할 때에 dagger 모양을 이용해서 표현하기 때문에 그런듯 하다 ($$ U^{\dagger}$$). Conjugate Transpose 행렬에 대한 정의는 다음과 같이 표기한다.<br>
+<center>$$\mathbf{A}^H = (\bar{\mathbf{A}})^T = \bar{\mathbf{A}^T}$$</center>
+예시는 다음과 같다.
+<center> $$ A = \begin{bmatrix} 1 & -2-i & 5 \\ 1 + i & i & 4 - 2i \end{bmatrix}$$</center>
+행렬 $A$가 위와 같다면, 그에 대한 tranpose는 다음과 같다.
+<center> $$ A = \begin{bmatrix} 1 & 1+i \\ -2-i & i \\ 5 & 4-2i \end{bmatrix}$$</center>
+tranpose 이후에 각 원소들을 conjugate 값으로 바꾼다.
+<center> $$ A = \begin{bmatrix} 1 & 1-i \\ -2+i & -i \\ 5 & 4+2i \end{bmatrix}$$</center>
 ## SVD
 $\ $ SVD 행렬 분해는 $M$라는 행렬을 $$U\Sigma V^T$$ 총 3개의 행렬로 분해한다. $$m \times n$$ 형태의 행렬 $M$이 있을 때, 이 행렬을 $$m \times m$$ 모양인 행렬 $U$, $$m \times n$$ 모양인 행렬 $\Sigma$, 마지막으로 $$n \times n$$ 모양인 행렬 $$V^T$$ 총 3개로 분해하게 된다. 여기에서 $$\Sigma$$ 행렬을 가운데로 왼쪽과 오른쪽에 위치하는 $$M$$, $$V^T$$행렬을 각각 ***left-singular vectors***, ***right-singular vectors*** 로 지칭한다. <br>
 $\ $뒤에서 다시 예시를 보며 다루겠지만, $$U$$, $$V^T$$ 행렬은 모두 unitary matrix에 해당한다. 또한, $$\Sigma$$ 행렬은 정사각형의 diagonal matrix 이며, diagonal 원소들은 모두 0 이상의 값을 갖는다. 실제 행렬을 SVD 방법론으로 분해해보면서, $$M, \Sigma, V^T$$ 행렬의 각 계산법에 대해 먼저 익히고, SVD 가 갖는 의미에 대해 살펴보자.
@@ -46,7 +57,7 @@ $$\lambda = 8$$일 때, eigenvector $$\mathbf{x}_1$$은 $$(\frac{1}{\sqrt{6}},\f
 
 $$\lambda = 8$$일 때, eigenvector $$\mathbf{y}_1$$은 $$(\frac{1}{\sqrt{6}},\frac{3}{\sqrt{12}} ,\frac{1}{\sqrt{12}})$$ 이다. 마찬가지로, $$\lambda = 2$$일 때, eigenvector $$\mathbf{y}_2$$은 $$(\frac{1}{\sqrt{3}},0 ,-\frac{2}{\sqrt{6}})$$ , $$\lambda = 0$$일 때, eigenvector $$\mathbf{y}_3$$은 $$(\frac{1}{\sqrt{2}},-\frac{1}{2} ,\frac{1}{2})$$ 이다. 이를 종합해서 ***right-singular vectors$*** 행렬인 $V$ 를 표현하면 다음과 같다.
 
-<center>$$ V = \begin{bmatrix} \frac{1}{\sqrt{6}} &  \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} \\ \frac{3}{\sqrt{12}} & 0 & -\frac{1}{2} \\ \frac{1}{\sqrt{12}} & -\frac{2}{\sqrt{6}} & \frac{1}{2}\end{bmatrix}$$.</center>
+<center>$$ V = \begin{bmatrix} \frac{1}{\sqrt{6}} &  \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} \\ \frac{3}{\sqrt{12}} & 0 & -\frac{1}{2} \\ \frac{1}{\sqrt{12}} & -\frac{2}{\sqrt{6}} & \frac{1}{2}\end{bmatrix}$$</center>
 
 우리가 구하고자 한 $$U, V$$행렬은 모두 구했고, $\Sigma$ 행렬은 eigenvalues들을 통해 다음과 같이 간단하게 표현할 수 있다. $$\Sigma = \begin{bmatrix} 2\sqrt{2} & 0 & 0 \\ 0 & \sqrt{2} & 0 \\ 0 & 0 & 0 \end{bmatrix}$$
 
@@ -57,3 +68,9 @@ $$\lambda = 8$$일 때, eigenvector $$\mathbf{y}_1$$은 $$(\frac{1}{\sqrt{6}},\f
 
 > 위에서 언급했던, <br>
 3. $$MM^T$$와, $$M^TM$$에서 각각 얻은 고유값들 중에 양수인 값들의 루트 값을 이용해 diagonal한 matrix를 생성했을 때, 해당 행렬은 $$\Sigma$$가 된다. 이 부분을 상기하자.
+
+> references:
+  https://en.wikipedia.org/wiki/Orthogonal_matrix
+  https://en.wikipedia.org/wiki/Singular_value_decomposition
+  https://en.wikipedia.org/wiki/Conjugate_transpose
+  https://mysite.science.uottawa.ca/phofstra/MAT2342/SVDproblems.pdf
