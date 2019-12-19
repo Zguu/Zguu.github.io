@@ -14,7 +14,7 @@ $\ $Gaussian Elimination(GE)는 Row Reduction이라고도 부르는데, 우리�
 사실 여기에서 각 행의 pivot들을 1로 만들도록 해주는 과정까지 진행해야 완벽한 GE라고 볼 수 있지만, 우리는 우선 이렇게 upper triangular matrix를 완성하고 멈추도록 해보자.
 <center>$$A = \begin{bmatrix} 4 & 5 \\ 8 & 11 \end{bmatrix}$$</center>
 <center>$$\rightarrow \begin{bmatrix} 4 & 5 \\ 0 & 1 \end{bmatrix} = A^{\prime}$$</center>
-처음 행렬 형태를 $A$ 행렬, GE 과정을 마친 결과 행렬을 $A^{\prime} 행렬로 지정하고, 해당 행렬들이 서로 행렬의 곱으로 표현될 수 있음을 아래를 통해 확인해보자.
+처음 행렬 형태를 $A$ 행렬, GE 과정을 마친 결과 행렬을 $$A^{\prime}$$ 행렬로 지정하고, 해당 행렬들이 서로 행렬의 곱으로 표현될 수 있음을 아래를 통해 확인해보자.
 <center>$$\begin{bmatrix} 1 & 0 \\ -2 & 1 \end{bmatrix}\begin{bmatrix} 4 & 5 \\ 8 & 11 \end{bmatrix} = \begin{bmatrix} 4 & 5 \\ 0 & 1 \end{bmatrix}$$</center>
 <center>$$LA = A^{\prime}$$</center>
 원래의 $A$ 행렬 좌측에 $$L = \begin{bmatrix} 1 & 0 \\ -2 & 1\end{bmatrix}$$ 행렬을 곱함으로써, $A^{\prime}$행렬을 얻었다. 사실 여기서 $L$ 행렬(left matrix)의 원소 -2 가 그냥 0 이었다면 $L$ 행렬은 ***identity*** 행렬에 불과하다. 하지만 2번째 행 첫번째 원소를 -2 로 바꾼 행렬 $L$를 곱함으로써 GE를 진행한 것과 같은 결과를 내게 됐는데, 아직까지 이에 대한 인싸이트가 와닿지 않는다면 하나의 예시를 더 보도록 하자.
@@ -27,7 +27,7 @@ $\ $Gaussian Elimination(GE)는 Row Reduction이라고도 부르는데, 우리�
 $\ $ 우리가 GE 과정에서 행렬들을 triangular 형태로 만들기 위해, (다항식에서는 우리가 가감법을 하기 위해 한 행에 특정 상수를 곱하고, 일부 미지수들의 계수 값이 같도록 하는 것) 특정 행렬에 곱했던 상수가, left matrix 의 해당 위치에 다시 나타난다는 것이다. 우리가 여기에서 얻을 수 있는 교훈은 총 두가지다.
 
 - GE 과정에서 결과 행렬은 일반적으로 upper triangular matrix이며, left matrix는 lower triangular matrix의 형태를 보인다.
-- lower triangular matrix 에 해당하는 왼쪽 행렬은 ***identity matrix*** ($I$)의 일부 변형된 꼴이며, 우리가 GE 진행 과정에서 각 행의 가감을 위해 곱하거나 나눴던 상수들이 해당 위치 원소들을 대체한다. 지금까지 확인한 GE와 multiplication 간의 관계를 일반화해서 얘기해보면, 결국 GE는 큰 범위에서 matrix multiplication의 일종이라는 것이다. 물론, 위에서 예를 든 행렬들 외에 다른 변칙적 행렬들 같은 경우는 permutation 행렬 ($P$)를 적절한 위치에 곱해줘야하는 필요도 있느나, 그 또한 행렬의 곱 연산 범위 내에서 모두 표현이 가능하다.
+- lower triangular matrix 에 해당하는 왼쪽 행렬은 ***identity matrix*** ($I$)의 일부 변형된 꼴이며, 우리가 GE 진행 과정에서 각 행의 가감을 위해 곱하거나 나눴던 상수들이 해당 위치 원소들을 대체한다. 지금까지 확인한 GE와 multiplication 간의 관계를 일반화해서 얘기해보면, 결국 GE는 큰 범위에서 matrix multiplication의 일종이라는 것이다. 물론, 위에서 예를 든 행렬들 외에 다른 변칙적 행렬들 같은 경우는 permutation 행렬 ($P$)를 적절한 위치에 곱해줘야하는 필요도 있으나, 그 또한 행렬의 곱 연산 범위 내에서 모두 표현이 가능하다.
 최종적으로, 어떤 행렬 $$X$$ 는 $$LX = U$$로 표현될 수 있다는 점을 꼭 명심하고 넘어가자.<br>
 ***여기까지만 오면 사실 LU decomposition은 거의 다 된거나 다름없다.***
 > L = lower triangular matrix, U = upper triangular matrix
@@ -38,6 +38,19 @@ $\ $위에서 우리는 어떤 행렬 $X$는 $$LX = U$$ 형태로 표현될 수 
 <center>$$\begin{bmatrix} 1 & 0 \\ -2 & 1 \end{bmatrix}\begin{bmatrix} 3 & 4 \\ 6 & 5 \end{bmatrix} = \begin{bmatrix} 3 & 4 \\ 0 & -3 \end{bmatrix}$$</center>
 위와 같이 GE 결과를 $$LX = X^{\prime}$$ 형태로 표현한 후, $L$행렬의 역함수를 구해서 양변의 좌측에 곱해준다. $$\begin{bmatrix} 1 & 0 \\ -2 & 1 \end{bmatrix}$$ 행렬의 역함수는 $$\begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}$$이며, 해당 역함수를 양 변에 곱한 형태는 다음과 같다.
 <center>$$\begin{bmatrix} 3 & 4 \\ 6 & 5 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 2 & 1 \end{bmatrix}\begin{bmatrix} 3 & 4 \\ 0 & -3 \end{bmatrix}$$</center>
-즉, 원래 행렬 $X$가 완벽하게 lower triangular matrix인 $L$과, upper triangular matrix인 $U$ 두 행렬의 곱으로 표현됐다.
+즉, 원래 행렬 $X$가 완벽하게 lower triangular matrix인 $L$과, upper triangular matrix인 $U$ 두 행렬의 곱으로 표현됐다. 우리가 목표로 했던 Matrix decompoistion (분햬)를 완성했다. 물론, 위의 GE 과정에서 pivot들의 위치에 따라 permutation matrix 를 곱해서 진행해야하는 경우도 있지만, 우리는 위와 같은 간단한 예시만을 살펴보았다. 추가적으로 해당 LU decompoistion 이 $$3 \times 3$$ 행렬과 같은 더 큰 사이즈의 matrix에도 적용이 되는지 아래를 통해 살펴보자.
+
+<center>$$\begin{bmatrix} 3 & 2 & 1 \\ 6 & 2 & 5 \\ 9 & 1 & 8 \end{bmatrix}$$</center>
+아래와 같이 GE 결과 행렬을 우항에, 해당 결과 행렬을 만들기 위한 행렬 곱 형태를 좌항에 적어준다.
+<center>$$\begin{bmatrix} 1 & 0 & 0 \\ -2 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}\begin{bmatrix} 3 & 2 & 1 \\ 6 & 2 & 5 \\ 9 & 1 & 8 \end{bmatrix} = \begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 9 & 1 & 8 \end{bmatrix}$$</center>
+위의 세 개 행렬에서 우항에 있는 행렬을 추가적으로 GE를 계속 진행한다.
+<center>$$\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -3 & 0 & 1 \end{bmatrix}\begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 9 & 1 & 8 \end{bmatrix} = \begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 0 & -5 & 5 \end{bmatrix}$$</center>
+
+<center>$$\begin{bmatrix} 1 & 0 & 0 \\ -\frac{5}{2} & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}\begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 0 & -5 & -5 \end{bmatrix} = \begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 0 & 0 & -\frac{5}{2} \end{bmatrix}$$</center>
+
+최종적으로 우항에 GE가 완성된 형태로 만들었다. 첫 번째 행렬 $$\begin{bmatrix} 3 & 2 & 1 \\ 6 & 2 & 5 \\ 9 & 1 & 8 \end{bmatrix}$$ 에 총 3개의 행렬을 순차적으로 곱함으로써, GE 결과물에 해당하는 행렬 $$\begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 0 & 0 & -\frac{5}{2} \end{bmatrix}$$ 를 얻었다. 정리해보면, 원래 행렬 $A$의 좌측에 총 3개의 행렬 $$X, Y, Z$$를 곱함으로써 GE 결과 행렬 $$A^{\prime}$$ 을 얻었다.
+<center>$$\begin{bmatrix} 1 & 0 & 0 \\ -\frac{5}{2} & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -3 & 0 & 1 \end{bmatrix}\begin{bmatrix} 1 & 0 & 0 \\ -2 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}\begin{bmatrix} 3 & 2 & 1 \\ 6 & 2 & 5 \\ 9 & 1 & 8 \end{bmatrix} = \begin{bmatrix} 3 & 2 & 1 \\ 0 & -2 & 3 \\ 0 & 0 & -\frac{5}{2} \end{bmatrix}$$</center>
+<center>$$(ZYX)A = A^{\prime}$$</center>
+
 > references
 https://math.stackexchange.com/questions/266355/necessity-advantage-of-lu-decomposition-over-gaussian-elimination
