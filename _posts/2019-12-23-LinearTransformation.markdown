@@ -24,6 +24,7 @@ $$x, y$$ 평면에서 어떠한 점이든지 우리는 $i, j$ 벡터들의 조�
 $\ $우리가 항상 그래왔고 위에서도 그랬듯이, 항상 basis vector를 $$ i = \begin{bmatrix} 1 \\ 0 \end{bmatrix} $$, $$j = \begin{bmatrix} 0 \\ 1 \end{bmatrix} $$ 와 같이 설정해야만 할까? 라고 묻는다면 당연히 다른 방법이 존재할 것이다. 바로 예시를 보자.
 <center>$$\begin{bmatrix} 1 & 3 \\ -2 & -1 \end{bmatrix} \begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 5 \\ -5 \end{bmatrix}$$</center>
 위의 결과는 다음과 같이 해석될 수 있다.
-<center>$$ 2 \begin{bmatrix} 1 \\ -2 \end{bmatrix}  + \begin{bmatrix} 3 \\ -1 \end{bmatrix} = \begin{bmatrix} 5 \\ -5 \end{bmatrix}</center> 
+<center>$$ 2 \begin{bmatrix} 1 \\ -2 \end{bmatrix}  + \begin{bmatrix} 3 \\ -1 \end{bmatrix} = \begin{bmatrix} 5 \\ - \end{bmatrix}$$</center>
+위의 예시에서, 두개의 basis vector는 각각 $$\begin{bmatrix} 1 \\ -2 \end{bmatrix}$$와 $$\begin{bmatrix} 3 \\ -1 \end{bmatrix}$$로 표현됐는데, 이렇게 basis vector를 우리가 기존에 알고있던 길이 1의 식상한 벡터들과 다르게 잡는 것이 어떤 의미가 있는지 기하학적으로 이해할 필요가 있다.
 > reference :
   https://www.youtube.com/watch?v=kYB8IZa5AuE&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=3
