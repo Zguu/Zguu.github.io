@@ -34,7 +34,7 @@ $\ $뒤에서 다시 예시를 보며 다루겠지만, $$U$$, $$V^T$$ 행렬은 
 1. 행렬 $M$이 주어졌을 때, $U$ 행렬은 $$MM^T$$의 orthonormal eigenvector 이다.
 2. 행렬 $M$이 주어졌을 때, $V$ 행렬은 $$M^TM$$의 orthonormal eigenvector 이다.
 3. $$MM^T$$와, $$M^TM$$에서 각각 얻은 고유값들 중에 양수인 값들의 ***루트값*** 을 이용해 diagonal한 matrix를 생성했을 때, 해당 행렬이 $$\Sigma$$ 이다.
-> ex) $$MM^T$$의 고유값이 (2,8,0), $$M^TM$$의 고유값이 (2,8) 이라면, 두 고유값 집합에 모두 포함되는 2와 8을 이용해 diagonal matrix를 만든다. 만약 이 diagonal matrix의 사이즈가 2 초과라면, 다른 대각행렬의 원소들은 0으로 채운다. $$\begin{bmatrix} 2 & 0 & 0 \\ 0 & 8 & 0 \\ 0 & 0 & 0 \end{bmatrix}$$
+> ex) $$MM^T$$의 고유값이 (2,8,0), $$M^TM$$의 고유값이 (2,8) 이라면, 두 고유값 집합에 모두 포함되는 2와 8을 이용해 diagonal matrix를 만든다. 만약 이 diagonal matrix의 사이즈가 2 초과라면, 다른 대각행렬의 원소들은 0으로 채운다. $$\begin{bmatrix} \sqrt{2} & 0 & 0 \\ 0 & \sqrt{8} & 0 \\ 0 & 0 & 0 \end{bmatrix}$$
 
 $\ $실제 행렬을 보며 위의 계산 방법을 적용해보자.
 <center>$$ M = \begin{bmatrix} 0 & 1 & 1 \\ \sqrt{2} & 2 & 0 \\ 0 & 1 & 1 \end{bmatrix}$$</center>
@@ -52,7 +52,7 @@ $$\lambda = 8$$일 때, eigenvector $$\mathbf{x}_1$$은 $$(\frac{1}{\sqrt{6}},\f
 <center>$$ U = \begin{bmatrix} \frac{1}{\sqrt{6}} &  -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}} \\ \frac{2}{\sqrt{6}} & \frac{1}{\sqrt{3}} & 0 \\ \frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\end{bmatrix}$$</center>
 
 정리해보면, 위의 $U$ 행렬은 $$MM^T$$행렬의 eigenvectors들을 이용해 표현했다. 그런데 여기서 사실 중요한 것은 해당 eigenvector들이 orthonormal 하도록 normalize를 꼭 해줘야 한다는 것이다.
-> 각 행렬들이 서로 orthogonality를 만족하며 길이는 1이 되는 벡터 형태
+> 각 벡터들이 서로 orthogonality를 만족하며 길이는 모두 1이 되는 벡터들로 이뤄진 형태
 
 마찬가지로 $V$행렬을 구해보면, 이번에는 $$MM^T$$가 아닌 $$M^T$$ 행렬의 eigenvector들의 형태로 표현한다. 위의 $M$ 행렬의 $$M^TM$$를 계산해보면 다음과 같다.
 <center>$$M^TM = \begin{bmatrix} 2 & 2\sqrt{2} & 0 \\ 2\sqrt{2} & 6 & 2 \\ 0 & 2 & 2 \end{bmatrix}$$</center>
