@@ -60,12 +60,12 @@ y 값들은 다음과 같이 변환해준다.
 y_train = np.asarray(train_labels).astype('float32')
 y_test = np.asarray(test_labels).astype('float32')
 ```
+
 ## Simplest NN model implementation
 세상 간단한 NN 모델 구축의 형태
 - Two Hidden layers
 - Output layers
-- Optimization function은 여러개가 존재하지만, `rmsprop`을 대부분의 상황에서 사용해도 된다고 한다. (굳!)
-
+- Optimization function은 여러개가 존재하지만, ```rmsprop```을 대부분의 상황에서 사용해도 된다고 한다. (굳!)
 
 ```python
 '''
