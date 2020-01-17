@@ -34,8 +34,9 @@ decode 된 결과는 다음과 같다.
 
 ### Data Preparation
 - 길이가 다른 각 array들을 padding을 활용해 같은 길이의 array로 만들 수 있다. 가장 길이가 긴 array는 길이가 2494개 이므로, 전체 array shape는 (25000, 2494)가 된다. (정수 텐서로 변환된다.) 이후에 이 정수 텐서를 다룰 수 있는 층을 신경망의 첫 번째 층으로 사용한다. (Embedding 층이며, 이에 대한 이야기는 추후에 다룬다.)
-- One-hot encoding을 사용한다.<br>
-간단한 One-hot encoder 함수 코드는 다음과 같다.
+- One-hot encoding을 사용한다.
+<br>
+간단한 One-hot encoder 함수 코드는 다음과 같다.<br>
 ```python
 '''
 one-hot encoding
@@ -62,7 +63,7 @@ y_test = np.asarray(test_labels).astype('float32')
 세상 간단한 NN 모델 구축의 형태
 - Two Hidden layers
 - Output layers
-- Optimization function은 여러개가 존재하지만, ```rmsprop```을 대부분의 상황에서 사용해도 된다고 한다. (굳!)
+- Optimization function은 여러개가 존재하지만, ```rmsprop``` 최적화 함수를 대부분의 상황에서 사용해도 된다고 한다. (굳!)
 
 ```python
 '''
@@ -141,6 +142,7 @@ Loss 그래프에서도 확인 할 수 있었지만, accuracy 또한 3,4회 이�
 - 위의 예시에는 0 아니면 1 값만 갖는 분류 문제였지만, 이번에는 총 46개의 클래스로 분류를 진행하자.
 - 여러개 범주로 분류될 수는 있지만, 결국 하나의 값만 갖는 결과가 나오기 때문에 정확히 말하면 single-label multiclass classification에 해당한다.
 - 만약 각각의 데이터 포인트가 여러 개의 범주에 속할 수 있다면, multi-label, multiclass classification에 해당한다.
+
 ### Hello Data
 1986년 로이터가 공개한 **로이터 데이터셋** 을 사용하자. 총 46개의 토픽이 있으며 짧은 뉴스 기사에 대한 데이터들을 포함한다. 로이터 뉴스 데이터는 위의 IMDB 데이터와 거의 완벽하게 같다. 입력 데이터 X는 단어들로 이뤄져있다. 다만, 딱 한가지 다른 점은 출력 값 (뉴스 카테고리에 해당하는 값)은 0 또는 1의 형태를 취하는 것이 아니라, 어떤 카테고리의 뉴스에 속하는지를 알려주는 라벨이며 이 라벨이 총 46개이기 때문에, 총 46가지의 출력 종류가 존재한다. 따라서 트레이닝 라벨과 테스트 라벨들의 값을 카테고리컬한 값으로 코딩해줘야한다. 이 부분만 앞의 IMDB의 binary Classification과 다를 뿐이다. 아래의 데이터 로딩 및 디코드 예시는 IMDB 예시와 완벽히 같다.
 ```python
@@ -268,8 +270,7 @@ plt.show()
 ## House pricing prediction
 마지막으로, 앞의 두 예시에서 확인한 분류 문제가 아니라 회귀 문제에 NN 모델을 적용해본다. 대부분 모델 구성은 같으므로 중복 부분은 설명하지 않는다.
 ### Hello Data
-Data 전처리에서 단 한가지 유념해야 할 것은, 단위에 민감한 회귀 문제이므로, 각 변수들을 정규화해준다. 정규화를 하지않아도 뉴럴넷이 자동으로 학습하는 경우도 많이 있지만,단위가 큰 변수에 영향을 크게 받아서 해당 변수에만 의존해 경사 하강을 진행할 가능성이 높아지므로 변수 정규화를 진행한다.
-
+Data 전처리에서 단 한가지 유념해야 할 것은, 단위에 민감한 회귀 문제이므로, 각 변수들을 정규화해준다. 정규화를 하지않아도 뉴럴넷이 자동으로 학습하는 경우도 많이 있지만,단위가 큰 변수에 영향을 크게 받아서 해당 변수에만 의존해 경사 하강을 진행할 가능성이 높아지므로 변수 정규화를 진행한다. 회귀 문제에 해당하므로, ```softmax```나 ```sigmoi```와 같은 출력층 함수는 사용할 필요가 없다. loss 함수는 회귀 문제이므로 ```mse``` 를 사용하자.
 ```python
 from keras.datasets import boston_housing
 
@@ -389,3 +390,5 @@ plt.plot(range(10,500), smoothed, color = 'c')
 plt.show()
 ```
 <center><img src="https://imgur.com/NfyaRxD.png" width="80%" height="80%"></center>
+epoch이 약 60을 초과하면서부터 MAE는 명백히 over fitting을 가리키고 있다. 해당 추세는 smoothed 되기 전 원래 그래프에서는 확인하기가 힘들었던 것이다. EMA를 활용해 시각적으로 적절 epoch을 찾을 수 있게 됐다. 물론, 증가 감소 추세의 극점을 찾는 함수로 발견할 수도 있다. <br>
+이상으로 간단한 NN 모델을 활용해 분류와 회귀 문제에 적용해보았다. 끗!
