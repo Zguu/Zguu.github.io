@@ -6,7 +6,7 @@ tags: MachineLearning Recommender System SVD LinearAlgebra
 # SVD를 다시 떠올려보자
 $\ $SVD를 이용하면, 우리에게 주어진 어떤 행렬 $A$를 총 세개의 행렬로 분해할 수 있다. <br>
 <center>$$A = U\sum V^T$$ </center>
-이렇게 분해된 총 세개의 행렬을 다시 곱하면 당연히도 원래 행렬 $$A$$를 얻게된다. SVD 행렬 분해는 일반적으로 non-sparse 행렬에서는 매우 잘 작동하지만, real data 들이 공통적으로 보여주는 spare 형태 행렬에서는 잘 작동하지 않는다
+이렇게 분해된 총 세개의 행렬을 다시 곱하면 당연히도 원래 행렬 $$A$$를 얻게된다. SVD 행렬 분해는 일반적인 non-sparse 행렬에서뿐만 아니라 real data 들이 공통적으로 보여주는 spare 형태 행렬에서도 잘 작동한다. 하지만, 영화 평점을 예측하는 것과 같은 explicit dataset이 아닌, implicit dataset 에서의 추천에서는 잘 작동하지 않을 수 있다.
 > 잘 작동한다? 라는 말은, 분해된 세개의 행렬을 다시 곱해서 원래 행렬 $A$를 만들었을 때, 원래 행렬과 값 차이가 거의 나지 않는다는 말이다. 하지만 원래 행렬 $A$가 sparse하면 할 수록, 분해 이후 얻게 된 행렬들의 곱으로 다시 $A$를 만들어도 값이 일치하지 않을 수 있다.
 
 ## Latent Factor??
