@@ -108,7 +108,7 @@ S = min_mn_I[:m,:n]
 ```python
 np.dot(u, np.dot(S,vh))
 ```
-<center><img src="https://imgur.com/OYGGNZ1.png" width="50%" height="50%"></center>
+<center><img src="https://imgur.com/QFRKlxZ.png" width="50%" height="50%"></center>
 
 > references:
   https://en.wikipedia.org/wiki/Orthogonal_matrix
