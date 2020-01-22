@@ -73,6 +73,43 @@ $$\lambda = 8$$일 때, eigenvector $$\mathbf{y}_1$$은 $$(\frac{1}{\sqrt{6}},\f
   "$$MM^T$$와, $$M^TM$$에서 각각 얻은 고유값들 중에 양수인 값들의 루트 값을 이용해 diagonal한 matrix를 생성했을 때, 해당 행렬은 $$\Sigma$$가 된다."  
   이 부분을 상기하자.
 
+## SVD with Python
+$\ $Numpy로 간단하게 SVD를 구현해보자!!! 과연 진짜 분해 후 다시 곱한 결과가 원래 매트릭스 값들과 같을지?
+```python
+import numpy as np
+
+### 4 by 3 행렬을 랜덤하게 선언해주자
+m = 4
+n = 3
+
+a = np.random.rand(m,n)
+```
+아래와 같은 4 by 3 크기의 행렬을 생성했다.
+<center><img src="https://imgur.com/luJl6H0.png" width="50%" height="50%"></center>
+위의 행렬을 `np.linalg.svd()` 함수에 입력해 U, s, Vh 세 개의 분해된 행렬을 얻는다. <br>
+```python
+u, s, vh = np.linalg.svd(a)
+```
+위에서 얻은 세 개의 분해된 행렬들 중에, $s$는 행렬 형태가 아닌, 고유값 벡터의 `array` 형태이기 때문에, 행렬 형태로 바꿔준다.
+```python
+min_mn_I = np.identity(max(m, n))
+
+for i in range(0,max(m,n)):
+    if i < len(s):
+        min_mn_I[i,i] = s[i]
+    else:
+        min_mn_I[i,i] = 0
+
+S = min_mn_I[:m,:n]
+```
+결과적으로 아래와 같은 $S$ 매트릭스를 얻는다.
+<center><img src="https://imgur.com/OYGGNZ1.png" width="50%" height="50%"></center>
+최종적으로, $$U, S, Vh$$ 세개의 행렬들을 곱하게 되면 원래 행렬과 같은 행렬을 얻게 된다. WoW
+```python
+np.dot(u, np.dot(S,vh))
+```
+<center><img src="https://imgur.com/OYGGNZ1.png" width="50%" height="50%"></center>
+
 > references:
   https://en.wikipedia.org/wiki/Orthogonal_matrix
   https://en.wikipedia.org/wiki/Singular_value_decomposition
