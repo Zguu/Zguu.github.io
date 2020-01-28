@@ -126,5 +126,7 @@ $\ $행렬의 사이즈가 크지 않은 덕분에(?), 몇 번의 반복된 학�
 각 ```score```들을 학습하는 ```epoch``` 수가 증가할 수록 빠르게 ```RSS```가 줄어듦을 확인할 수 있다. 아래 그래프는 아주 당연하게도 학습되는 cell의 수가 늘어날 수록 `RSS` 값이 선형적으로 감소한다는 것을 보여준다.
 <center><img src="https://imgur.com/wN1JMM8.png" width="80%" height="80%"></center>
 
-> reference
-  https://medium.com/datadriveninvestor/how-funk-singular-value-decomposition-algorithm-work-in-recommendation-engines-36f2fbf62cac
+> reference<br>
+  https://medium.com/datadriveninvestor/how-funk-singular-value-decomposition-algorithm-work-in-recommendation-engines-36f2fbf62cac<br>
+  https://github.com/NicolasHug/Surprise/blob/master/surprise/prediction_algorithms/matrix_factorization.pyx<br>
+  https://en.wikipedia.org/wiki/Singular_value_decomposition
