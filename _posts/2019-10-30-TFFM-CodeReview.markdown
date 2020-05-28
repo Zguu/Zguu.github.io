@@ -75,6 +75,8 @@ transformed_clicks = pd.get_dummies(initial_clicks_df)
 
 더미화된 데이터프레임 transformed_buys와 transformed_clicks은 item ID와 Quantity를 제외한 Category 컬럼에 대해 one-hot encoding이 진행됐다. item ID와 quantity는 현재 카테고리 데이터가 아니므로 인코딩에서 제외된다. 이후에, filtered 데이터 프레임들은 'Item' 또는 'Category'를 포함하는 컬럼들로 filtering 한 것이다.
 
+한 세션에서, 여러 번의 구매 이력이 존재할 수 있으며, 해당 구매 기록들은 같은 카테고리 내에서 여러번 일어날 수 있다. 따라서 특정 카테고리 내에서 과거 전체 구매 이력은, session_id 별로 (group by 이후에) 해당 카테고리에 기록된 값들을 더해준다.
+
 ~~~python
 filtered_buys = transformed_buys.filter(regex="Item.*|Category.*")
 filtered_clicks = transformed_clicks.filter(regex="Item.*|Category.*")

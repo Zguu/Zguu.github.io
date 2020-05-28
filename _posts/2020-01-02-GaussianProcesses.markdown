@@ -17,7 +17,7 @@ $\ $이러한 베이지안 회귀 알고리즘들 중에, kernel-based fully Bay
 <center><img src="https://imgur.com/ANWhZBL.png" width="80%" height="80%"></center>
 
 ---
-Distributions not just over random vectors but in fact distributions over random functions
+<center>***Distributions not just over random vectors but in fact distributions over random functions***</center>
 
 ## Gaussian Process Motivation
 $\ $ 가우시안 프로세스를 간단하게 2차원 공간에서 생각해보자. 우리는 현재 1개의 데이터를 갖고 있다 ($$x_1, y_1$$). 이후에, 다른 $$x_n$$ 에서는 어떤 함숫값 $$y_n$$ 를 갖는지를 알아내고자 한다. GP는 이 함숫값 $$y_n$$들이 갖는 값을 점으로 나타나는 것이 아니라 분포로 나타내고자 하며, 이 분포가 Gaussian 분포를 따르기 때문에, 해당 분포의 평균과 분산을 이용해서 표현한다.
@@ -27,7 +27,7 @@ $\ $ 가우시안 프로세스를 간단하게 2차원 공간에서 생각해보
 > 위의 상황에서 연장하여, 우리에게 추가적인 데이터가 주어진 상황을 가정해보자. 우리에게 $$x = 1$$ 에서 $$y = 1$$ 이라는 추가적인 데이터 셋이 주어졌다. 즉, 우리는 지금까지 모든 $$x$$에서 어느정도의 에러를 허용하는 선에서 평균적으로 함숫값은 전부 다 0 일거야 라고 '찍고' 있었는데, 갑자기 $$x = 1$$에서 정답에 해당하는 함숫값은 $$y = 1$$이라고 알게 된 것이다. 그렇다면 우리는 $$ x = 1$$과 매우 가까운 다른 $$x$$, 예를 들면 $$x = 0.9, 1.1$$ 과 같은 점들에서 함숫값들이 여전히 0이라고 믿을 것인가? 아니면 우리가 새로 얻은 정답에 해당하는 $x$ 주변이므로 $$ y = 1$$에 가까운 y라고 생각할 것인가? GP의 핵심 개념은 이런 상황에서 후자를 택하여, 새로 얻은 점 주변에 값들은 그에 상응하는 공분산( 또는 커널 )을 활용하여 믿음을 업데이트 하는 것이다. 당연히 우리가 얻게 된 정답에 가까운 값들일수록, 새롭게 얻은 값에 의한 업데이트 효과가 클 것이고, 멀리 있는 값들일 수록, 새로 얻게 된 정답에 의해서 전혀 영향을 받지 않을 것이다. 우리가 현재 $$x = 1$$에서 $$y = 1$$이라는 힌트를 얻었는데, $$x = 100$$에서도 $$y$$가 1 주변일 것이라는 믿음은 어처구니 없지 않은가. 이렇게 $x$들 간의 거리에 기반하여 상관관계를 반영해 uncertainty를 줄여나가는 것이 GP의 핵심개념이라고 볼 수 있다. 이에 대한 얘기는 다음 섹션의 커널 관련 수식을 보면서 한 번 더 이해하도록 하자.
 
 ## d
-<center><img src="https://imgur.com/ANWhZBL.png" width="50%" height="50%"><img src="https://imgur.com/ANWhZBL.png" width="50%" height="50%"></center>
+<center><img src="https://imgur.com/ivDUi4n.png" width="50%" height="50%"><img src="https://imgur.com/ib8eTDe.png" width="50%" height="50%"></center>
 
 
 > references
