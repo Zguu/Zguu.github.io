@@ -51,5 +51,12 @@ eigenvalue들의 합 또는 곱에 대한 다음과 같은 공식이 존재한�
 > anti-symmetric 행렬 : tranpose($$\mathbf{A}$) = -\mathbf{A}$$ 를 만족하는 행렬 $\mathbf{A}$
 
 이 행렬은 임의의 행렬 $$\mathbf{x}$$와 곱해졌을 때 해당 행렬 $\mathbf{x}$를 90도 회전시키는 행렬이기도 하다. 기하학적으로 생각해봤을 때, 이 회전행렬 $$\mathbf{A}$$는 자신과 곱해지는 행렬을 90도로 회전시켜버리기 때문에, 원래 행렬을 상수배 했을 때 이 회전된 행렬과 같은 방향을 가르키는 것을 불가능하다. 즉, 이 anti-symmetric 행렬은 eigenvector를 가질 수 없다. 하지만 이 행렬의 eigenvector를 한 번 구해보자.
-<center>$$\mathbf{Ax} = \lambda\mathbf{x}</center>
-<center>$$\mathbf{Ax} = \lambda\mathbf{x}</center>
+<center>$$\mathbf{Ax} = \lambda\mathbf{x}$$</center>
+<center>$$(\mathbf{A} - \lambda I)\mathbf{x} = 0$$</center>
+<center>det($$\mathbf{A} - \lambda I$$) = 0 ($\because$ 역행렬 존재 x)</center>
+<center>$$\mathbf{A} - \lambda I = \begin{bmatrix} -\lambda & 1 \\ -1 & -\lambda$$, det($$\mathbf{A} - \lambda I$$) = $$\lambda^{2}$$ + 1 = 0</center>
+
+여기서 우리는 $$\lambda = -i, i$$이라는 두 개의 eigenvalues를 얻는데, 이 둘은 비록 실수가 아님에도 불구하고 그 합은 0으로, A의 diagonal 값들의 합인 (0 + 0) = 0 과 같다.<br>
+또한, 두 허수의 곲 $$-i^{2} = 1$$은 $\mathbf{A}$의 determinant인 1과도 일치한다.
+
+## symmetric and definite matrices
