@@ -54,9 +54,27 @@ eigenvalue들의 합 또는 곱에 대한 다음과 같은 공식이 존재한�
 <center>$$\mathbf{Ax} = \lambda\mathbf{x}$$</center>
 <center>$$(\mathbf{A} - \lambda I)\mathbf{x} = 0$$</center>
 <center>det($$\mathbf{A} - \lambda I$$) = 0 ($\because$ 역행렬 존재 x)</center>
-<center>$$\mathbf{A} - \lambda I = \begin{bmatrix} -\lambda & 1 \\ -1 & -\lambda$$, det($$\mathbf{A} - \lambda I$$) = $$\lambda^{2}$$ + 1 = 0</center>
+<center>$$\mathbf{A} - \lambda I = \begin{bmatrix} -\lambda & 1 \\ -1 & -\lambda \end{bmatrix}$$, det($$\mathbf{A} - \lambda I$$) = $$\lambda^{2}$$ + 1 = 0</center>
 
 여기서 우리는 $$\lambda = -i, i$$이라는 두 개의 eigenvalues를 얻는데, 이 둘은 비록 실수가 아님에도 불구하고 그 합은 0으로, A의 diagonal 값들의 합인 (0 + 0) = 0 과 같다.<br>
-또한, 두 허수의 곲 $$-i^{2} = 1$$은 $\mathbf{A}$의 determinant인 1과도 일치한다.
+또한, 두 허수의 곱 $$-i^{2} = 1$$은 $\mathbf{A}$의 determinant인 1과도 일치한다.
 
 ## symmetric and definite matrices
+symmetric matrices들은 eigenvalue들이 실수이며, eigenvector들이 서로 orthogonal 함을 수학적으로 표현하자. 우선 편의를 위해 우리는 우리가 임의로 정하는 행렬 $$\mathbf{A}$$나 $$\mathbf{S}$$가 full set of eigenvectors를 가졌다고 생각한다. 아래의 예시를 보자.<br>
+<center>$$\mathbf{S} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$$ (permutation matrix)</center>
+<center>$$\lambda = 1, -1 $$</center>
+<center>$$\mathbf{x} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \begin{bmatrix} 1 \\ -1 \end{bmatrix}$$</center>
+
+$$\lambda$$ 값들이 내림차순으로 diagonal element를 차지하는 행렬 $$\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$$ 을 $\Lambda$ 로 부르자. 우리는 행렬 $$\mathbf{S}$$와 $\Lambda$가 서로 similar함을 보이고 싶다.<br>
+즉, $$\mathbf{M}^{-1}\mathbf{S}\mathbf{M} = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$$ 임을 보이자. 여기에서 S를 diagonalizing 하는 행렬 $$\mathbf{M}$$은 무엇일까?
+<center>$$\mathbf{SM} = \mathbf{M}^{-1}\Lambda$$</center>
+<center>$$\mathbf{S}\begin{bmatrix} \mathbf{x}_1 \mathbf{x}_2 \end{bmatrix} = \begin{bmatrix} \mathbf{x}_1 \mathbf{x}_2 \end{bmatrix}\Lambda \cdots (2)$$</center>
+
+우리는 여기서 $(2)$식이 항상 성립함을 깨달아야 한다. 여기서 어떻게 좌변과 우변이 항상 같다고 말할 수 있을까? $(2)$식을 약간 변형해보면 다음과 같다.
+<center>$$\begin{bmatrix} \mathbf{S}\mathbf{x}_1 & \mathbf{S}\mathbf{x}_2 \end{bmatrix} = \begin{bmatrix} \mathbf{x}_1 \mathbf{x}_2 \end{bmatrix}$$</center>
+여기에서, $$\mathbf{S}\mathbf{x}_1 = \mathbf{x}_1, \mathbf{S}\mathbf{x}_2 = \mathbf{x}_2$$ 는 항상 성립한다. ($$\because \lambda = 1, -1 $$)<br>
+끝으로 우리는 아래와 같이 결론을 내릴 수 있다.
+$$\mathbf{A}$$는 $$\Lambda$$와 항상 similar 하며, $$\mathbf{M} = \mathbf{X}$$이다.
+$$\mathbf{A}^2$$의 경우, $$\mathbf{A}^2 = \mathbf{X}\Lambda\mathbf{X}^{-1}\mathbf{X}\Lambda\mathbf{X}^{-1} = \mathbf{X}\Lambda^{2}\mathbf{X}^{-1}$$이다. 즉, $$\mathbf{A}^2$$와 $$\Lambda^{2}$$는 similar 임을 알 수 있다. <br>
+마지막으로, $$\mathbf{S}$$의 경우에는 다음과 같다. <br>
+$$\mathbf{S} = \mathbf{Q}\Lambda\mathbf{Q}^{-1} = \mathbf{Q}\Lambda\mathbf{Q}^{T} = spectral\ theorem$$
