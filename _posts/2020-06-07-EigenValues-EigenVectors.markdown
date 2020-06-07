@@ -1,10 +1,11 @@
 ---
-title: " [선형대수학] Spectral theorem"
+title: " [선형대수학] Application of Eigenvectors and Eigenvalues"
 tags: LinearAlgebra Eigenvalues Eigenvectors
 ---
 
 # EigenVectors and Eigenvalues
-$$\mathbf{Ax}$$ 형태로 $$\mathbf{A}$ 매트릭스에 $$\mathbf{x}$$를 곱하면 때떄로 운좋게 $$\mathbf{x}$$ 의 스칼라를 곱한, 방향은 그대로인 벡터 형태가 된다. 여기서, $$\mathbf{A}$$는  $n$ by $n$ 매트릭스이다. 이때, 람다는 eigenvalue, $$\mathbf{x}$$는 eigenvector로 부르기로 한다. 그렇다면, 이 아이젠 형제들을 우리가 사용함으로써 도대체 무엇이 좋은걸까? 이는 $$\mathbf{A}^2$$ 매트릭스를 볼 때 알 수 있다. 이 $$\mathbf{A}^2$$ 는 여전히 $n$ by $n$ 행렬이다.
+
+$$\mathbf{Ax}$$ 형태로 $$\mathbf{A}$$ 매트릭스에 $$\mathbf{x}$$를 곱하면 때떄로 운좋게 $$\mathbf{x}$$ 의 스칼라를 곱한, 방향은 그대로인 벡터 형태가 된다. 여기서, $$\mathbf{A}$$는  $n$ by $n$ 매트릭스이다. 이때, 람다는 eigenvalue, $$\mathbf{x}$$는 eigenvector로 부르기로 한다. 그렇다면, 이 아이젠 형제들을 우리가 사용함으로써 도대체 무엇이 좋은걸까? 이는 $$\mathbf{A}^2$$ 매트릭스를 볼 때 알 수 있다. 이 $$\mathbf{A}^2$$ 는 여전히 $n$ by $n$ 행렬이다.
 <center>$$\mathbf{Ax}_{i} = \lambda_{i}\mathbf{x}_{i}, i = 1,2,\cdots,n$$</center><br>
 > 총 n개의 eigenvector, eigenvalue set이 존재할 수도 있지만, 더 적은 수가 있는 경우도 있다.
 
@@ -17,5 +18,17 @@ $$\mathbf{A}^{k}\mathbf{x} = \lambda^{k}\mathbf{x}$$ 의 경우에서 모든 $k$
 ## Combination of EigenVectors
 $\ $임의의 벡터 $$\mathbf{v}$$를 잡자. $$\mathbf{A}$$ 행렬에 총 $n$개의 독립적인 eigenvector들도 존재하는 상황으로 가정해보자. 이 독립적인 eigenvector들을 각각 basis로 잡고, $$\mathbf{v}$$가 eigenvector들 중 하나라면, $$\mathbf{v}$$는 이 basis들의 combination으로 표현할 수 있다.<br>
 <center>$$\mathbf{v} = c_{1}x_{1} + c_{2}x_{2} + \cdots + c_{n}x_{n}$$</center><br>
-<center>\mathbf{A}^{k}\mathbf{v} = c_{1}\lambda_{1}^{k}x_{1} + \cdots + c_{n}\lambda_{n}^{k}x_{n}</center>
+<center>$$\mathbf{A}^{k}\mathbf{v} = c_{1}\lambda_{1}^{k}x_{1} + \cdots + c_{n}\lambda_{n}^{k}x_{n} \cdots (1)$$</center>
 이를 잘 활용하면, $$\mathbf{A}^{k}$$를 빠르게 계산할 수 있다.<br>
+만약 위의 $$\mathbf{A}^{k}\mathbf{v} = \mathbf{V}_k$$ 로 놓으면, $$\mathbf{V}_{k+1} = \mathbf{A}^{k+1}\mathbf{v} = \mathbf{A}\mathbf{v}_k$$가 된다. 부르기 편하게 이를 discrete case로 임시로 부르자.
+> one tep difference equation
+
+만약, 우리가 exponential case 인 $$e^{At} = e^{\lambda t}\mathbf{x}$$를 사용하면, $$dv/dt = \mathbf{A}\mathbf{v}$$가 된다. 부르기 편하게 이를 continuous evolution case로 임시로 부르자.
+위에서 살펴본 discrete case, continuous case 모두 $$(1)$$ 식을 활용하여 빠르게 $$A^k$$를 계산할 수 있다.
+
+## Similar Matrices
+$$\mathbf{A}$$와 similar(유사)한 행렬 $$\mathbf{B}$$. 여기서 similar의 정의가 무엇일까? 이는 벡터들간의 유사도를 측정하는 것과는 조금 정의가 다른데, 간단히 $$\mathbf{A}$$와 $$\mathbf{B}$$가 같은 eigenvalue를 갖고있다면, 서로 similar한 행렬로 부른다. 수식으로 정의는 아래와 같다.
+<center>$$\mathbf{B} = \mathbf{M}^{-1}\mathbf{A}\mathbf{M} 의 관계가 성립하면 서로 similar matrices라고 부른다. \mathbf{A}와 \mathbf{B}는 또한, 같은 eigenvalues를 갖는다.$$</center>
+즉, "두 행렬이 similar matrices 관계이다." 라는 명제와 "두 행렬이 same eigenvalue를 갖는다." 는 같은 뜻으로 이해할 수 있다. 하지만, $$\mathbf{M}^{-1}\mathbf{A}\mathbf{M}y = \lambda y$$ 관계에서 아래의 두 사실을 혼동해선 안된다.<br>
+- $y$는 $$\mathbf{A}$$와 같은 eigenvector를 갖는다. (False)
+- $y$는 $$\mathbf{A}$$와 같은 eigenvalue를 갖는다. (True)
