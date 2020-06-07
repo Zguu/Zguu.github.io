@@ -48,7 +48,7 @@ eigenvalue들의 합 또는 곱에 대한 다음과 같은 공식이 존재한�
 - multiply of $\lambda$s  = determiant($\mathbf{A}$)
 
 간단한 예시를 들어보면 다음과 같다. $$\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$$ 라는 anti-symmetric 행렬을 보자.
-> anti-symmetric 행렬 : tranpose($$\mathbf{A}$) = -\mathbf{A}$$ 를 만족하는 행렬 $\mathbf{A}$
+> anti-symmetric 행렬 : tranpose($$\mathbf{A}) = -\mathbf{A}$$ 를 만족하는 행렬 $\mathbf{A}$
 
 이 행렬은 임의의 행렬 $$\mathbf{x}$$와 곱해졌을 때 해당 행렬 $\mathbf{x}$를 90도 회전시키는 행렬이기도 하다. 기하학적으로 생각해봤을 때, 이 회전행렬 $$\mathbf{A}$$는 자신과 곱해지는 행렬을 90도로 회전시켜버리기 때문에, 원래 행렬을 상수배 했을 때 이 회전된 행렬과 같은 방향을 가르키는 것을 불가능하다. 즉, 이 anti-symmetric 행렬은 eigenvector를 가질 수 없다. 하지만 이 행렬의 eigenvector를 한 번 구해보자.
 <center>$$\mathbf{Ax} = \lambda\mathbf{x}$$</center>
@@ -68,10 +68,10 @@ symmetric matrices들은 eigenvalue들이 실수이며, eigenvector들이 서로
 $$\lambda$$ 값들이 내림차순으로 diagonal element를 차지하는 행렬 $$\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$$ 을 $\Lambda$ 로 부르자. 우리는 행렬 $$\mathbf{S}$$와 $\Lambda$가 서로 similar함을 보이고 싶다.<br>
 즉, $$\mathbf{M}^{-1}\mathbf{S}\mathbf{M} = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$$ 임을 보이자. 여기에서 S를 diagonalizing 하는 행렬 $$\mathbf{M}$$은 무엇일까?
 <center>$$\mathbf{SM} = \mathbf{M}^{-1}\Lambda$$</center>
-<center>$$\mathbf{S}\begin{bmatrix} \mathbf{x}_1 \mathbf{x}_2 \end{bmatrix} = \begin{bmatrix} \mathbf{x}_1 \mathbf{x}_2 \end{bmatrix}\Lambda \cdots (2)$$</center>
+<center>$$\mathbf{S}\begin{bmatrix} \mathbf{x}_1 \mathbf{x}_2 \end{bmatrix} = \begin{bmatrix} \mathbf{x}_1 & \mathbf{x}_2 \end{bmatrix}\Lambda \cdots (2)$$</center>
 
 우리는 여기서 $(2)$식이 항상 성립함을 깨달아야 한다. 여기서 어떻게 좌변과 우변이 항상 같다고 말할 수 있을까? $(2)$식을 약간 변형해보면 다음과 같다.
-<center>$$\begin{bmatrix} \mathbf{S}\mathbf{x}_1 & \mathbf{S}\mathbf{x}_2 \end{bmatrix} = \begin{bmatrix} \mathbf{x}_1 \mathbf{x}_2 \end{bmatrix}$$</center>
+<center>$$\begin{bmatrix} \mathbf{S}\mathbf{x}_1 & \mathbf{S}\mathbf{x}_2 \end{bmatrix} = \begin{bmatrix} \mathbf{x}_1 & \mathbf{x}_2 \end{bmatrix}$$</center>
 여기에서, $$\mathbf{S}\mathbf{x}_1 = \mathbf{x}_1, \mathbf{S}\mathbf{x}_2 = \mathbf{x}_2$$ 는 항상 성립한다. ($$\because \lambda = 1, -1 $$) 끝으로 우리는 아래와 같이 결론을 내릴 수 있다.
 $$\mathbf{A}$$는 $$\Lambda$$와 항상 similar 하며, $$\mathbf{M} = \mathbf{X}$$이다.
 $$\mathbf{A}^2$$의 경우, $$\mathbf{A}^2 = \mathbf{X}\Lambda\mathbf{X}^{-1}\mathbf{X}\Lambda\mathbf{X}^{-1} = \mathbf{X}\Lambda^{2}\mathbf{X}^{-1}$$이다. 즉, $$\mathbf{A}^2$$와 $$\Lambda^{2}$$는 similar 임을 알 수 있다. <br>
