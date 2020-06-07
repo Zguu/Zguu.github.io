@@ -28,7 +28,7 @@ $\ $임의의 벡터 $$\mathbf{v}$$를 잡자. $$\mathbf{A}$$ 행렬에 총 $n$�
 
 ## Similar Matrices
 $$\mathbf{A}$$와 similar(유사)한 행렬 $$\mathbf{B}$$. 여기서 similar의 정의가 무엇일까? 이는 벡터들간의 유사도를 측정하는 것과는 조금 정의가 다른데, 간단히 $$\mathbf{A}$$와 $$\mathbf{B}$$가 같은 eigenvalue를 갖고있다면, 서로 similar한 행렬로 부른다. 수식으로 정의는 아래와 같다.
-<center>$$\mathbf{B} = \mathbf{M}^{-1}\mathbf{A}\mathbf{M}$$ 의 관계가 성립하면 서로 similar matrices라고 부른다. $$\mathbf{A}와 \mathbf{B}$$는 또한, 같은 eigenvalues를 갖는다.</center>
+<center>$$\mathbf{B} = \mathbf{M}^{-1}\mathbf{A}\mathbf{M}$$ 의 관계가 성립하면 서로 similar matrices라고 부른다. $$\mathbf{A}$$와 $$\mathbf{B}$$는 또한, 같은 eigenvalues를 갖는다.</center>
 즉, "두 행렬이 similar matrices 관계이다." 라는 명제와 "두 행렬이 same eigenvalue를 갖는다." 는 같은 뜻으로 이해할 수 있다. 하지만, $$\mathbf{M}^{-1}\mathbf{A}\mathbf{M}y = \lambda y$$ 관계에서 아래의 두 사실을 혼동해선 안된다.<br>
 - $y$는 $$\mathbf{A}$$와 같은 eigenvector를 갖는다. (False)
 - $y$는 $$\mathbf{A}$$와 같은 eigenvalue를 갖는다. (True)
@@ -53,15 +53,15 @@ eigenvalue들의 합 또는 곱에 대한 다음과 같은 공식이 존재한�
 이 행렬은 임의의 행렬 $$\mathbf{x}$$와 곱해졌을 때 해당 행렬 $\mathbf{x}$를 90도 회전시키는 행렬이기도 하다. 기하학적으로 생각해봤을 때, 이 회전행렬 $$\mathbf{A}$$는 자신과 곱해지는 행렬을 90도로 회전시켜버리기 때문에, 원래 행렬을 상수배 했을 때 이 회전된 행렬과 같은 방향을 가르키는 것을 불가능하다. 즉, 이 anti-symmetric 행렬은 eigenvector를 가질 수 없다. 하지만 이 행렬의 eigenvector를 한 번 구해보자.
 <center>$$\mathbf{Ax} = \lambda\mathbf{x}$$</center>
 <center>$$(\mathbf{A} - \lambda I)\mathbf{x} = 0$$</center>
-<center>det($$\mathbf{A} - \lambda I$$) = 0 ($\because$ 역행렬 존재 x)</center>
-<center>$$\mathbf{A} - \lambda I = \begin{bmatrix} -\lambda & 1 \\ -1 & -\lambda \end{bmatrix}$$, det($$\mathbf{A} - \lambda I$$) = $$\lambda^{2}$$ + 1 = 0</center>
+<center>$$det(\mathbf{A} - \lambda I) = 0$$ ($\because$ 역행렬 존재 x)</center>
+<center>$$\mathbf{A} - \lambda I = \begin{bmatrix} -\lambda & 1 \\ -1 & -\lambda \end{bmatrix}$$, $$det(\mathbf{A} - \lambda I) = \lambda^{2} + 1 = 0$$</center>
 
 여기서 우리는 $$\lambda = -i, i$$이라는 두 개의 eigenvalues를 얻는데, 이 둘은 비록 실수가 아님에도 불구하고 그 합은 0으로, A의 diagonal 값들의 합인 (0 + 0) = 0 과 같다.<br>
 또한, 두 허수의 곱 $$-i^{2} = 1$$은 $\mathbf{A}$의 determinant인 1과도 일치한다.
 
 ## symmetric and definite matrices
 symmetric matrices들은 eigenvalue들이 실수이며, eigenvector들이 서로 orthogonal 함을 수학적으로 표현하자. 우선 편의를 위해 우리는 우리가 임의로 정하는 행렬 $$\mathbf{A}$$나 $$\mathbf{S}$$가 full set of eigenvectors를 가졌다고 생각한다. 아래의 예시를 보자.<br>
-<center>$$\mathbf{S} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$$ (permutation matrix)</center>
+<center>$$\mathbf{S} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} (permutation\ matrix)$$</center>
 <center>$$\lambda = 1, -1 $$</center>
 <center>$$\mathbf{x} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \begin{bmatrix} 1 \\ -1 \end{bmatrix}$$</center>
 
@@ -72,9 +72,8 @@ $$\lambda$$ 값들이 내림차순으로 diagonal element를 차지하는 행렬
 
 우리는 여기서 $(2)$식이 항상 성립함을 깨달아야 한다. 여기서 어떻게 좌변과 우변이 항상 같다고 말할 수 있을까? $(2)$식을 약간 변형해보면 다음과 같다.
 <center>$$\begin{bmatrix} \mathbf{S}\mathbf{x}_1 & \mathbf{S}\mathbf{x}_2 \end{bmatrix} = \begin{bmatrix} \mathbf{x}_1 \mathbf{x}_2 \end{bmatrix}$$</center>
-여기에서, $$\mathbf{S}\mathbf{x}_1 = \mathbf{x}_1, \mathbf{S}\mathbf{x}_2 = \mathbf{x}_2$$ 는 항상 성립한다. ($$\because \lambda = 1, -1 $$)<br>
-끝으로 우리는 아래와 같이 결론을 내릴 수 있다.
+여기에서, $$\mathbf{S}\mathbf{x}_1 = \mathbf{x}_1, \mathbf{S}\mathbf{x}_2 = \mathbf{x}_2$$ 는 항상 성립한다. ($$\because \lambda = 1, -1 $$) 끝으로 우리는 아래와 같이 결론을 내릴 수 있다.
 $$\mathbf{A}$$는 $$\Lambda$$와 항상 similar 하며, $$\mathbf{M} = \mathbf{X}$$이다.
 $$\mathbf{A}^2$$의 경우, $$\mathbf{A}^2 = \mathbf{X}\Lambda\mathbf{X}^{-1}\mathbf{X}\Lambda\mathbf{X}^{-1} = \mathbf{X}\Lambda^{2}\mathbf{X}^{-1}$$이다. 즉, $$\mathbf{A}^2$$와 $$\Lambda^{2}$$는 similar 임을 알 수 있다. <br>
 마지막으로, $$\mathbf{S}$$의 경우에는 다음과 같다. <br>
-$$\mathbf{S} = \mathbf{Q}\Lambda\mathbf{Q}^{-1} = \mathbf{Q}\Lambda\mathbf{Q}^{T} = spectral\ theorem$$
+<center>$$\mathbf{S} = \mathbf{Q}\Lambda\mathbf{Q}^{-1} = \mathbf{Q}\Lambda\mathbf{Q}^{T} = spectral\ theorem$$</center>
