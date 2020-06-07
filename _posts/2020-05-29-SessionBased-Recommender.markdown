@@ -12,5 +12,7 @@ tags: Recommender Session
 이와 같은 약점을 보완하는 LSTM, GRU와 같은 방법론들이 있는데, 여기서는 GRU를 활용한다.
 
 BPR (Bayesian Personalized Ranking)
-BPR의 손실함수는 다음과 같다.
-$$ L_{bpr} = - \frac{1}{N_S}\dot\sum_{j=1}{N_S} \log(\sigma(r_i - r_j)) $$
+BPR의 손실함수는 다음과 같다.<br>
+<center>$$ L_{bpr} = - \frac{1}{N_S}\dot\sum_{j=1}^{N_S} \log(\sigma(r_i - r_j)) $$</center>
+
+이 식은 
