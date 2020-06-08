@@ -28,7 +28,7 @@ $\ $임의의 벡터 $$\mathbf{v}$$를 잡자. $$\mathbf{A}$$ 행렬에 총 $n$�
 
 ## Similar Matrices
 $$\mathbf{A}$$와 similar(유사)한 행렬 $$\mathbf{B}$$. 여기서 similar의 정의가 무엇일까? 이는 벡터들간의 유사도를 측정하는 것과는 조금 정의가 다른데, 간단히 $$\mathbf{A}$$와 $$\mathbf{B}$$가 같은 eigenvalue를 갖고있다면, 서로 similar한 행렬로 부른다. 수식으로 정의는 아래와 같다.
-<center>$$\mathbf{B} = \mathbf{M}^{-1}\mathbf{A}\mathbf{M}$$ 의 관계가 성립하면 서로 similar matrices라고 부른다. $$\mathbf{A}$$와 $$\mathbf{B}$$는 또한, 같은 eigenvalues를 갖는다.</center>
+<center>$$\mathbf{B} = \mathbf{M}^{-1}\mathbf{A}\mathbf{M}$$ 의 관계가 성립하면 서로 similar matrices라고 부른다. $$\mathbf{A}와 \mathbf{B}$$는 또한, 같은 eigenvalues를 갖는다.</center>
 즉, "두 행렬이 similar matrices 관계이다." 라는 명제와 "두 행렬이 same eigenvalue를 갖는다." 는 같은 뜻으로 이해할 수 있다. 하지만, $$\mathbf{M}^{-1}\mathbf{A}\mathbf{M}y = \lambda y$$ 관계에서 아래의 두 사실을 혼동해선 안된다.<br>
 - $y$는 $$\mathbf{A}$$와 같은 eigenvector를 갖는다. (False)
 - $y$는 $$\mathbf{A}$$와 같은 eigenvalue를 갖는다. (True)
