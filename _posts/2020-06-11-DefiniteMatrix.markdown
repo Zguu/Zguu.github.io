@@ -15,8 +15,7 @@ $$\begin{enumerate}
   \item \mathbf{S} = \mathbf{A}^T\mathbf{A} 가 성립하며, \mathbf{A} 에 모든 column은 서로 독립이다.
   \item 모든 leading Determinants 는 0보다 커야한다.
   \item All pivots in elimination 은 0보다 커야한다.
-\end{enumerate}
-$$
+\end{enumerate}$$
 
 위의 총 5개에 해당하는 positive definite test는 이 중 하나라도 성립하면 나머지 test도 자동으로 통과하는 등치관계에 있다. <br>
 $$\mathbf{S} = \begin{bmatrix} 3 & 4 \\ 4 & 6 \end{bmatrix}$$ 행렬을 보자. 이 행렬의 determinant det($\mathbf{S}$) 는  15 - 16 = -1 으로 음수이다. 행렬의 determinant 는 eigenvalue들의 곱과 같으며, 따라서 이 행렬의 eigenvalue들이 2개일 때, 이 두 값의 곱은 음수임을 의미한다. 즉 두 개 eigenvalue 가 양수일 수 없으므로, **test 1** 에 의해 이 행렬은 positive definite matrix로 볼 수 없다.
