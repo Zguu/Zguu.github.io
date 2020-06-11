@@ -42,4 +42,4 @@ $$ = 3\mathbf{x}^2 + 8\mathbf{xy} + 6\mathbf{y}^2 $$ (quadratic energy form)<br>
 $$f(\mathbf{x},\mathbf{y}) = \mathbf{xS}\mathbf{x}^T + \mathbf{x}^T\mathbf{b}$$ 그래프는 아래와 같다.
 <center><img src="https://imgur.com/9gs19Sb.png" width="60%" height="60%"></center>
 위의 두 Bowl Shape 모두 Convex 형태에 해당하며, 많은 실전 문제들은 어떻게 이 Convex의 특정지점에서 최소 지점으로 갈 것인지를 다룬다. 즉, Gradient 를 계산하는 문제이다. 우리는 여기서 Gradient Descent 에 대해 깊게 다루고자 하는 것은 아니다. Eigenvalue 값의 차이가 Gradient Descent 알고리즘에서 어떤 영향을 끼치는 지에 대한 힌트만 얻고 넘어가기로 한다.<br>
-<center>$$(\begin{bmatrix} \fract{\partial f}{\partial x} \\ \frac{\partial f}{\partial y}) = \nabla f$$</center>
+<center>$$(\begin{bmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y})\end{bmatrix}) = \nabla f$$</center>
