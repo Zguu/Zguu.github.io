@@ -25,4 +25,14 @@ $$\mathbf{S} = \begin{bmatrix} 3 & 4 \\ 4 & 6 \end{bmatrix}$$ 행렬을 보자. 
 **test5** 의 pivots 관점에서 보면, $\mathbf{S}$의 first pivot은 좌측 최상단 원소에 해당하는 3이다. 이 행렬 $\mathbf{S}$를 elimination form으로 변경하면 $$\begin{bmatrix} 3 & 4 \\ 0 & \frac{2}{3} \end{bmatrix}$$ 이며, 여기서 diagonal line의 두번째 원소인 $$\frac{2}{3}$$이 second pivot에 해당한다. 또한 이는 $$\frac{2x2 size Matrix Determinant}{1x1 size Matrix Determinant}$$ 에 해당한다. 즉, **test4** 와 **test5** 는 사실 같은 test 라는 것을 알 수 있다.
 이는 $$\href{https://zguu.github.io/2019/12/12/rank-definite-matrix.html}{이전 포스팅}$$ 에 조금 더 예시와 함께 잘 설명 돼있다.
 
-Gilbert 교수님은 **test2** 가 positive definite matrix 의 정의에 가장 잘 부합하는 (자신의 주관적 생각으로) 정의에 가까운 테스트 법이라고 소개했다.
+Gilbert 교수님은 **test2** 가 positive definite matrix 의 정의에 가장 잘 부합하는 (자신의 주관적 생각으로) 정의에 가까운 테스트 법이라고 소개했다. 아래와 같은 상황을 보자 <br>
+
+$$\begin{bmatrix}\mathbf{x} & \mathbf{y}\end{bmatrix}\begin{bmatrix}3 & 4 \\ 4 & 6\end{bmatrix}\begin{bmatrix}\mathbf{x} \\ \mathbf{y} \end{bmatrix} = f(\mathbf{x}, \mathbf{y})$$
+$$\begin{bmatrix}\mathbf{x} & \mathbf{y}\end{bmatrix}\begin{bmatrix} 3\mathbf{x} + 4\mathbf{y} \\ 4\mathbf{x} + 6\mathbf{y}\end{bmatrix} = 3\mathbf{x}^2 + 4\mathbf{xy} + \mathbf{xy} + 6\mathbf{y}^2$$
+$$ = 3\mathbf{x}^2 + 8\mathbf{xy} + 6\mathbf{y}^2 $$ (quadratic energy form)<br>
+이에 해당하는 그래프는 아래와 같다.
+<center><img src="https://imgur.com/jOCYLWv.png" width="100%" height="100%"></center>
+
+대부분의 Deep Learning, Machine Learning, Neural Nets, Big Computation에서 손실함수 (loss function)들은 대부분 위와 같은 Bowl Shape 형태를 기본으로 보인다. 즉, 이렇게 생긴 energy 함수를 minimize 시키는 데에 목적이 있다고 볼 수 있다.
+$$f(\mathbf{x},\mathbf{y}) = \mathbf{xS}\mathbf{x}^T + \mathbf{x}^T\mathbf{b}$$ 그래프는 아래와 같다.
+<center><img src="https://imgur.com/9gs19Sb.png" width="100%" height="100%"></center>
