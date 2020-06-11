@@ -3,6 +3,7 @@ title: " [선형대수학] Review on Symmetric Positive Definite Matrix"
 tags: LinearAlgebra PositiveDefinite SemiPositiveDefinite
 ---
 
+\usepackage[shortlabels]{enumitem}
 
 # Symmetric Positive Definite matrix
 $$\href{https://zguu.github.io/2019/12/12/rank-definite-matrix.html}{이전 포스팅}$$의 포스팅에서  이미 positive matrix에 대한 다양한 정와 계산 예시를 정리한 적이 있다. 강의를 들으며 추가로 얻은 정보들이 있어서 이번 포스팅에서 한 번 더 정리하자.
@@ -22,4 +23,6 @@ $$
 위의 총 5개에 해당하는 positive definite test는 이 중 하나라도 성립하면 나머지 test도 자동으로 통과하는 등치관계에 있다. <br>
 $$\mathbf{S} = \begin{bmatrix} 3 & 4 \\ 4 & 6 \end{bmatrix}$$ 행렬을 보자. 이 행렬의 determinant det($\mathbf{S}$) 는  15 - 16 = -1 으로 음수이다. 행렬의 determinant 는 eigenvalue들의 곱과 같으며, 따라서 이 행렬의 eigenvalue들이 2개일 때, 이 두 값의 곱은 음수임을 의미한다. 즉 두 개 eigenvalue 가 양수일 수 없으므로, **test 1** 에 의해 이 행렬은 positive definite matrix로 볼 수 없다.<br>
 
-**test4** 에서 leading determiants는 $\mathbf{S}$ 의 왼쪽 상단부터, 1x1, 2x2 size window matrix 의 determinant를 가르킨다. ($$\begin{bmatrix} 3 \end{bmatrix}, \begin{bmatrix} 3 & 4 \\ 4 & 6 \end{bmatrix}$$)
+**test4** 에서 leading determiants는 $\mathbf{S}$ 의 왼쪽 상단부터, 1x1, 2x2 size window matrix 의 determinant를 가르킨다. ($$\begin{bmatrix} 3 \end{bmatrix}, \begin{bmatrix} 3 & 4 \\ 4 & 6 \end{bmatrix}$$) <br>
+
+**test5** 의 pivots 관점에서 보면, $\mathbf{S}$의 first pivot은 좌측 최상단 원소에 해당하는 3이다. 이 행렬 $\mathbf{S}$를 elimination form으로 변경하면 $$\begin{bmatrix} 3 & 4 \\ 0 & \frac{2}{3} \end{bmatrix}$$ 이며, 여기서 diagonal line의 두번째 원소인 $$\frac{2}{3}$$이 second pivot에 해당한다. 또한 이는 $$\frac{2x2 size Matrix Determinant}{1x1 size Matrix Determinant}$$ 에 해당한다. 즉, **test4** 와 **test5** 는 사실 같은 test 라는 것을 알 수 있다.
