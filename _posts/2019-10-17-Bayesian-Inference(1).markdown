@@ -1,7 +1,7 @@
 ---
 title: " [베이지안 추론] 사전확률? 사후확률? "
 tags: Bayesian Statistics Inference Prior Posterior Likelihood Evidence
-categories : BayesStatistics
+categories : [BayesStatistics]
 ---
 
 ## Prior(사전확률)과 Posterior(사후확률)
