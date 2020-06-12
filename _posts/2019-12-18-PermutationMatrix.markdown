@@ -10,7 +10,7 @@ $\ $ 다음과 같이 $m$ 개의 원소들이 정의역으로 주어지면 $m$ �
 <center>$$\pi : \left\{ 1,...,m \right\} \rightarrow \left\{1,...,m\right\}$$</center>
 아래와 같이 표현될 수도 있다.
 <center>$$\begin{pmatrix} 1 & 2 & \cdots & m \\ \pi(1) & \pi(2) & \cdots & \pi(m) \end{pmatrix}$$</center>
-$\ $ $m x m$ 형태의 Permutation matrix $$P_\pi = (p_{ij})$$ 는 다음과 같이 표현된다.<br>
+$\ $ $m\ by\ m$ 형태의 Permutation matrix $$P_\pi = (p_{ij})$$ 는 다음과 같이 표현된다.<br>
 예를 들어 아래의 permutation matrix $$P_\pi$$는 다음과 같은 permutation 에 해당한다 : $$ \pi = \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 1 & 4 & 2 & 5 & 3\end{pmatrix}$$
 <center>$$ P_\pi = \begin{bmatrix} \mathbf{e}_{\pi(1)} \\\mathbf{e}_{\pi(2)} \\\mathbf{e}_{\pi(3)} \\\mathbf{e}_{\pi(4)} \\\mathbf{e}_{\pi(5)} \end{bmatrix} = \begin{bmatrix} \mathbf{e}_1 \\ \mathbf{e}_2 \\ \mathbf{e}_3 \\ \mathbf{e}_4 \\ \mathbf{e}_5 \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 & 1 \end{bmatrix}. $$</center>
 위의 가장 오른쪽 binary matrix 형태에서, 열을 기준으로 볼때 1이 몇 번째에 나타는 지를 통해, 원소 나열의 순서가 어떻게 변하는지 확인할 수 있다. <br>
