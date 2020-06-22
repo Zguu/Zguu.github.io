@@ -49,4 +49,11 @@ $$f(\mathbf{x},\mathbf{y}) = \mathbf{xS}\mathbf{x}^T + \mathbf{x}^T\mathbf{b}$$ 
 위의 두 Bowl Shape 모두 Convex 형태에 해당하며, 많은 실전 문제들은 어떻게 이 Convex의 특정지점에서 최소 지점으로 갈 것인지를 다룬다. 즉, Gradient 를 계산하는 문제이다. 우리는 여기서 Gradient Descent 에 대해 깊게 다루고자 하는 것은 아니다. Eigenvalue 값의 차이가 Gradient Descent 알고리즘에서 어떤 영향을 끼치는 지에 대한 힌트만 얻고 넘어가기로 한다.<br>
 <center>$$\begin{bmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y}\end{bmatrix} = \nabla f$$</center>
 
-Gradient Descent 에서 가장 유의해야할 문제 중 하나는, 해당 Convex가 너무 narrow할 때, step size에 민감하게 수렴도가 바뀐다는 것이다. 즉 너무 뾰족하게 좁은 Bowl 모양에서 너무 큰 step size를 가져가면 우리는 최솟점에 도달하기 힘들 수 있다.
+Gradient Descent 에서 가장 유의해야할 문제 중 하나는, 해당 Convex가 너무 narrow할 때, step size에 민감하게 수렴도가 바뀐다는 것이다. 즉 너무 뾰족하게 좁은 Bowl 모양에서 너무 큰 step size를 가져가면 우리는 최솟점에 도달하기 힘들 수 있다. <br>
+$\ $즉, 이런 Bowl Shape 함수의 수렴 가능 여부는 Convex 의 narrow 정도에 영향을 받는데, eigenvalue는 해당 convex shape에 대한 단서를 준다.
+> 뭐...간단히 정리해보면 positive definite matrix는 수렴 가능한 convex 형태를 주므로 중요하다.
+
+## Definite matrix 의 유용한 성질들
+$\ $ Positive definite matrix에 해당하는 각 행렬 $$mathbf{S, T}$$ 를 더해도 여전히 positive definite matrix에 해당할까? Energy test를 활용해서 증명해보자.<br>
+$$mathbf{S + T}$$가 positive definite 임을 증명하려면, 아래가 성립해야 한다. <br>
+<center> $$mathbf{x(S+T)x^T} > 0 for\ every\ mathbf{x}$$ 
