@@ -54,4 +54,4 @@ $\ $즉, 이런 Bowl Shape 함수의 수렴 가능 여부는 Convex 의 narrow �
 ## Definite matrix 의 유용한 성질들
 $\ $ Positive definite matrix에 해당하는 각 행렬 $$mathbf{S, T}$$ 를 더해도 여전히 positive definite matrix에 해당할까? Energy test를 활용해서 증명해보자.<br>
 $$mathbf{S + T}$$가 positive definite 임을 증명하려면, 아래가 성립해야 한다. <br>
-<center> $$mathbf{x(S+T)x^T} > 0 for\ every\ mathbf{x}$$
+<center> $$mathbf{x(S+T)x^T} > 0 for\ every\ mathbf{x}$$ gg
