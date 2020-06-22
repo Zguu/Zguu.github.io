@@ -3,8 +3,6 @@ title: " [선형대수학] Review on Symmetric Positive Definite Matrix"
 tags: LinearAlgebra PositiveDefinite SemiPositiveDefinite
 ---
 
-\usepackage[shortlabels]{enumitem}
-
 # Symmetric Positive Definite matrix
 $$\href{https://zguu.github.io/2019/12/12/rank-definite-matrix.html}{이전 포스팅}$$의 포스팅에서  이미 positive matrix에 대한 다양한 정와 계산 예시를 정리한 적이 있다. 강의를 들으며 추가로 얻은 정보들이 있어서 이번 포스팅에서 한 번 더 정리하자.
 $\ $Symmetric Positive definite 행렬을 정의할 수 있는 test 방법은 크게 다섯가지가 있다. 아래에서 $\mathbf{S}$는 Symmetric matrix를 가르킨다.
@@ -56,4 +54,4 @@ $\ $즉, 이런 Bowl Shape 함수의 수렴 가능 여부는 Convex 의 narrow �
 ## Definite matrix 의 유용한 성질들
 $\ $ Positive definite matrix에 해당하는 각 행렬 $$mathbf{S, T}$$ 를 더해도 여전히 positive definite matrix에 해당할까? Energy test를 활용해서 증명해보자.<br>
 $$mathbf{S + T}$$가 positive definite 임을 증명하려면, 아래가 성립해야 한다. <br>
-<center> $$mathbf{x(S+T)x^T} > 0 for\ every\ mathbf{x}$$ 
+<center> $$mathbf{x(S+T)x^T} > 0 for\ every\ mathbf{x}$$
