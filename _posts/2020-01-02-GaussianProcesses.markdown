@@ -1,6 +1,6 @@
 ---
 title: " [머신러닝] Gaussian Processes"
-tags: MachineLearning Regression Bayesian GaussianProcesses
+tags: MachineLearning
 ---
 
 # Gaussian Process (GP)

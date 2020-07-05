@@ -1,6 +1,6 @@
 ---
 title: " [선형대수학] positive definite, semi-positive definite"
-tags: LinearAlgebra Rank FullRank PositiveDefinite SemiPositiveDefinite
+tags: LinearAlgebra
 ---
 
 # Positive Definite 행렬 & Semi positive Definite 행렬

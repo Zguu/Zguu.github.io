@@ -1,6 +1,6 @@
 ---
 title: " [추천시스템] A Contextual-Bandit Approach to Personalized News Article Recommendation"
-tags: Recommender Bandit Contextual Personalization
+tags: RecommenderSystem
 ---
 
 # Contextual Bandit이 뭐야?

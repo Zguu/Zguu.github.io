@@ -1,6 +1,6 @@
 ---
 title: " [베이지안 추론] 사전확률? 사후확률? "
-tags: Bayesian Statistics Inference Prior Posterior Likelihood Evidence
+tags: Bayesian
 categories : [BayesStatistics]
 ---
 

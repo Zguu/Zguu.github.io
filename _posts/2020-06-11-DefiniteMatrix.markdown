@@ -1,11 +1,11 @@
 ---
 title: " [선형대수학] Review on Symmetric Positive Definite Matrix"
-tags: LinearAlgebra PositiveDefinite SemiPositiveDefinite
+tags: LinearAlgebra
 ---
 
 # Symmetric Positive Definite matrix
 $$\href{https://zguu.github.io/2019/12/12/rank-definite-matrix.html}{이전 포스팅}$$의 포스팅에서  이미 positive matrix에 대한 다양한 정와 계산 예시를 정리한 적이 있다. 강의를 들으며 추가로 얻은 정보들이 있어서 이번 포스팅에서 한 번 더 정리하자.
-$\ $Symmetric Positive definite 행렬을 정의할 수 있는 test 방법은 크게 다섯가지가 있다. 아래에서 $\mathbf{S}$는 Symmetric matrix를 가르킨다.
+Symmetric Positive definite 행렬을 정의할 수 있는 test 방법은 크게 다섯가지가 있다. 아래에서 $\mathbf{S}$는 Symmetric matrix를 가르킨다.
 
 ## 5 tests
 
@@ -25,7 +25,7 @@ $$\mathbf{S} = \begin{bmatrix} 3 & 4 \\ 4 & 6 \end{bmatrix}$$ 행렬을 보자. 
 **test4** 에서 leading determiants는 $\mathbf{S}$ 의 왼쪽 상단부터, 1 x 1, 2 x 2 size window matrix 의 determinant를 가르킨다. <br>
 ($$\begin{bmatrix} 3 \end{bmatrix}, \begin{bmatrix} 3 & 4 \\ 4 & 6 \end{bmatrix}$$) <br>
 
-**test5** 의 pivots 관점에서 보면, $\mathbf{S}$의 first pivot은 좌측 최상단 원소에 해당하는 3이다. 이 행렬 $\mathbf{S}$를 elimination form으로 변경하면 $$\begin{bmatrix} 3 & 4 \\ 0 & \frac{2}{3} \end{bmatrix}$$ 이며, 여기서 diagonal line의 두번째 원소인 $$\frac{2}{3}$$이 second pivot에 해당한다. 또한 이는 $$\frac{2x2 size Matrix Determinant}{1x1 size Matrix Determinant}$$ 에 해당한다. 즉, **test4** 와 **test5** 는 사실 같은 test 라는 것을 알 수 있다.
+**test5** 의 pivots 관점에서 보면, $\mathbf{S}$의 first pivot은 좌측 최상단 원소에 해당하는 3이다. 이 행렬 $\mathbf{S}$를 elimination form으로 변경하면 $$\begin{bmatrix} 3 & 4 \\ 0 & \frac{2}{3} \end{bmatrix}$$ 이며, 여기서 diagonal line의 두번째 원소인 $$\frac{2}{3}$$이 second pivot에 해당한다. 또한 이는 $$\frac{2\times2\   Matrix's\  Determinant}{1\times1\   Matrix's\ Determinant}$$ 에 해당한다. 즉, **test4** 와 **test5** 는 사실 같은 test 라는 것을 알 수 있다.
 이는 $$\href{https://zguu.github.io/2019/12/12/rank-definite-matrix.html}{이전 포스팅}$$ 에 조금 더 예시와 함께 잘 설명 돼있다.
 
 Gilbert 교수님은 **test2** 가 positive definite matrix 의 정의에 가장 잘 부합하는 (자신의 주관적 생각으로) 정의에 가까운 테스트 법이라고 소개했다. 아래와 같은 상황을 보자 <br>
@@ -48,10 +48,10 @@ $$f(\mathbf{x},\mathbf{y}) = \mathbf{xS}\mathbf{x}^T + \mathbf{x}^T\mathbf{b}$$ 
 <center>$$\begin{bmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y}\end{bmatrix} = \nabla f$$</center>
 
 Gradient Descent 에서 가장 유의해야할 문제 중 하나는, 해당 Convex가 너무 narrow할 때, step size에 민감하게 수렴도가 바뀐다는 것이다. 즉 너무 뾰족하게 좁은 Bowl 모양에서 너무 큰 step size를 가져가면 우리는 최솟점에 도달하기 힘들 수 있다. <br>
-$\ $즉, 이런 Bowl Shape 함수의 수렴 가능 여부는 Convex 의 narrow 정도에 영향을 받는데, eigenvalue는 해당 convex shape에 대한 단서를 준다.
+즉, 이런 Bowl Shape 함수의 수렴 가능 여부는 Convex 의 narrow 정도에 영향을 받는데, eigenvalue는 해당 convex shape에 대한 단서를 준다.
 > 뭐...간단히 정리해보면 positive definite matrix는 수렴 가능한 convex 형태를 주므로 중요하다.
 
 ## Definite matrix 의 유용한 성질들
-$\ $ Positive definite matrix에 해당하는 각 행렬 $$mathbf{S, T}$$ 를 더해도 여전히 positive definite matrix에 해당할까? Energy test를 활용해서 증명해보자.<br>
-$$mathbf{S + T}$$가 positive definite 임을 증명하려면, 아래가 성립해야 한다. <br>
-<center> $$mathbf{x(S+T)x^T} > 0 for\ every\ mathbf{x}$$ gg
+Positive definite matrix에 해당하는 각 행렬 $$\mathbf{S, T}$$ 를 더해도 여전히 positive definite matrix에 해당할까? Energy test를 활용해서 증명해보자.<br>
+$$\mathbf{S + T}$$가 positive definite 임을 증명하려면, 아래가 성립해야 한다. <br>
+<center> $$\mathbf{x(S+T)x^T} > 0\ , \  for\   every\   \mathbf{x}$$

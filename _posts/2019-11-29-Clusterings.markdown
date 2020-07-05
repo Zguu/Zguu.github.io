@@ -1,6 +1,6 @@
 ---
 title: " [머신러닝] Clustering Algorithms"
-tags: MachineLearning Clustering Algorithm K-means
+tags: MachineLearning
 ---
 # Mean-Shift Clustering
 $\ $ 다른 클러스터링 알고리즘들에 비해 간단하고, 많은 장점이 있는 Mean-Shift Clustering에 대해 알아보자. 이 알고리즘은 kernel density estimation(KDE)의 개념에 입각한 알고리즘인데, KDE는 데이터 셋의 기저에 놓여있는 분포에 대하여 추정하는 것이다.

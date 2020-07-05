@@ -1,6 +1,6 @@
 ---
 title: " [머신러닝] KNNBasic Collaborative Recommender system"
-tags: MachineLearning Recommender System KNN KNNBasic
+tags: MachineLearning
 ---
 # CF의 종류
 $\ $ Collaborative Filter (CF)는 협업 필터라고 번역할 수 있다. 이는 일반적으로 우리가 추천하고자 하는 영화나 상품들에 대한 특성들만을 이용해서 유사한 영화 또는 품목을 추천하는 Contents Based 방식과는 차이가 있다. 협업 필터는 다른 유저들이 해당 품목에 어떤 평가를 내렸는지, 구매 이력이 어떻게 되는지 등의 유저가 기록한 데이터 또한 사용하여 추천에 활용한다. 협업 필터에는 크게 memory-based 방식과 model-based 방식이 있는데, 왜 이렇게 크게 두 갈래로 나뉘어 지는지에 대해 잠시 짚고 넘어가보자.

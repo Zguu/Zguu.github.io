@@ -1,6 +1,6 @@
 ---
 title: " [추천시스템] DLRM"
-tags: DeepLearning Recommender System
+tags: RecommenderSystem
 ---
 
 ## introduction

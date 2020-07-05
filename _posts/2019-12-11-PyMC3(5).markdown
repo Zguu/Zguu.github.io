@@ -1,6 +1,6 @@
 ---
 title: " [베이지안 with Python] 베이지안 Multi-Armed Bandit(MAB)"
-tags: Bayesian Python
+tags: Bayesian
 ---
 
 # Multi-Armed Bandits (MAB)

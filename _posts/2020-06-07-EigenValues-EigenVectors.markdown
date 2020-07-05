@@ -1,11 +1,11 @@
 ---
 title: " [선형대수학] Application of Eigenvectors and Eigenvalues"
-tags: LinearAlgebra Eigenvalues Eigenvectors
+tags: LinearAlgebra
 ---
 
 # EigenVectors and Eigenvalues
 
-$$\mathbf{Ax}$$ 형태로 $$\mathbf{A}$$ 매트릭스에 $$\mathbf{x}$$를 곱하면 때떄로 운좋게 $$\mathbf{x}$$ 의 스칼라를 곱한, 방향은 그대로인 벡터 형태가 된다. 여기서, $$\mathbf{A}$$는  $n$ by $n$ 매트릭스이다. 이때, 람다는 eigenvalue, $$\mathbf{x}$$는 eigenvector로 부르기로 한다. 그렇다면, 이 아이젠 형제들을 우리가 사용함으로써 도대체 무엇이 좋은걸까? 이는 $$\mathbf{A}^2$$ 매트릭스를 볼 때 알 수 있다. 이 $$\mathbf{A}^2$$ 는 여전히 $n$ by $n$ 행렬이다.
+$$\mathbf{Ax}$$ 형태로 $$\mathbf{A}$$ 매트릭스에 $$\mathbf{x}$$를 곱하면 때때로 운좋게 $$\mathbf{x}$$ 의 스칼라를 곱한, 방향은 그대로인 벡터 형태가 된다. 여기서, $$\mathbf{A}$$는  $n$ by $n$ 매트릭스이다. 이때, 람다는 eigenvalue, $$\mathbf{x}$$는 eigenvector로 부르기로 한다. 그렇다면, 이 아이젠 형제들을 우리가 사용함으로써 도대체 무엇이 좋은걸까? 이는 $$\mathbf{A}^2$$ 매트릭스를 볼 때 알 수 있다. 이 $$\mathbf{A}^2$$ 는 여전히 $n$ by $n$ 행렬이다.
 <center>$$\mathbf{Ax}_{i} = \lambda_{i}\mathbf{x}_{i}, \  i = 1,2,\cdots,n$$</center><br>
 > 총 n개의 eigenvector, eigenvalue set이 존재할 수도 있지만, 더 적은 수가 있는 경우도 있다.
 

@@ -1,6 +1,6 @@
 ---
 title: " [딥러닝] Keras를 활용한 간단한 NN implementation"
-tags: DeepLearning NN Keras
+tags: DeepLearning
 ---
 # Keras로 간단한 NN 모델 구축하기
 $\ $해당 포스팅은 ```케라스 창시자에게 배우는 딥러닝, 프랑소, 숄레, 박해선 역``` 책을 읽고 개인적으로 정리한 것입니다.
@@ -328,7 +328,7 @@ def k_fold_cv(train_data, train_targets, k = 5,
 
         partial_train_targets = np.concatenate([train_targets[:i*fold_size],
                                         train_targets[(i+1)*fold_size:]],
-                                        axis=0)        
+                                        axis=0)
 
         model = build_model()
         history = model.fit(partial_train_data, partial_train_targets,
@@ -341,7 +341,7 @@ def k_fold_cv(train_data, train_targets, k = 5,
         #mae_arr.append(val_mae)
         all_mae_history.append(mae_history)
 
-    return(all_mae_history)     
+    return(all_mae_history)
 
 all_mae_history = k_fold_cv(train_data, train_targets)
 ```
@@ -363,7 +363,7 @@ def Exponential_Moving_Average(arrs, alpha = 0.1):
     '''
     arrs = input array
     alpha = past data accumulating coefficient
-    '''    
+    '''
     EMA_arr = []
 
     for i, val in enumerate(arrs):
@@ -373,7 +373,7 @@ def Exponential_Moving_Average(arrs, alpha = 0.1):
         else:
             EMA_arr.append(val)
 
-    return(EMA_arr)  
+    return(EMA_arr)
 ```
 
 이를 이용해 Smoothed MAE 추세를 살펴보면 아래와 같다.

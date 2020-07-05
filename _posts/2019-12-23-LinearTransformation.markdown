@@ -1,6 +1,6 @@
 ---
 title: " [선형대수학] Linear Transformation (선형변환)"
-tags: LinearAlgebra Transformation Basis Span Vector
+tags: LinearAlgebra
 ---
 # Linear Transformation
 $\ $고등학교에서 행렬과 행렬 간의 곱을 구하는 방법은 우리가 이미 배워서 익히 안다. 또한, 단위 벡터를 활용해서 특정 공간에서 특정 벡터를 단위 벡터만을 활용해서 표현할 수 있음도 알고 있다. 벡터의 개념과 행렬 표현식을 조합해서 사용하는 법에 대해 알아보자.

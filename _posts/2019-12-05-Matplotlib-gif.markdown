@@ -1,6 +1,6 @@
 ---
 title: " [파이썬 팁] Plot들 여러개를 움직이는 GIF로 저장하기"
-tags: Python Matplotlib GIF
+tags: Tips
 ---
 
 몇 줄 안되는 코드로 간단하게 GIF 움직이는 plot 저장하기
@@ -20,7 +20,7 @@ import numpy as np
 ```
 
 간단한 다항함수 (1차식부터 10차식까지)를 차수에 따라 달라지도록 설정한다.<br>
-`celluliod` `Camera()` 함수 내에 우리의 그래프들이 그려질 figure를 넣어서 저장해주고, 각 그래프들이 새로 그려질 때마다 스크린샷을 찍는 느낌으로 `camera.snap()` 실행하여 저장해준다. 마지막으로 `animate` 함수로 지금까지 저장된 그림들을 연속적으로 보여준다. interval은 스냅샷들간의 전환 속도이다. ms 단위인듯 하다.  
+`celluliod` `Camera()` 함수 내에 우리의 그래프들이 그려질 figure를 넣어서 저장해주고, 각 그래프들이 새로 그려질 때마다 스크린샷을 찍는 느낌으로 `camera.snap()` 실행하여 저장해준다. 마지막으로 `animate` 함수로 지금까지 저장된 그림들을 연속적으로 보여준다. interval은 스냅샷들간의 전환 속도이다. ms 단위인듯 하다.
 ```python
 fig = plt.figure()
 plt.ylim(0,1000)

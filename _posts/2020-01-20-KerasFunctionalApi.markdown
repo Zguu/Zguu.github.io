@@ -1,6 +1,6 @@
 ---
 title: " [딥러닝] Keras 함수형 API"
-tags: DeepLearning NN Keras Functional API
+tags: DeepLearning
 ---
 
 이 포스팅은 ```케라스 창시자에게 배우는 딥러닝 Chapter 7``` 의 내용 중 일부를 발췌하여 정리한 것입니다.
@@ -38,7 +38,7 @@ output_tensor = layers.Dense(10, activation = 'softmax')(x)
 
 model = Model(input_tensor, output_tensor)
 
-model.summary()              
+model.summary()
 ```
 함수형 API는 입출력 텐서만을 사용해서 모델 객체를 간단히 만들 수 있다. 그 과정에서 필요한 모든 층들은 케라스가 알아서 생성하게 되며 이를 연결해서 전체적인 신경망을 완성한다. 위에서 생성한 함수형 API의 summary는 아래와 같다.
 <center><img src="https://imgur.com/lBW3WJI.png" width="80%" height="80%"></center>

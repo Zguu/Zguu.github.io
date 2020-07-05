@@ -1,6 +1,6 @@
 ---
 title: " [머신러닝] GradientBoosting 알고리즘"
-tags: MachineLearning GBM lightGBM GradientBoosting algorithm
+tags: MachineLearning
 ---
 
 # Gradient Boosting 이란?

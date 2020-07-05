@@ -1,6 +1,6 @@
 ---
 title: " [선형대수학] SVD (Singular Value Decomposition)"
-tags: LinearAlgebra SVD Decomposition Factorization
+tags: LinearAlgebra
 ---
 
 # SVD (Singular Value Decomposition)
@@ -70,7 +70,7 @@ $$\lambda = 8$$일 때, eigenvector $$\mathbf{y}_1$$은 $$(\frac{1}{\sqrt{6}},\f
 <center>$$M = U\Sigma V^T$$</center>
 
 > 위에서 언급했던, <br>
-  "$$MM^T$$와, $$M^TM$$에서 각각 얻은 고유값들 중에 양수인 값들의 루트 값을 이용해 diagonal한 matrix를 생성했을 때, 해당 행렬은 $$\Sigma$$가 된다."  
+  "$$MM^T$$와, $$M^TM$$에서 각각 얻은 고유값들 중에 양수인 값들의 루트 값을 이용해 diagonal한 matrix를 생성했을 때, 해당 행렬은 $$\Sigma$$가 된다."
   이 부분을 상기하자.
 
 ## SVD with Python

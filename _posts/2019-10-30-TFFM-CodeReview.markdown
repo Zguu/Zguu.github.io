@@ -1,6 +1,6 @@
 ---
 title: " [코드리뷰] TFFM: TensorFlow FactorizationMachine"
-tags: Code Review
+tags: CodeReview
 ---
 
 

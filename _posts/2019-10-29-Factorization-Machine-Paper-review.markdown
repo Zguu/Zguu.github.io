@@ -1,6 +1,6 @@
 ---
 title: " [논문 리뷰] Factorization Machine"
-tags: Study
+tags: PaperReview
 ---
 
 # Factorization Machines

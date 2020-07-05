@@ -1,6 +1,6 @@
 ---
 title: " [머신러닝] 추천 시스템과 SVD"
-tags: MachineLearning Recommender System SVD LinearAlgebra
+tags: RecommenderSystem
 ---
 
 # SVD를 다시 떠올려보자

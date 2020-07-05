@@ -1,6 +1,6 @@
 ---
 title: " [베이지안 추론] Binomial Proportion 추론"
-tags: Bayesian Statistics Inference Prior Posterior Likelihood Evidence
+tags: Bayesian
 ---
 
 # Inferring a Binomial Proportion via Exact Mathematical Analysis

@@ -1,6 +1,6 @@
 ---
 title: " [선형대수학] LU, LDU decomposition"
-tags: LinearAlgebra LU LDU Decomposition GaussianElimination
+tags: LinearAlgebra
 ---
 
 # LU, LDU decomposition

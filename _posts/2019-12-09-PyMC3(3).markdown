@@ -1,6 +1,6 @@
 ---
 title: " [베이지안 with Python] 'Financial prediction'"
-tags: Bayesian Python Financial Prediction LossFunction
+tags: Bayesian
 ---
 
 # Financial prediction
@@ -91,6 +91,6 @@ with pm.Model() as model:
     obs = pm.Normal("obs", mu=mean, sd=std, observed=Y)
 
     trace = pm.sample(100000, step=pm.Metropolis())
-    burned_trace = trace[20000:]  
+    burned_trace = trace[20000:]
 ```
 <center><img src="https://imgur.com/Cl1V10d.png" width="80%" height="80%"></center>

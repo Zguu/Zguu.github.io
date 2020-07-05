@@ -1,6 +1,6 @@
 ---
 title: " [Study] Vim with Improve"
-tags: Study
+tags: Tips
 ---
 
 단순 vim 사용법들 정리

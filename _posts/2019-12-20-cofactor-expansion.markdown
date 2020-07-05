@@ -1,6 +1,6 @@
 ---
 title: " [선형대수학] Cofactor expansion"
-tags: LinearAlgebra Determinant Cofactor Expansion
+tags: LinearAlgebra
 ---
 
 # Determinant

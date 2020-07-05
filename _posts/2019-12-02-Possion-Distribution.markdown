@@ -1,6 +1,6 @@
 ---
 title: " [확률기초] Poisson Distribution"
-tags: Probability Distribution Poisson Binomial
+tags: Probability
 ---
 
 # 푸아송 분포의 확률질량함수

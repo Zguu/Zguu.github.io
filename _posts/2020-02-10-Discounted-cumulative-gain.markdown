@@ -1,6 +1,6 @@
 ---
 title: " [정보이론] Discounted Cumulative Gain (DCG & nDCG)"
-tags: InformationRetrieval DCG nDCG Ranking
+tags: InformationRetrieval
 ---
 
 # 정보 처리, 랭킹 예측에서의 모델 평가를 어떻게 할까?

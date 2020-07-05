@@ -1,6 +1,6 @@
 ---
 title: " [베이지안 추론] Gibbs Sampling(1)"
-tags: Study Bayesian Algorithm Metropolis Probability Gibbs Sampling
+tags: Bayesian
 ---
 # Inferring Two Binomial proportions via Gibbs sampling
 $\ $이번 챕터는 두 개의 독립적인 이항 비율들에 대한 추론을 어떻게 하는 지에 대해 다룬다. 예를 들어, 우리가 두개의 동전을 갖고 있고 얼마나 그들의 편향도(biases)들이 다른지에 대해 결정하길 원한다고 가정해보자. 이 문제는 각각의 비율에 대한 것이 아니라, 두개의 비율 사이의 관계에 관한 문제이다. <br>

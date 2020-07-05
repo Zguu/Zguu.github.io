@@ -1,6 +1,6 @@
 ---
 title: " [베이지안 with Python] PyMC3를 활용해 실제 추론해보기"
-tags: Bayesian Python Binomial prior posterior
+tags: Bayesian
 ---
 
 # PyMC3를 활용한 샘플링

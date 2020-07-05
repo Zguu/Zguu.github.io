@@ -1,6 +1,6 @@
 ---
 title: " [논문 리뷰] Deep Neural Networks for YouTube Recommendations"
-tags: Recommendation NeuralNetwork DNN YouTube
+tags: PaperReview
 ---
 
 # 유튜브 추천 시스템 논문

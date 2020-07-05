@@ -1,6 +1,6 @@
 ---
 title: " [Machine Learning] MLE vs MAP"
-tags: Machine Learning MLE MAP ParameterEstimation
+tags: MachineLearning
 ---
 
 # MLE vs MAP

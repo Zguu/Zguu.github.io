@@ -1,6 +1,6 @@
 ---
 title: "[머신러닝] 추천 시스템 Diversity 측정 정리"
-tags: MachineLearning Recommender Diversity
+tags: RecommenderSystem
 ---
 <center><img src="https://imgur.com/5A87q6B.png" width="90%" height="90%"></center>
 

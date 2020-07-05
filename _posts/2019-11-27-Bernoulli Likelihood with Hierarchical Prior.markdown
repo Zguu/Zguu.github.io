@@ -1,6 +1,6 @@
 ---
 title: " [베이지안 추론] Bernoulli Likelihood with hierarchical Prior"
-tags: Study Bayesian Algorithm Metropolis Probability
+tags: Bayesian
 ---
 
 # Chapter 9. Bernoulli Likelihood with hierarchical Prior

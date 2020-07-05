@@ -1,6 +1,6 @@
 ---
 title: " [선형대수학] Permutation Matrix"
-tags: LinearAlgebra Permutation Matrix
+tags: LinearAlgebra
 ---
 
 # Permutation Matrix
