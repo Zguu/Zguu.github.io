@@ -13,23 +13,22 @@ $$CR,\ CRM$$ 분해가 중요한 것은, 이것이 사이즈가 큰 행렬들에
 
 아래에서 예시를 통해 더 직관적으로 살펴보자
 ## CR Factorization
-$$A$$ 행렬은 $$C, R$$로 분해가 가능하다. $$A = CR$$ <br>
-$$C$$는 $$A$$행렬의 basis of column space로 구성 돼있으며, 따라서 $$C$$ 행렬의 컬럼은 모두 독립이다. 마찬가지로 $$R$$은 A행렬의 basis of row space로 구성 돼 있으며, 또한 $$R$$ 행렬의 행은 모두 독립이다. 해당 행렬의 랭크는 컬럼 스페이스의 차원 수와 같다.
+$$A$$ 행렬은 $$C, R$$로 분해가 가능하다. $$A = CR$$. basis of column space, basis of row space로 분해하는 과정이다.<br>
+$$C$$ 는 $$A$$행렬의 basis of column space로 구성 돼있으며, 따라서 $$C$$ 행렬의 컬럼은 모두 독립이다. 마찬가지로 $$R$$ 은 $$A$$행렬의 basis of row space로 구성 돼 있으며, 또한 $$R$$ 행렬의 행은 모두 독립이다. 해당 행렬의 랭크 수는 컬럼 스페이스의 차원 수와 같다.
 > The rank of a matrix is the dimension of its column space
 
 예를 들어, $$ A = \begin{bmatrix} 2 & 4 \\ 3 & 6 \end{bmatrix} $$ 일 때, 이 행렬은 다음과 같이 분해된다.<br>
 <center>$$ A = \begin{bmatrix} 2 & 4 \\ 3 & 6 \end{bmatrix} = \begin{bmatrix} 2 \\ 3 \end{bmatrix}\begin{bmatrix} 1 & 2 \end{bmatrix} $$</center>
-행렬 $$A$$는 rank 가 1인 행렬 (두번째 행렬은 첫번째 행렬에 dependent 이므로) 이기 때문에, 행렬 $$C$$는 diemension이 1이며, $$R$$ 또한 마찬가지이다. $$R$$ 행렬은
+행렬 $$A$$ 는 rank 가 1인 행렬 (두번째 행렬은 첫번째 행렬에 dependent 이므로) 이기 때문에, 행렬 $$C$$ 는 diemension이 1이며, $$R$$ 또한 마찬가지이다.
 
-R = rref(A) = row-reduced echelon form of A (without zero rows)
-rank theorem : Column Rank = Row Rank (the number of independent columns equals the number of independent rows)
+>$$R$$ 행렬 $$= rref(A) =$$ row-reduced echelon form of A (without zero rows)
 
+> rank theorem : Column Rank = Row Rank (the number of independent columns equals the number of independent rows)
 
 ## CMR Factorization
-A행렬을 C,R 로 분해하는 것에서 더 나아가, A = CMR 형태로 분해가 가능하다.
-이는 mixing matrix M을 활용해서 진행한다. M 값이 스칼라 형태를 취할 수도 있지만, 대부분은 그렇지 않다.
-M 은 다음과 같이 구할 수 있다.
-$$A = CMR$$,
+$$A$$행렬을 $$C,\ R$$ 로 분해하는 것에서 더 나아가, $$A = CMR$$ 형태로 분해가 가능하다.
+이는 mixing matrix $$M$$을 활용해서 진행한다. $$M$$ 값이 스칼라 형태를 취할 수도 있지만, 대부분은 그렇지 않다. $$M$$ 은 다음과 같이 구할 수 있다.
+$$A = CMR$$
 $$then,\   C^TAR^T = C^TCMRR^T$$
 $$then,\   M = (C^TC)^{-1}(C^TAR^T)(RR^T)^{-1}$$
 
