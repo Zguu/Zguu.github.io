@@ -31,9 +31,7 @@ $$\mathbf{S} = \begin{bmatrix} 3 & 4 \\ 4 & 6 \end{bmatrix}$$ 행렬을 보자. 
 Gilbert 교수님은 **test2** 가 positive definite matrix 의 정의에 가장 잘 부합하는 (자신의 주관적 생각으로) 정의에 가까운 테스트 법이라고 소개했다. 아래와 같은 상황을 보자 <br>
 
 
-## 잠시 Gradient Descent로 빠지는 교수님
-
-**이 부분은 가볍게 읽어 넘긴다.**
+## Positive Definite Matrices and Minimum Problems
 
 $$\begin{bmatrix}\mathbf{x} & \mathbf{y}\end{bmatrix}\begin{bmatrix}3 & 4 \\ 4 & 6\end{bmatrix}\begin{bmatrix}\mathbf{x} \\ \mathbf{y} \end{bmatrix} = f(\mathbf{x}, \mathbf{y})$$
 $$\begin{bmatrix}\mathbf{x} & \mathbf{y}\end{bmatrix}\begin{bmatrix} 3\mathbf{x} + 4\mathbf{y} \\ 4\mathbf{x} + 6\mathbf{y}\end{bmatrix} = 3\mathbf{x}^2 + 4\mathbf{xy} + \mathbf{xy} + 6\mathbf{y}^2$$
@@ -44,7 +42,16 @@ $$ = 3\mathbf{x}^2 + 8\mathbf{xy} + 6\mathbf{y}^2 $$ (quadratic energy form)<br>
 대부분의 Deep Learning, Machine Learning, Neural Nets, Big Computation에서 손실함수 (loss function)들은 대부분 위와 같은 Bowl Shape 형태를 기본으로 보인다. 즉, 이렇게 생긴 energy 함수를 minimize 시키는 데에 목적이 있다고 볼 수 있다.
 $$f(\mathbf{x},\mathbf{y}) = \mathbf{xS}\mathbf{x}^T + \mathbf{x}^T\mathbf{b}$$ 그래프는 아래와 같다.
 <center><img src="https://imgur.com/9gs19Sb.png" width="60%" height="60%"></center>
-위의 두 Bowl Shape 모두 Convex 형태에 해당하며, 많은 실전 문제들은 어떻게 이 Convex의 특정지점에서 최소 지점으로 갈 것인지를 다룬다. 즉, Gradient 를 계산하는 문제이다. 우리는 여기서 Gradient Descent 에 대해 깊게 다루고자 하는 것은 아니다. Eigenvalue 값의 차이가 Gradient Descent 알고리즘에서 어떤 영향을 끼치는 지에 대한 힌트만 얻고 넘어가기로 한다.<br>
+위의 두 Bowl Shape 모두 Convex 형태에 해당하며, 많은 실전 문제들은 어떻게 이 Convex의 특정지점에서 최소 지점으로 갈 것인지를 다룬다. 즉, Gradient 를 계산하는 문제이다. 최솟값을 찾을 수 있는 함수의 형태는 strictly convex 이어야만 한다.<br>
+**그렇다면, 해당 함수가 convex 인지 아닌지 어떻게 판단할 것인가?**
+일반적으로, 하나의 변수 $x$ 에 대한 함수 $$f(x)$$ 에 대한 최솟값 존재 유무는 아래와 같이 확인할 수 있다. <br>
+$$x = x_0$$ 에서, 도함수 $${df \over dx} = 0 $$을 만족하고 이계도함수 $${d^2f \over dx^2}$$를 만족하는 지점은 최소점에 해당한다.<br>
+하지만 단일 변수가 아니라, 다변수 함수인 경우 문제는 조금 더 복잡해지며, 이계 도함수들을 행렬로 표현해야 한다. 이때, 이 이계도함수 행렬이 positive definite를 만족하는 경우, 우리는 해당 지점을 최솟값으로 볼 수 있다. 정리하자면 아래와 같다.
+
+점 $$x_0, y_0$$ 에서, $$\partial{f}\over\partial{x}$$ $$ =  0$$, $$ \partial{f}\over\partial{y}$$ $$ = 0$$을 만족하고, 이계도함수 행렬 $$\begin{bmatrix} \partial^2 f \over \partial x^2 & \partial^2 f \over \partial x \partial y \\ \partial^2 f \over \partial x \partial y & \partial^2 f \over \partial y^2\end{bmatrix}$$ 이 positive definite 인 경우, 해당 점 $$x_0, y_0$$ 에서 이 함수는 최솟값을 갖는다고 말할 수 있다.
+
+
+우리는 여기서 Gradient Descent 에 대해 깊게 다루고자 하는 것은 아니다. Eigenvalue 값의 차이가 Gradient Descent 알고리즘에서 어떤 영향을 끼치는 지에 대한 힌트만 얻고 넘어가기로 한다.<br>
 <center>$$\begin{bmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y}\end{bmatrix} = \nabla f$$</center>
 
 Gradient Descent 에서 가장 유의해야할 문제 중 하나는, 해당 Convex가 너무 narrow할 때, step size에 민감하게 수렴도가 바뀐다는 것이다. 즉 너무 뾰족하게 좁은 Bowl 모양에서 너무 큰 step size를 가져가면 우리는 최솟점에 도달하기 힘들 수 있다. <br>
