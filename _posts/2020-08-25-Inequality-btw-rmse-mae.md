@@ -20,7 +20,6 @@ RMSE와 MAE의 관계를 보기전에 MSE와 MAE 제곱 간의 대소관계를 �
 MSE는 미세하게 RMSE와 다르다. 아래의 MSE의 식을 위의 RMSE 식과 비교하여 혼동하기 않도록 하자.
 $$MSE = {\frac{1}{n}\sum\left\{ (X-\hat{X})^2 \right\}}$$
 $$= \frac{1}{n}{(X-\hat{X})^T(X-\hat{X})}$$
-$$= \frac{1}{n}{{\sum_i \sum_j (x_{ij} - \hat{x}_{ij})^2}}$$
 > MSE는 RMSE의 제곱이 아니다. MSE는 RMSE의 제곱에 $n$을 곱한 값과 같다.
 
 편의를 위해, $x_{ij} - \hat{x}_{ij}$ 를 $e\ (error)$로 표현하자. 정리하면 다음과 같다.
