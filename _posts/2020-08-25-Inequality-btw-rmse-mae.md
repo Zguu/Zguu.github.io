@@ -5,12 +5,12 @@ tags: MachineLearning
 
 # Definition of RMSE & MAE
 Regression, Ranking evaluator로 사용되는 Root-Mean Squared Error(RMSE)의 정의는 다음과 같다.
-$$RMSE = {\frac{1}{n}\sum\left\{ (X-\hat{X})^2 \right\}}^{\frac{1}{2}}$$
-$$= \frac{1}{n}{(X-\hat{X})^T(X-\hat{X})}^{\frac{1}{2}}$$
+<center>$$RMSE = {\frac{1}{n}\sum\left\{ (X-\hat{X})^2 \right\}}^{\frac{1}{2}}$$</center><br>
+<center>$$= \frac{1}{n}{(X-\hat{X})^T(X-\hat{X})}^{\frac{1}{2}}$$</center>
 
 더욱 간단한 형태로, Mean Absolute Error(MAE)의 정의는 다음과 같다.
-$$MAE = \frac{1}{n}\sum|X-\hat{X}|$$
-$$=\frac{1}{n}\sum_i\sum_{j}|(x_{ij} - \hat{x}_{ij})|$$
+<center>$$MAE = \frac{1}{n}\sum|X-\hat{X}|$$</center>
+</center>$$=\frac{1}{n}\sum_i\sum_{j}|(x_{ij} - \hat{x}_{ij})|$$</center>
 
 RMSE, MAE 모두 우리가 예측한 predicdted value가 actual value에서 얼마나 차이가 나는지(error)를 측정하며, 음수 값의 error를 갖는 경우 양수로 변환을 해주는 특징이 있다. 하지만, 이 양수 변환을 RMSE는 제곱을 통해 해결하며, MAE는 절댓값으로 해결한다는 차이가 있는데, 이러한 계산적 특징때문에, error 값이 크면 클수록 RMSE는 민감하게 기하급수적으로 커진다는 특징을 보일 수 밖에 없다.. <br>
 그에 반해 abnormaly 하게 큰 error에 대해서 MAE는 상대적으로 덜 민감하게 선형적으로 증가하는 모습을 보일 것이다. 이러한 점들을 이해한다면, RMSE가 그럼 항상 MAE보다 크지 않을까? 라는 궁금증이 생길 수 있다. 하지만, 제곱을 하는 과정에서, RMSE는 제곱을 취하므로, error가 모두 -1과 1사이인 경우에는, 오히려 RMSE가 MAE보다 작지 않을까? 하는 의문이 생길 수 있다. 이번 포스팅을 통해 이러한 RMSE와 MAE 간의 대소관계를 증명해보고자 한다.
