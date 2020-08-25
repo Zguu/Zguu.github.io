@@ -7,7 +7,6 @@ tags: MachineLearning
 Regression, Ranking evaluator로 사용되는 Root-Mean Squared Error(RMSE)의 정의는 다음과 같다.
 $$RMSE = {\frac{1}{n}\sum\left\{ (X-\hat{X})^2 \right\}}^{\frac{1}{2}}$$
 $$= \frac{1}{n}{(X-\hat{X})^T(X-\hat{X})}^{\frac{1}{2}}$$
-$$= \frac{1}{n}\left\{{{\sum_i \sum_j (x_{ij} - \hat{x}_{ij})^2}}\right\}^{\frac{1}{2}}$$
 
 더욱 간단한 형태로, Mean Absolute Error(MAE)의 정의는 다음과 같다.
 $$MAE = \frac{1}{n}\sum|X-\hat{X}|$$
