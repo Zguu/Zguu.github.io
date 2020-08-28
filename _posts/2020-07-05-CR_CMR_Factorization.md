@@ -27,9 +27,9 @@ $$C$$ 는 $$A$$행렬의 basis of column space로 구성 돼있으며, 따라서
 
 ## CMR Factorization
 $$A$$행렬을 $$C,\ R$$ 로 분해하는 것에서 더 나아가, $$A = CMR$$ 형태로 분해가 가능하다.
-이는 mixing matrix $$M$$을 활용해서 진행한다. $$M$$ 값이 스칼라 형태를 취할 수도 있지만, 대부분은 그렇지 않다. $$M$$ 은 다음과 같이 구할 수 있다.
-$$A = CMR$$
-$$then,\   C^TAR^T = C^TCMRR^T$$
-$$then,\   M = (C^TC)^{-1}(C^TAR^T)(RR^T)^{-1}$$
+이는 mixing matrix $$M$$을 활용해서 진행한다. $$M$$ 값이 스칼라 형태를 취할 수도 있지만, 대부분은 그렇지 않다. $$M$$ 은 다음과 같이 구할 수 있다.<br>
+<center>$$A = CMR$$</center>
+<center>$$then,\   C^TAR^T = C^TCMRR^T$$</center>
+<center>$$then,\   M = (C^TC)^{-1}(C^TAR^T)(RR^T)^{-1}$$</center>
 
 예시 추가.
