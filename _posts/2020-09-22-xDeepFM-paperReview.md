@@ -8,7 +8,7 @@ Combinatorial features (상호작용 특성)들은 많은 추천 시스템에서
  이 논문은 Compressed Interaction Network(CIN) 을 제안하며, 이는 explicit 한 방법을 사용한 vector-wise 수준에서 feature interaction 생성을 가능하게 한다. 이는 Convolutional neural networks (CNNs), Recurrent neural networks(RNNs) 의 기능들을 모두 공유한다는 것을 보여줄 것이다.<br>
  더 나아가, 이 CIN 구조와 DNN을 결합하여 eXtreme Deep Factorization Machine 인 (xDeepFM)을 제시한다. 이 xDeepFM은 명시된 feature 상호작용에 대하여는 explicitly하게 학습이 가능하며, 반면에, arbitrary한 low, high order 특성 상호작용에 대하여는 implicitly한 학습을 보인다.
 
- ## Introduction
+## Introduction
 Data Science 에서 피쳐들의 상호작용 텀을 활용하는 것은 매우 일반적이지만, 이에 대한 disadvantage 들도 있다. 크게 세가지는 다음과 같다.
 1. 좋은 퀄리티의 피쳐 상호작용을 잡아내는 데에는 그만큼 비용이 많이 든다.
 2. 좋은 퀄리티의 피쳐 term을 잘 정제해낸다고 하더라도, 매우 많은 상호작용 term들이 생기는 경우가 일반적이며, 예측 모델에 과부하를 줄 수 있다.
