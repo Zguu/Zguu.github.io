@@ -60,11 +60,10 @@ CrossNet 아키텍쳐는 다른 DNN 모델들에 비할수 없을만큼 빠르�
 3. 네트워크의 복잡성이 상호작용의 degree와 함께 exponentially 증가하지 않아야한다.
 
 임베딩 벡터들은 vector-wise 상호작용의 단위(unit)으로 여겨지므로, field 임베딩의 출력을 다음과 같이 표현하자.
-$$\mathbf{X}^0 \in \mathbb{R}^{m \times D}$$ 그리고, $\mathbf{X}^0$의 $i$ 번째 행에 해당하는 값들은 $\mathbf{X}_{i,*}^0 = \mathbf{e}_i$ 로 표현한다. $D$는 각 임베딩 벡터의 차원을 의미한다 (임베딩 벡터들의 length). 또한, $k$번째 layer의 출력 값은 $$\mathbf{X}^k \in \mathbb{R}^{H_k \times D}$$로 표현할 수 있다. $H_k$는 $k$번째 layer의 필드 벡터 갯수를 의미한다. 각 층에 대하여 $\mathbf{X}_k$는 다음과 같이 계산될 수 있다.
+$$\mathbf{X}^0 \in \mathbb{R}^{m \times D}$$ 그리고, $D$는 각 임베딩 벡터의 차원을 의미한다 (임베딩 벡터들의 length). 또한, $k$번째 layer의 출력 값은 $$\mathbf{X}^k \in \mathbb{R}^{H_k \times D}$$로 표현할 수 있다. $H_k$는 $k$번째 layer의 필드 벡터 갯수를 의미한다. 각 층에 대하여 $\mathbf{X}_k$는 다음과 같이 계산될 수 있다.
 $$\mathbf{X}_{h,*}^k = \sum_{i=1}^{H_{k-1}}\sum_{j=1}^{m} \mathbf{W}_{ij}^{k,h} (\mathbf{X}_{i,*}^{k-1} \circ \mathbf{X}_{j,*}^{0})$$
 여기에서 $1 \le h \le H_k, \quad \mathbf{W}^{k,h} \in \mathbb{R}^{H_{k-1}\times m}$ 이며, $\mathbf{W}^{k,h}$는 $h$ 번째 feature vector 행렬에 대한 파라미터이다. $\circ$는 Hadamard product, 즉, element wise matrix product 이다. 위의 식에서 확인할 수 있듯이, $\mathbf{X}^k$는 $\mathbf{X}^{k-1}$과 $\mathbf{X}^0$ 사이의 상호작용을 통해 구해지며, 따라서, 피쳐 상호작용들은 explicitly 계산된다는 것을 알 수 있다. 또한, 상호작용의 degree 는 layer가 깊어질 수록 더욱 증가한다. 다음 은닉층이 가장 최근 은닉층과 추가되는 은닉층에 의존한다는 점에서, CIN 의 구조는 Recurrent Neural Network (RNN)의 구조와 매우 흡사하다.<br>
 위의 식은 CNN 과도 구조적으로 유사하다는 점은 흥미로운데, 우리가 $(\mathbf{X}^{k-1} \circ \mathbf{X}^{0})$ 에 해당하는 부분을 intermediate tensor $\mathbf{Z}^{k+1}$로 생각한다면, 이 $\mathbf{Z}^{k+1}$은 하나의 이미지로, $\mathbf{W}^{k,h}$는 하나의 필터로 생각될 수 있다.
-
 아래 이미지에서 볼 수 있듯이, (a) 에서 각 행렬의 outer products를 통해 intermediate tensor를 생성하고, (b)에서 이 tensor 들에 필터를 적용해 다음 층의 행렬을 생성하는 것으로 이해해볼 수 있다.
 
  ![스크린샷 2020-09-22 오후 2.43.30](https://i.imgur.com/PmOHQqk.png)
