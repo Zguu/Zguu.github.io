@@ -89,7 +89,7 @@ $$\mathbf{X}^0 \in \mathbb{R}^{m \times D}$$
 
 $D$는 각 임베딩 벡터의 차원을 의미한다 (임베딩 벡터들의 length). 또한, $k$번째 layer의 출력 값은 $$\mathbf{X}^k \in \mathbb{R}^{H_k \times D}$$로 표현할 수 있다. $H_k$는 $k$번째 layer의 필드 벡터 갯수를 의미한다. 각 층에 대하여 $\mathbf{X}_k$는 다음과 같이 계산될 수 있다.
 
-$$\mathbf{X}_{h,*}^k = \sum_{i=1}^{H_{k-1}} \sum_{j=1}^{m} \mathbf{W}_{ij}^{k,h}\left( \mathbf{X}_{i,*}^{k-1}\circ\mathbf{X}_{j,*}^0} \right)$$
+$$\mathbf{X}_{h,*}^k = \sum_{i=1}^{H_{k-1}} \sum_{j=1}^{m} \mathbf{W}_{ij}^{k,h}\left( \mathbf{X}_{i,*}^{k-1}\circ\mathbf{X}_{j,*}^0 \right)$$
 
 여기에서 $1 \le h \le H_k, \quad \mathbf{W}^{k,h} \in \mathbb{R}^{H_{k-1}\times m}$ 이며, $\mathbf{W}^{k,h}$는 $h$ 번째 feature vector 행렬에 대한 파라미터이다. $\circ$는 Hadamard product, 즉, element wise matrix product 이다.
 위의 식에서 확인할 수 있듯이, $\mathbf{X}^k$는 $\mathbf{X}^{k-1}$과 $\mathbf{X}^0$ 사이의 상호작용을 통해 구해지며, 따라서, 피쳐 상호작용들은 explicitly 계산된다는 것을 알 수 있다.
