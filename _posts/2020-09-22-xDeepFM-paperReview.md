@@ -36,11 +36,14 @@ $$\underbrace{[0,1,0,0,...,0]}_\text{userid}\underbrace{[1,0]}_\text{gender}\und
 위와 같은 one-hot encoding 형태의 데이터들은 임베딩 이후 사용된다. 임베딩 벡터 $\mathbf{e}$ 는 다음과 같이 표현된다.
 
 $$\mathbf{e} = [\mathbf{e_1}, \mathbf{e_2}, ..., \mathbf{e_m}]$$
+
 ![스크린샷 2020-09-22 오후 2.42.54](https://i.imgur.com/LalQa11.png)
 ### 2.2 Implicit High-order Interactions
 FNN, DeepCrossing 그리고 Wide & Deep 모델의 deep part 는 high-order 상호작용을 학습하기 위해 field embedding vector $\mathbf{e}$에 feed-forward nerual network를 활용한다. 우리가 잘 알고 있는 forward process는 다음과 같다.
-$$ \mathbf{x}^1 = \sigma(\mathbf{W}^{(1)}\mathbf{e} + \mathbf{b}^1) $$
-$$ \mathbf{x}^k = \sigma(\mathbf{W}^{(k)}\mathbf{k-1} + \mathbf{b}^k) $$
+
+$$\mathbf{x}^1 = \sigma(\mathbf{W}^{(1)}\mathbf{e} + \mathbf{b}^1) $$
+
+$$\mathbf{x}^k = \sigma(\mathbf{W}^{(k)}\mathbf{k-1} + \mathbf{b}^k)$$
 
 우리의 모델 구조는 아래 Figure 2에서 보이는 것에서 $FM \ or \ Product \ Layer$가 포함되지 않는 점만 제외하면 거의 비슷하다. 이 모델은 bit-wise 방식의 상호작용 term을 학습한다.
 > bit-wise 방식의 상호작용을 학습한다는 것은, 같은 field의 embedding 결과인 벡터 내부 element 들이 서로 상호작용 영향을 갖는다는 것을 의미한다.
@@ -54,11 +57,13 @@ $$ \mathbf{x}^k = \sigma(\mathbf{W}^{(k)}\mathbf{k-1} + \mathbf{b}^k) $$
 
 ### 2.3 Explicit High-order Interactions
 아래의 Figure 3에서 CrossNet 아키텍쳐를 확인할 수 있다. CrossNet 구조는 고차원 피쳐 상호작용을 explicitly 하게 모델링하도록 고안됐다. 전통적인 fully-connected feed-forward network와는 다르게, 해당 아키텍쳐의 hidden layer는 다음과 같이 계산된다.
-$$ \mathbf{x_k} = \mathbf{x_0}\mathbf{x_{k-1}}^T \mathbf{w}_k + \mathbf{b_k} + \mathbf{x_{k-1}}$$
 
-$\mathbf{w}_k, \mathbf{b}_k,\mathbf{x}_k \in \mathbb{R}^{m\times D}$
+$$\mathbf{x_k} = \mathbf{x_0}\mathbf{x_{k-1}}^T \mathbf{w}_k + \mathbf{b_k} + \mathbf{x_{k-1}}$$
+
+$$\mathbf{w}_k, \mathbf{b}_k,\mathbf{x}_k \in \mathbb{R}^{m\times D}$$
 
 위와 같이 계산되는 각각의 $k$번째 hidden layer들은 첫번째 layer와 $k-1$ 번째 hidden layer의  곱을 통해 계산되므로, $\mathbf{x_0}$의 scalar 배수에 해당한다.
+
 ![스크린샷 2020-09-22 오후 2.43.17](https://i.imgur.com/3dlubXL.png)
 
 CrossNet 아키텍쳐는 다른 DNN 모델들에 비할수 없을만큼 빠르고 효율적으로 피쳐 상호작용에 대한 효과를 학습하지만, 단점은 다음과 같다.
@@ -75,7 +80,11 @@ CrossNet 아키텍쳐는 다른 DNN 모델들에 비할수 없을만큼 빠르�
 2. 높은 차원의 피쳐 상호작용들은 explicitly 하게 측정된다.
 3. 네트워크의 복잡성이 상호작용의 degree와 함께 exponentially 증가하지 않아야한다.
 
-임베딩 벡터들은 vector-wise 상호작용의 단위(unit)로 여겨지므로, field 임베딩의 출력을 다음과 같이 표현하자. $$\mathbf{X}^0 \in \mathbb{R}^{m \times D}$$
+임베딩 벡터들은 vector-wise 상호작용의 단위(unit)로 여겨지므로, field 임베딩의 출력을 다음과 같이 표현하자.
+
+$$\mathbf{X}^0 \in \mathbb{R}^{m \times D}$$
+
+그리고, $\mathbf{X}^0$의 $i$ 번째 행에 해당하는 값들은 $\mathbf{X}_{i,*}^0 = \mathbf{e}_i$ 로 표현한다.
 
 $D$는 각 임베딩 벡터의 차원을 의미한다 (임베딩 벡터들의 length). 또한, $k$번째 layer의 출력 값은 $$\mathbf{X}^k \in \mathbb{R}^{H_k \times D}$$로 표현할 수 있다. $H_k$는 $k$번째 layer의 필드 벡터 갯수를 의미한다. 각 층에 대하여 $\mathbf{X}_k$는 다음과 같이 계산될 수 있다. $$\mathbf{X}_{h,*}^k = \sum_{i=1}^{H_{k-1}}\sum_{j=1}^{m} \mathbf{W}_{ij}^{k,h} \left( \mathbf{X}_{i,*}^{k-1} \circ \mathbf{X}_{j,*}^{0} \right)$$
 여기에서 $1 \le h \le H_k, \quad \mathbf{W}^{k,h} \in \mathbb{R}^{H_{k-1}\times m}$ 이며, $\mathbf{W}^{k,h}$는 $h$ 번째 feature vector 행렬에 대한 파라미터이다. $\circ$는 Hadamard product, 즉, element wise matrix product 이다.
