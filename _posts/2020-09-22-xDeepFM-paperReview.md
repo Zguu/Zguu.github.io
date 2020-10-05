@@ -60,6 +60,7 @@ $$\mathbf{x}^k = \sigma(\mathbf{W}^{(k)}\mathbf{k-1} + \mathbf{b}^k)$$
 
 $$\mathbf{x_k} = \mathbf{x_0}\mathbf{x_{k-1}}^T \mathbf{w}_k + \mathbf{b_k} + \mathbf{x_{k-1}}$$
 
+
 $$\mathbf{w}_k, \mathbf{b}_k,\mathbf{x}_k \in \mathbb{R}^{m\times D}$$
 
 위와 같이 계산되는 각각의 $k$번째 hidden layer들은 첫번째 layer와 $k-1$ 번째 hidden layer의  곱을 통해 계산되므로, $\mathbf{x_0}$의 scalar 배수에 해당한다.
@@ -88,13 +89,16 @@ $$\mathbf{X}^0 \in \mathbb{R}^{m \times D}$$
 
 $D$는 각 임베딩 벡터의 차원을 의미한다 (임베딩 벡터들의 length). 또한, $k$번째 layer의 출력 값은 $$\mathbf{X}^k \in \mathbb{R}^{H_k \times D}$$로 표현할 수 있다. $H_k$는 $k$번째 layer의 필드 벡터 갯수를 의미한다. 각 층에 대하여 $\mathbf{X}_k$는 다음과 같이 계산될 수 있다.
 
-$$\mathbf{X}_{h,*}^k = \sum_{i=1}^{H_{k-1}} \sum_{j=1}^{m} \mathbf{W}_{ij}^{k,h} \left( \mathbf{X}_{i,*}^{k-1}\circ\mathbf{X}_{j,*}^{0} \right)$$
+$$\mathbf{X}_{h,*}^k = \sum_{i=1}^{H_{k-1}} \sum_{j=1}^{m} \mathbf{W}_{ij}^{k,h} \left( \mathbf{X}_{i,*}^{k-1}\circ\mathbf{X}_{j,*}^0} \right)$$
 
 여기에서 $1 \le h \le H_k, \quad \mathbf{W}^{k,h} \in \mathbb{R}^{H_{k-1}\times m}$ 이며, $\mathbf{W}^{k,h}$는 $h$ 번째 feature vector 행렬에 대한 파라미터이다. $\circ$는 Hadamard product, 즉, element wise matrix product 이다.
 위의 식에서 확인할 수 있듯이, $\mathbf{X}^k$는 $\mathbf{X}^{k-1}$과 $\mathbf{X}^0$ 사이의 상호작용을 통해 구해지며, 따라서, 피쳐 상호작용들은 explicitly 계산된다는 것을 알 수 있다.
-또한, 상호작용의 degree 는 layer가 깊어질 수록 더욱 증가한다. 다음 은닉층이 가장 최근 은닉층과 추가되는 은닉층에 의존한다는 점에서, CIN 의 구조는 Recurrent Neural Network (RNN)의 구조와 매우 흡사하다.
+또한, 상호작용의 degree 는 layer가 깊어질 수록 더욱 증가한다. <br>
+
+다음 은닉층이 가장 최근 은닉층과 추가되는 은닉층에 의존한다는 점에서, CIN 의 구조는 Recurrent Neural Network (RNN)의 구조와 매우 흡사하다.
 위의 식은 CNN 과도 구조적으로 유사하다는 점은 흥미로운데, 우리가 $(\mathbf{X}^{k} \circ \mathbf{X}^{0})$ 에 해당하는 부분을 intermediate tensor $\mathbf{Z}^{k+1}$로 생각한다면, 이 $\mathbf{Z}^{k+1}$은 하나의 이미지로, $\mathbf{W}^{k,h}$는 하나의 필터로 생각될 수 있다.
 아래 이미지에서 볼 수 있듯이, (a) 에서 각 행렬의 outer products를 통해 intermediate tensor를 생성하고, (b)에서 이 tensor 들에 필터를 적용해 다음 층의 행렬을 생성하는 것으로 이해해볼 수 있다.
+
  ![스크린샷 2020-09-22 오후 2.43.30](https://i.imgur.com/PmOHQqk.png)
 
 > 위의 (a) 에서 총 D (embedding length) 에 해당하는 이미지가 만들어지는 것으로 생각할 수 있다.
@@ -104,8 +108,10 @@ $$\mathbf{X}_{h,*}^k = \sum_{i=1}^{H_{k-1}} \sum_{j=1}^{m} \mathbf{W}_{ij}^{k,h}
 > 굳이 벡터 곱 과정에서 $\mathbf{W}^{k,h}$ 행렬의 각 성분을 곱해가며 더하는 것은 모든 상호작용(vector-wise) 에 각기 다른 weight를 주겠다는 것
 
 위의 Figure 4(c)에서 CIN의 전체 구조를 확인할 수 있는데, 모든 은닉층 $\mathbf{X}^k, k\in [1,T]$ 는 출력 unit과 연결 돼있으며, 우리는 일차적으로 은닉층의 각 feature map 에 대한 sum pooling을 진행한다. $$p_i^k = \sum_{j=1}^D \mathbf{X}_{i,j}^k$$
-$i$ 값은 1과 $H_k$ 사이에 존재할 것이다. 그러므로, 우리는 다음과 같은 pooling vector를 얻는다. $\mathbf{p}^k = [p_1^k, p_2^k, ..., p_{H_k}^k]$ rk <br>
+$i$ 값은 1과 $H_k$ 사이에 존재할 것이다. 그러므로, 우리는 다음과 같은 pooling vector를 얻는다. $\mathbf{p}^k = [p_1^k, p_2^k, ..., p_{H_k}^k]$ <br>
+
 각 층들에 대한 모든 $\mathbf{p}^k$는 다음과 같이 concatenated 된다. $\mathbf{p}^+ = [\mathbf{p}^1,\mathbf{p}^2, ... ,\mathbf{p}^T] \in \mathbb{R}^{\sum_{i=1}^T H_i}$. 우리가 CIN 구조를 바로 binary classification에 사용하게 된다면, output unit 은 $\mathbf{p}^+$에 sigmoid 함수를 적용한 아래의 형태가 된다.
+
 $$ y = \frac{1}{1 + exp(\mathbf{p}^{+T})\mathbf{w}^0}$$
 
 ### 3.2 CIN Analysis
@@ -113,10 +119,15 @@ $$ y = \frac{1}{1 + exp(\mathbf{p}^{+T})\mathbf{w}^0}$$
 
 ### 3.3 Combination with Implicit Networks
 2.2 섹션에서 논의한 것과 마찬가지로, plain DNN 구조들은 Implicit high-order 피쳐 상호작용들에 대한 학습을 진행한다. CIN 과 plain DNN을 서로 약점을 보완해주는 관계가 될 수 있으며, 이러한 각자의 장점들 때문에, 이 둘을 함께 조합하여 사용하면 더 좋은 결과를 낼 수 있지 않을까 하는 호기심을 가질 수 있다. 우리의 xDeepFM 모델 구조는 아래에 나와있으며 Wide & Deep or DeepFM 모델과 구조적으로 매우 유사하다. xDeepFM은 저차원과 고차원의 피쳐 상호작용을 모두 포함할 뿐만 아니라, implicit, explicit feature 상호작용을 모두 포함한다. 출력 값은 다음과 같이 간단하다.
-$$ \hat{y} = \sigma(\mathbf{w}_{linear}^T\mathbf{a} + \mathbf{w}_{dnn}^T \mathbf{x}_{dnn}^{T} + \mathbf{w}_{cin}^T \mathbf{p}^+ + b)$$
+
+$$\hat{y} = \sigma(\mathbf{w}_{linear}^T\mathbf{a} + \mathbf{w}_{dnn}^T \mathbf{x}_{dnn}^{T} + \mathbf{w}_{cin}^T \mathbf{p}^+ + b)$$
+
 binary classification의 경우에, loss function은 또한 우리에게 친숙한 다음과 같은 log loss일 것이다.
+
 $$\mathcal{L} = -\frac{1}{N} \sum_{i=1}^N y_i log\hat{y}_i + (1-y_i)log(1-\hat{y}_i)$$
+
 최종적으로 해당 loss $\mathcal{L}$에 regularization term한 추가하여 최적화를 진행한다.
+
 $$\mathcal{J} = \mathcal{L} + \lambda_{*}||\mathsf{\Theta}||$$
 
 ![스크린샷 2020-09-22 오후 2.43.43](https://i.imgur.com/x4Ae1aj.png)
