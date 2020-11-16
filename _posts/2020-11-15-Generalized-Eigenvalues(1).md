@@ -5,7 +5,7 @@ tags: LinearAlgebra
 
 # Generalized Eigenvalues and Eigenvector
 
-말그대로 조금 더 일반적인 형태의 eigenvalues, eigenvectors 에 대해서 이해해보자. 해당 형태는 Reyleigh Ratio 값과 비슷한 형태를 보여주므로, Reyleigh Ratio에 대한 리뷰를 먼저 시작해보겠습니다.
+말그대로 조금 더 일반적인 형태의 eigenvalues, eigenvectors 에 대해서 알아보겠습니다. 해당 형태는 Reyleigh Ratio 값과 비슷한 형태를 보여주므로, Reyleigh Ratio에 대한 리뷰를 먼저 시작해보겠습니다.
 
 ## Reyleigh Ratio
 Reyleigh Ratio는 다음과 같은 형태를 보여줍니다. SVD에서 first, second laregest singular value, 그에 대한 기하학적 해석에서 한 번 다룬적이 있습니다.
@@ -64,10 +64,10 @@ $$H = M^{-\frac{1}{2}}SM^{-{\frac{1}{2}}} \\ =  \begin{vmatrix} \frac{a}{m_1} & 
 
 이를 이용해서 다음의 eigenvalue problem 을 풀어보겠습니다.
 
-problem (1) solve $Sx = \lambda MX \quad \\ \text{when} \space S = \begin{vmatrix} 4 & -2 \\ -2 & 4 \end{vmatrix} , M = \begin{vmatrix} 1 & 0 \\ 0 & 2 \end{vmatrix}$
+problem1 : solve $$Sx = \lambda MX \\ \text{when} \space S = \begin{vmatrix} 4 & -2 \\ -2 & 4 \end{vmatrix} , M = \begin{vmatrix} 1 & 0 \\ 0 & 2 \end{vmatrix}$$
 
-sol (1) $(S-\lambda M)X_1 = 0\\ det(S-\lambda M) = 0 \\ det(\begin{vmatrix} 4-\lambda & -2 \\ -2 & 4-2\lambda \end{vmatrix}) = 0 \\ (4-\lambda)(4-2\lambda) - 4 = 0 \\ \rightarrow \lambda  = 3 \pm \sqrt{3}$
+solution1 : $$(S-\lambda M)X_1 = 0 \\ det(S-\lambda M) = 0 \\ det(\begin{vmatrix} 4-\lambda & -2 \\ -2 & 4-2\lambda \end{vmatrix}) = 0 \\ (4-\lambda)(4-2\lambda) - 4 = 0 \\ \rightarrow \lambda  = 3 \pm \sqrt{3}$$
 
-sol (2) $H = M^{-\frac{1}{2}}SM^{-{\frac{1}{2}}} \\ = \begin{vmatrix} 1 & 0 \\ 0 & \frac{1}{\sqrt{2}}\end{vmatrix} \begin{vmatrix} 4 & -2 \\ -2 & 4 \end{vmatrix} \begin{vmatrix} 1 & 0 \\ 0 & \frac{1}{\sqrt{2}} \end{vmatrix} \\ = \begin{vmatrix} 4 & -\sqrt{2} \\ -\sqrt{2} & 2 \end{vmatrix} \\ det(H-\lambda I) = 0 \\ \text{also}, \lambda  = 3 \pm \sqrt{3}$
+solution2 : $$H = M^{-\frac{1}{2}}SM^{-{\frac{1}{2}}} \\ = \begin{vmatrix} 1 & 0 \\ 0 & \frac{1}{\sqrt{2}}\end{vmatrix} \begin{vmatrix} 4 & -2 \\ -2 & 4 \end{vmatrix} \begin{vmatrix} 1 & 0 \\ 0 & \frac{1}{\sqrt{2}} \end{vmatrix} \\ = \begin{vmatrix} 4 & -\sqrt{2} \\ -\sqrt{2} & 2 \end{vmatrix} \\ det(H-\lambda I) = 0 \\ \text{also}, \lambda  = 3 \pm \sqrt{3}$$
 
 위에서 볼 수 있듯이 어떤 방법으로 이 eigenvalue problem을 접근해도 같은 결과를 얻는 것을 알 수 있습니다.
