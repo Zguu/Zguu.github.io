@@ -64,10 +64,16 @@ $$H = M^{-\frac{1}{2}}SM^{-{\frac{1}{2}}} \\ =  \begin{vmatrix} \frac{a}{m_1} & 
 
 이를 이용해서 다음의 eigenvalue problem 을 풀어보겠습니다.
 
-problem1 : solve $$Sx = \lambda MX \\ \text{when} \space S = \begin{vmatrix} 4 & -2 \\ -2 & 4 \end{vmatrix} , M = \begin{vmatrix} 1 & 0 \\ 0 & 2 \end{vmatrix}$$
+problem1 : solve
 
-solution1 : $$(S-\lambda M)X_1 = 0 \\ det(S-\lambda M) = 0 \\ det(\begin{vmatrix} 4-\lambda & -2 \\ -2 & 4-2\lambda \end{vmatrix}) = 0 \\ (4-\lambda)(4-2\lambda) - 4 = 0 \\ \rightarrow \lambda  = 3 \pm \sqrt{3}$$
+$$Sx = \lambda MX \\ \text{when} \space S = \begin{vmatrix} 4 & -2 \\ -2 & 4 \end{vmatrix} , M = \begin{vmatrix} 1 & 0 \\ 0 & 2 \end{vmatrix}$$
 
-solution2 : $$H = M^{-\frac{1}{2}}SM^{-{\frac{1}{2}}} \\ = \begin{vmatrix} 1 & 0 \\ 0 & \frac{1}{\sqrt{2}}\end{vmatrix} \begin{vmatrix} 4 & -2 \\ -2 & 4 \end{vmatrix} \begin{vmatrix} 1 & 0 \\ 0 & \frac{1}{\sqrt{2}} \end{vmatrix} \\ = \begin{vmatrix} 4 & -\sqrt{2} \\ -\sqrt{2} & 2 \end{vmatrix} \\ det(H-\lambda I) = 0 \\ \text{also}, \lambda  = 3 \pm \sqrt{3}$$
+solution1 :
+
+$$(S-\lambda M)X_1 = 0 \\ det(S-\lambda M) = 0 \\ det(\begin{vmatrix} 4-\lambda & -2 \\ -2 & 4-2\lambda \end{vmatrix}) = 0 \\ (4-\lambda)(4-2\lambda) - 4 = 0 \\ \rightarrow \lambda  = 3 \pm \sqrt{3}$$
+
+solution2 :
+
+$$H = M^{-\frac{1}{2}}SM^{-{\frac{1}{2}}} \\ = \begin{vmatrix} 1 & 0 \\ 0 & \frac{1}{\sqrt{2}}\end{vmatrix} \begin{vmatrix} 4 & -2 \\ -2 & 4 \end{vmatrix} \begin{vmatrix} 1 & 0 \\ 0 & \frac{1}{\sqrt{2}} \end{vmatrix} \\ = \begin{vmatrix} 4 & -\sqrt{2} \\ -\sqrt{2} & 2 \end{vmatrix} \\ det(H-\lambda I) = 0 \\ \text{also}, \lambda  = 3 \pm \sqrt{3}$$
 
 위에서 볼 수 있듯이 어떤 방법으로 이 eigenvalue problem을 접근해도 같은 결과를 얻는 것을 알 수 있습니다.
