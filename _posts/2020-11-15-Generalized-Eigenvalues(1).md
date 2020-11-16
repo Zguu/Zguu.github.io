@@ -16,7 +16,7 @@ left singular vector, singular values, right singular vector를 구하는 과정
 
 즉, $R(x)$에  $q_1$ 을 대입하면, $R(x)$의 최댓값을 구할 수 있습니다. 지금까지 한 이야기를 수식으로 표현하면 다음과 같습니다.
 
-$$\text{maximum} \quad R(x) = R(q_1) = \frac{q_1^TSq_1}{q_1^Tq_1} = \frac{q_1^T\lambda_1q_1}{q_1^Tq_1} =
+$$\text{maximum} \quad R(x) = R(q_1) \\ = \frac{q_1^TSq_1}{q_1^Tq_1} = \frac{q_1^T\lambda_1q_1}{q_1^Tq_1} =
 \lambda_1$$
 
 이 이야기를 조금 더해보면, $R(x)$를 최소화 시키는 벡터는 마지막 singular vector $q_n$일 것입니다.
@@ -58,15 +58,15 @@ $$M^{-1}S = \begin{vmatrix}m_1 & 0 \\ 0 & m_2 \end{vmatrix}^{-1}\begin{vmatrix} 
 
 $$H = M^{-\frac{1}{2}}SM^{-{\frac{1}{2}}} \\ =  \begin{vmatrix} \frac{a}{m_1} & \frac{b}{\sqrt{m_1m_2}} \\ \frac{b}{\sqrt{m_1m_2}} & \frac{c}{m_2}  \end{vmatrix} \quad \text{symmetric}$$
 
-여기에서, $M$은 원래 정의부터 symmetric 행렬이었기 때문에, $Q\Lambda Q^T$ 로 표현할 수 있습니다. 만약 $\Lambda > 0 $ 이 성립한다면, $M^{\frac{1}{2}} = Q\Lambda^{\frac{1}{2}}Q^T$ 에서 $\Lambda^{\frac{1}{2}} > 0 $이 성립합니다.
+여기에서, $M$은 원래 정의부터 symmetric 행렬이었기 때문에, $Q\Lambda Q^T$ 로 표현할 수 있습니다. 만약 $\Lambda > 0$ 이 성립한다면, $M^{\frac{1}{2}} = Q\Lambda^{\frac{1}{2}}Q^T$ 에서 $\Lambda^{\frac{1}{2}} > 0 $이 성립합니다.
 
 정리 : $H = M^{-\frac{1}{2}}SM^{-{\frac{1}{2}}}$ 로 표현하자.
 
 이를 이용해서 다음의 eigenvalue problem 을 풀어보겠습니다.
 
-problem 1) solve $Sx = \lambda MX$ when $S = \begin{vmatrix} 4 & -2 \\ -2 & 4\end{vmatrix}, M = \begin{vmatrix} 1 & 0 \\ 0 & 2\end{vmatrix} $ <br>
+problem 1) solve $Sx = \lambda MX$ when $S = \begin{vmatrix} 4 & -2 \\ -2 & 4 \end{vmatrix}$ ,$M = \begin{vmatrix} 1 & 0 \\ 0 & 2 \end{vmatrix}$
 
-sol 1) $(S-\lambda M)X_1 = 0\\ det(S-\lambda M) = 0 \\ det\begin{vmatrix}4-\lambda & -2 \\ -2 & 4-2\lambda\end{vmatrix} = 0 \\ (4-\lambda)(4-2\lambda) - 4 = 0 \\ \rightarrow \lambda  = 3 \pm \sqrt{3}$ <br>
+sol 1) $(S-\lambda M)X_1 = 0\\ det(S-\lambda M) = 0 \\ det\begin{vmatrix} 4-\lambda & -2 \\ -2 & 4-2\lambda \end{vmatrix} = 0 \\ (4-\lambda)(4-2\lambda) - 4 = 0 \\ \rightarrow \lambda  = 3 \pm \sqrt{3}$ 
 
 sol 2) $H = M^{-\frac{1}{2}}SM^{-{\frac{1}{2}}} \\ = \begin{vmatrix} 1 & 0 \\ 0 & \frac{1}{\sqrt{2}}\end{vmatrix} \begin{vmatrix} 4 & -2 \\ -2 & 4 \end{vmatrix} \begin{vmatrix} 1 & 0 \\ 0 & \frac{1}{\sqrt{2}} \end{vmatrix} \\ = \begin{vmatrix} 4 & -\sqrt{2} \\ -\sqrt{2} & 2 \end{vmatrix} \\ det(H-\lambda I) = 0 \\ also, \lambda  = 3 \pm \sqrt{3}$
 
