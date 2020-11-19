@@ -66,7 +66,7 @@ $$\mathbf{V} = \begin{bmatrix} 0.31 & 0.11 & -0.1 \\ -0.23 & -0.9 & 0.27\\ &\vdo
 
 $$\mathbf{W} = \mathbf{V}\mathbf{V}^T$$
 
-모든 7개의 변수들간의 상호작용 term을 7 $\times$ 7 행렬에 넣어두게 됐습니다. 이후에 이 상호작용 행렬에 있는 값들을 참고하여, 상호작용 항을 계산할 수 있습니다. 앞선 식에서 보았던 항 $<\mathbf{v}_i, \mathbf{v}_j> \mathbf{x}_i \mathbf{x}_j$는 $V_{ij} X_{i,:} X_{j,:}$에 해당합니다.
+모든 7개의 변수들간의 상호작용 term을 7 $\times$ 7 행렬에 넣어두게 됐습니다. 이후에 이 상호작용 행렬에 있는 값들을 참고하여, 상호작용 항을 계산할 수 있습니다. 앞선 식에서 보았던 항 $<\mathbf{v}_i, \mathbf{v}_j> \mathbf{x}_i \mathbf{x}_j$는 $V_{ij} X_{i,} X_{j,}$에 해당합니다.
 
 이제 우리가 해야할 것은, 각 parameter 벡터와 행렬에 해당하는 $\mathbf{w}, \mathbf{W}$의 모든 미지수들을 최적화하는 것입니다. 최적화의 방향은 목표로 하는 값 (여기서는 평점)이 실제 평점과는 최대한 차이가 적도록 하는 것입니다.
 
@@ -77,7 +77,7 @@ $$\mathbf{W} = \mathbf{V}\mathbf{V}^T$$
 $$\sum_{i=1}^n \sum_{j=i+1}^n <\mathbf{v}_i, \mathbf{v}_j> x_i x_j \\ = \frac{1}{2} \sum_{i=1}^n \sum_{j=1}^n <\mathbf{v}_i, \mathbf{v}_j> x_i x_j - \frac{1}{2} \sum_{i=1}^n <\mathbf{v}_i, \mathbf{v}_i> x_i x_i \\
 = \frac{1}{2}(\sum_{i=1}^n\sum_{j=1}^n\sum_{f=1}^k v_{i,f}v_{j,k}x_i x_j - \sum_{i=1}^n\sum_{f=1}^k v_{i,f} v_{i,f} x_i x_i)\\
 =\frac{1}{2}\sum_{f=1}^k (( \sum_{i=1}^n v_{i,f} x_i) (\sum_{j=1}^n v_{i,f}x_j) - \sum_{i=1}^n v_{i,f}^2 x_i ^2) \\
-= \frac{1}{2}\sum_{f=1}^k ((\sum_{i=1}^n v_{i,f} x_i) ^2 -\sum_{i=1}^n v_{i,f}^2 x_i^2)$$
+= \frac{1}{2}\sum_{f=1}^k ((\sum_{i=1}^n v_{i,f} x_i) ^2 -\sum_{i=1}^n v_{i,f}^2 x_i^2$$
 
 또한, 추천시스템의 대부분의 벡터변수들은 우리가 위의 dataset figure에서 보았던 것처럼 대부분 0인 데이터가 많으며 (high sparsity), 이러한 특성 때문에 계산 복잡도는 실제로 더 줄어들게 됩니다.
 사실 여기까지만 이해하면, tensorflow model subclassing 을 통해, custom function으로 문제를 쉽게 풀어낼 수 있습니다.
