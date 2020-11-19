@@ -90,7 +90,7 @@ $$\sum_{i=1}^n \sum_{j=i+1}^n <\mathbf{v}_i, \mathbf{v}_j> x_i x_j \\ = \frac{1}
 
 ## Learning
 
-${ \partial\over\partial \theta} \hat{y(\mathbf{x})}  = \left\{ {1, \quad if\  \ \theta\ \  is\ \  w_0 \\ x_i, \quad if\ \  \theta\ \  is\ \   w_i \\ x_i \sum_{j=1}^n v_{j,f} x_j - v_{i,f} x_i^2, \quad if\  \theta\ \  is\ \  v_{i,f}}  \right.$
+${\partial\over\partial \theta} \hat{y(\mathbf{x})} = \left\{ {1, \quad if\  \ \theta\ \  is\ \  w_0 \\ x_i, \quad if\ \  \theta\ \  is\ \   w_i \\ x_i \sum_{j=1}^n v_{j,f} x_j - v_{i,f} x_i^2, \quad if\  \theta\ \  is\ \  v_{i,f}}  \right.$
 
 위의 미분 식을 따라가며,stochastice graident descent (SGD) 방식으로 학습합니다. tensorflow 2.0 에서 ```tf.keras.optimizer.SGD``` 를 사용합니다.
 
@@ -98,7 +98,7 @@ ${ \partial\over\partial \theta} \hat{y(\mathbf{x})}  = \left\{ {1, \quad if\  \
 지금까지 우리가 봤던 FM 모델은 두개 변수들간의 모든 상호작용을 고려한 2-way FM 모델입니다. 조금 더 일반화 된 d-way FM 모델의 형태는 아래와 같습니다.
 
 $$ \hat{y(x)} := w_o + \sum_{i=1}^n w_i x_i \\
- \sum_{l=2}^d \sum_{i_1=1}^n \cdots \sum_{i_l = i_{l-1}+1}^n (\prod_{j=1}^l x_{i_j}) (\sum_{f=1}^{k_l}  \prod_{j=1}^l v_{ {i_j}, f}^l)$$
+ \sum_{l=2}^d \sum_{i_1=1}^n cdots \sum_{i_l = i_{l-1}+1}^n (\prod_{j=1}^l x_{i_j}) (\sum_{f=1}^{k_l}  \prod_{j=1}^l v_{ {i_j}, f}^l)$$
 
 $l$번째 상호작용 텀 파라미터에 해당하는 변수들은 PARAFAC 모델에 의해 factorized 됩니다. 각 행렬과 변수는 아래와 같습니다.
 
