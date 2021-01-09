@@ -4,6 +4,14 @@ tags: LinearAlgebra
 ---
 
 # Positive Definite 행렬 & Semi positive Definite 행렬
+
+## Symmtric matices 들의 중요성
+$$\mathbf{S} = \mathbf{S}^T$$ 를 만족하는 대칭 행렬들은 중요한 특성들을 지닌다. 이 행렬들의 고윳값과 고유벡터에 대해서 다음과 같은 성질이 성립한다.<br>
+- 대칭 행렬 $$\mathbf{S}$$ 들의 모든 $n$ 개의 고유값 $\lambda$ 는 모두 실수이다.<br>
+- $n$개의 고유벡터 $q$들은 모두 서로 직교한다. (orthogonal)
+
+$$\mathbf{S}$$ 행렬의 모든 eigenvector들은 서로 orthogonal이며, 각 벡터들의 크기를 1로 rescale 해주면, 고유 벡터들이 이루는 행렬은 orthonormal 행렬이 된다. 따라서, 우리가 이미 알고있는, $$ A = X\Lambda X^{-1}$$ 행렬을 $$ S = Q\Lambda Q^{T}$$ 로 표현할 수 있다. 
+
 ## 고유값으로 정의되지만..
 ***<center>A matrix is positive definite if it's symmetric and all its eigenvalues are positive</center>***
 > 아주 간단한 정의이다. 행렬이 대칭행렬이고 고유값들이 모두 양수이면 된다고 한다. 하지만 여기서 바로 한가지 걱정이 생겨야 한다.

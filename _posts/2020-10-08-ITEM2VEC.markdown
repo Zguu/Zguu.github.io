@@ -5,30 +5,43 @@ tags: Paper Review
 
 !['recommendation'](https://scholarshipowl.com/blog/wp-content/uploads/2019/01/72710307_s.png)
 # ITEM2VEC: Neural Item Embedding for Collaborative Filtering
-### 1. Introduction and related work
-<space>
+## ABSTRACT
+기존의 CF 알고리즘들은 아이템간의 유사성을 만들어내기 위해, 아이템들 간의 관계를 분석하는 데에 기초를 두고 있었다. Skip-gram with Negative Sampling(SGNS), 더욱 친숙하게는 word2vec 으로 알려진 알고리즘은 많은 NLP 분야에서 neural embedding 알고리즘을 활용해 단어들의 latent representation 학습에 효과적임을 보여주었다. 이 논문에서는 item based CF가 neural embedding 알고리즘과 같은 프레임워크 내에서 적용될 수 있다는 것을 보여줄 것이다. 이 방법을 적용해, 유저 정보가 없을 떄에도, item 기반 CF에서 각 상품들에 대한 임베딩 벡터를 latent space에서 생성할 수 있다.
 
- <center> 아래의 두 개념에 대해 혼동하지 말고 읽으면 더 좋을 것이다<br><br>
- - Item-based Collaborative Filtering<br>
- - User-based Collaborative Filtering<br>
- </center>
-<br>
-<hr/><br>
+## 1. Introduction and related work
+아이템들 간의 유사도를 측정하는 것은 추천 시스템에서 핵심적인 부분이라고 볼 수 있다. 많은 추천 알고리즘들이 유저와 아이템에 대한 각각의 임베딩 벡터를 학습하는 데에 집중하고 있지만, 아이템들 간의 유사도 측정을 정확하게 해내는 것이 사실 궁극적인 목표라고 볼 수도 있다.
 
- 온라인 서비스에서 이제는 우리의 일상이 돼버린 추천 시스템은 자세히 들여다보면 몇가지로 분류를 할 수가 있다. 유저(User)와 아이템(Item) 데이터를 동시 활용하기도 하고, 유저에 대한 정보가 부족하거나 사용이 불가능할 때에 Item(상품이나 서비스)에서 발생하거나 얻을 수 있는 데이터만을 기반으로 한 item-item 추천을 실행하기도 한다. <br>
-<space>하지만, 결국에! 소비자에게 아이템을 추천하는 것은 이 item들 간의 유사도를 얼마나 정확하게 계산하느냐의 문제로 볼 수 있다. Single 아이템 추천(유저 정보를 활용하지 않고 아이템 정보만-single item recommendation- 활용한 추천 시스템)은 기존의 전통적인 user-to-item 추천과는 다를 수 있는데, 이것은 유저의 특별한 아이템에 대한 취향 등을 고려하지 않는 외재적(explicit)인 방법으로 볼 수 있다. 이러한 아이템과 아이템 기반의 유사도 측정은 일반적으로 아이템과 유저 기반 유사도보다 CTR(Click-Through Rates: 구매 전환율)이 높기 때문에 더욱 눈 여겨 볼 필요가 있다.<br><br>
-<space>물론, 아이템 데이터만 활용해서 추천 시스템을 구축하는 데에 한계가 있는 경우들도 있다. 이 논문의 저자가 말하듯이, 만약 음원 제공 서비스에서 발생하는 케이스에서 처럼, 유저의 수가 압도적으로 아이템의 수보다 많다면(일반적으로 성공한 음원 서비스에서는 이용자의 수가 음원의 수를 훨씬 뛰어 넘는 것과 같이), 유저 베이스 단독 모델로 가는 것이 좋을 수도 있다. 또한, 유저 개개인에 대한 식별이 불가능한 상태에서 (session과 같은), 실제 소비자들의 구매가 이뤄지는 경우도 있다. 이러한 경우에 각각의 Session 단위로 데이터를 취급하고 분석을 진행하는 것은 컴퓨팅 비용 대비 얻을 수 있는 정보가 상대적으로 작기 때문에 유용하지 않다고 한다.<br>
-<space>최근(2016년 기준) 자연어 처리 분야에서 큰 진전을 얻게 해준 방법론인 Skip-gram with Negative Sampling(word2vec)에 영감을 받아 진행된 이 연구에서는 최종적으로,<b> ''아이템 데이터를 벡터로 치환하고 유사도 계산을 용이하게 할 수 있다는 것을 이 논문은 보여주려 한다.''</b><br>
+> 너무 추천 시스템의 일부만 얘기하는 것 같아 갸우뚱하게 되는 부분...
+
+일반적으로 생각하는 추천 user-to-item 추천보다는, single 아이템 추천이 더욱 높은 CTR을 기대할 수 있다고 한다. 따라서 높은 매출과 수입에 대한 상당부분을 이 아이템 유사도 기반의 추천이 담당하게 된다.
+
+> 그럴듯 하면서도 아닐 수 있는데, 저자가 너무 일반화한다는 느낌이 너무 든다. 유사상품 추천에 있어서는 당연히 아이템 유사도 측정 기반의 추천이 많이 먹히겠지만, 유저가 서비스를 진입할 때에는 아이템 기반이 아닌 user-to-item 추천을 할 수 밖에 없지 않나. 추천 시스템의 목적과 전략에 따라 다를 수 있는데, 너무 single item 추천만 치켜세우고 있다.
+
+SGNS가 NLP 분야에서 큰 성공을 거둔 만큼, SGNS를 일부 수정하여 CF에 적용해볼 것이다. 이 알고리즘을 item2vec 으로 칭하자.
 
 !['image'](https://imgur.com/XG6kJpP.png)
 
+앱스토어나 이커머스에서 우리가 위와 같이 보듯이, 상품이나 서비스 간의 유사도 기반 추천은 주변에서 쉽게 볼 수 있다.
+
 ---
 ### 2. SGNS
-: Mikolov ['(링크)']((https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf))에 의해 제안된 이 방법론은 문장 내에서 단어를 표현하는 데에 있어서, 다른 단어와의 관계에 대한 정보를 캐치한다.
+: Mikolov ['(링크)']((https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf))에 의해 제안된 이 방법론은 문장 내에서 단어를 표현하는 데에 있어서, 다른 단어와의 관계에 대한 정보를 캐치한다. 특정 단어들이 문장 내에서 어떠한 단어들이 주변에 분포하고 있는 지를 캐치하여, 각 단어들을 하나의 벡터로 표현해내는 방법이다. 우리가 잘 알고있는 word2vec 이 이에 해당한다. Skip-gram 의 목표는 아래의 함수를 최대화 하는 것이다.
+
+$$\frac{1}{K} \sum_{i=1}^{K} \sum_{-c \le j \le c,\ j \ne 0 }  \text{log}\ p(w_{i+j}|w_i)$$
+
+위의 식에 대해 조금 이해해보자면, 단어 $w_i$가 나왔을 때, 이 단어를 기준으로 $c$번째 앞에 있는 단어들이 나올 확률 및 $c$번째 뒤에 나올 총 2$c$ 단어들의 출현 확률을 최대화 하는 것이다. 이 $c$ 값은 context window size 라고 부르기로 하자. 이 값은 $w_i$에 따라 달라질 수 있다. $p(w_j|w_i)$는 아래와 같은 softmax 함수이다.
+
+$$p(w_j |w_i) = \frac{\text{exp}(u_i^T v_j)}{\sum_{k\in I_w} \text{exp}(u_i^T v_k)}$$
+
+위의 식에서, $u_i \in U (\subset \mathbb{R}^m)$ 그리고 $v_i \in V (\subset\mathbb{R}^m)$ 들은 latent 벡터들이며, 단어 $w_i \in W$ 의 target, context representation 에 속한다.
 
 ### 3. ITEM2VEC - SGNS FOR ITEM SIMILARITY
-:<space> 이제 드디어 본격적으로 논문의 저자가 말하고자 하는 Item2Vec 대해 이야기 해보자! 추천 알고리즘을 구축하는 데에 있어서 우리에게 유저 데이터셋과, 유저가 실제 실행 주문 데이터가 주어지는 게 일반적이다(일반적이라기 보다는 이상적이고 우리는 그래야 행복할 것이다....). 하지만..! 세상은 언제나 우리가 원하는 데이터를 깔끔하게 포장해두지 않는다.<br>
- 우리가 원하는 유저와 그에 상응하는 주문 데이터가 없는 경우도 많을 것이다. 주문에 대한 정보는 존재 할지라도, 유저(주문자)에 대한 정보가 경우들이 자주 있다. '어떤 주문이 언제 어디서 이뤄졌고, 배송이 어디로 실행됐는지' 까지는 알아도, 실제로 누가 주문했는지에 대한 식별자 정보(identification)는 여러가지 이유로 부족할 수 있다. (이러한 이유에서 저자는 유저에 대한 임베딩이 아닌, 아이템 임베딩에 더욱 초점을 맞춘게 아닌가 싶다.)<br>
+: item2vec 의 핵심 아이디어는 word2vec 의 아이디어를 상품 데이터에 그대로 적용하겠다는 것이다. 이 과정에서 우리는 상품을 구입한 유저가 누구인지와 같은 유저에 대한 정보는 필요로 하지 않는다. 문장이라는 집합이 여러 개의 단어들로 이뤄져있듯이, 구매라는 이벤트 집합은 여러개의 상품으로 이뤄진 집합이라고 생각해볼 수 있다. <br>
+즉, 구매라는 이벤트 집합을 하나의 문장으로 보고, 이 구매 이벤트를 sequential 하게 이루고 있는 각 상품들을 단어로 치환해서 생각해본다면, word2vec의 개념을 그대로 상품 구매 데이터에 적용할 수 있다는 것이다. 이것이 item2vec 의 핵심 아이디어이다.
+> 솔직히 novel한 부분은 없다. 누구나 논문 안읽어봐도 생각해볼 수 있는 아이디어
+
+
+
 !['anonym'](https://miro.medium.com/max/1360/1*OtVj_gkDk7vuLKYqOZM3qA.jpeg)
 
 이 논문의 저자가 말하기로는, 아이템 기반의 CF(collaborative filtering)에 SGNS 개념을 적용하는 것은 너무나도 직관적이라고 한다. 문장 내에서 단어들이 다른 단어들과의 관계를 갖고 있는 것처럼, 장바구니 내에서 set를 이루는 아이템들도 이러한 맥락에서 이해할 수 있지 않냐는 게 저자의 지적이다. (솔직히 1대1 대응처럼 완벽하게 같은 관계라고 볼 수는 없겠지만, 두 개의 예시가 서로 공유하는 비슷한 특징들이 있다는 건 부인할 수 없어보인다.)<br>
@@ -53,4 +66,5 @@ tags: Paper Review
 ### References
 https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf<br>
 https://lovit.github.io/nlp/representation/2018/09/28/tsne/<br>
-https://towardsdatascience.com/word-embedding-with-word2vec-and-fasttext-a209c1d3e12c
+https://towardsdatascience.com/word-embedding-with-word2vec-and-fasttext-a209c1d3e12c<br>
+http://jalammar.github.io/illustrated-word2vec/

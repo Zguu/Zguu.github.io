@@ -28,16 +28,21 @@ symmetric 행렬 $S$를 얻기 전 원래 함수인 $A$의 norm은 다음과 같
 
 $$ ||A||^2 = \text{max} \frac{||Ax||^2}{||x||^2} = \text{max} \frac{x^TA^TAx}{x^Tx}\\ = \text{max} \frac{x^TSx}{x^Tx} = \lambda_1(S) = \sigma_1^2(A)$$
 
+위의 식을 통해, Symmetric 행렬의 Eigenvalue를 찾아내는 문제는 결국 최적화문제와 같다고 정리할 수 있습니다.
+
+$$\text{"Optimization : Maximize R(x)"}$$
+
 ## Generalized Eigenvalues and eigenvectors
 위의 Reyleigh ratio 수식을 약간 변경하여 Generalized Eigenvalues and eigenvectors 를 표현해보겠습니다. 이러한 형태로 표현하는 것은 모든 수학, 공학 분야에서 일반적으로 쓰입니다. Mass Marix or Intertia Matrix or Convariance Matrix로 불려지는 $M$ 행렬을 분모에 포함시킵니다.
 
 $$ R = \frac{x^TSx}{x^TMx}$$
 
-이와 같이 표현했을 때, 일반적인 Reyleigh Ratio 형태의 식을 eigenvector 형태로 표현한 아래의 식은
+이렇게 표현된 Rayleigh Ratio를 조금 더 일반화된 형태, Generalized Symmetric eigenvalue problem으로 칭하겠습니다.
+그리고 위와 같이 표현했을 때, 일반적인 Reyleigh Ratio 형태의 식을 eigenvector 형태로 표현했던 아래의 식은
 
 $$ Sx = \lambda x$$
 
-다음과 같이 표현됩니다.
+다음과 같이 변경된 형태로 표현됩니다.
 
 $$ Sx = \lambda Mx$$
 

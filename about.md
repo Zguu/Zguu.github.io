@@ -37,7 +37,7 @@ Data Science 관련 공부 자료, 개인적인 생각 등을 정리하는 블�
 
 
 ```python
-"DOING: Python, PostgreSQL, Presto, Spark, Optimization, Statistical Modeling, Recommender System, Machine Learning, Visualization, Cat Feeding"
+"DOING: Python, PostgreSQL, Spark, Optimization, Statistical Modeling, Recommender System, Machine Learning, Cat Feeding"
 "TODO : Scala, Bayesian Data Analysis, Deep Recommendation"
 ```
 
