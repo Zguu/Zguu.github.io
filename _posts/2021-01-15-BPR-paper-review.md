@@ -4,12 +4,10 @@ tags: RecommenderSystem
 ---
 
 # Personalization & Ranking
-FM에 이은 RENDEL 교수님의 또 다른 논문 BPR을 살펴보겠습니다.
-
-추천시스템에서 많이 사용되는 MF나 kNN 모두 유저 단위에서 추천을 진행할 수는 있습니다. (즉, 개인화를 추천에 포함시킵니다.)<br> `MF(Matrix Factorization)`의 경우, 방법론 이름 그대로 행렬을 분해하는 과정에서, 유저들 간의 관계를 latent factor가 내포할 수 있습니다. 또한, 분해 결과 자체에서도 $U ^{|U| \times |k|}$ 형태의 $\text{user by factors}$ 행렬을 얻기 때문에, 각 유저의 특성에 맞는 추천을 진행한다는 것을 알 수 있습니다.
-
-또한, `kNN`의 경우, user vector 간의 가장 유사한 벡터를 찾아내느냐, item vector 간의 유사한 벡터를 찾아내느냐 크게 두가지 방법이 있습니다. 역시,가장 유사한 user vector를 찾는 과정을 사용할 시에, 나와 비슷한 유저를 찾아내서 추천을 진행하는, 개인화의 방법이 사용된다는 것을 알 수 있습니다.
-
+FM에 이은 RENDEL 교수님의 또 다른 논문 BPR을 살펴보겠습니다.<br>
+추천시스템에서 많이 사용되는 MF나 kNN 모두 유저 단위에서 추천을 진행할 수는 있습니다. (즉, 개인화를 추천에 포함시킵니다.)<br>
+MF(Matrix Factorization)의 경우, 방법론 이름 그대로 행렬을 분해하는 과정에서, 유저들 간의 관계를 latent factor가 내포할 수 있습니다. 또한, 분해 결과 자체에서도 $U ^{|U| \times |k|}$ 형태의 $\text{user by factors}$ 행렬을 얻기 때문에, 각 유저의 특성에 맞는 추천을 진행한다는 것을 알 수 있습니다.<br>
+또한, `kNN`의 경우, user vector 간의 가장 유사한 벡터를 찾아내느냐, item vector 간의 유사한 벡터를 찾아내느냐 크게 두가지 방법이 있습니다. 역시,가장 유사한 user vector를 찾는 과정을 사용할 시에, 나와 비슷한 유저를 찾아내서 추천을 진행하는, 개인화의 방법이 사용된다는 것을 알 수 있습니다.<br>
 그렇다면 위의 두 기존 방법론 모두 `개인화 (Personalization)` 라는 개념을 동일하게 사용되는데, BPR 만의 특별한 점은 무엇일까 생각해볼 수 있습니다. BPR 의 마지막 키워드가 말해주고 있는 `Ranking` 에 바로 그 핵심이 있습니다.
 
 > 실제 추천시스템을 구현하고 사용할 때, 단 한개만의 추천 결과를 사용하는 경우는 매우 드뭅니다. 보통은 여러 개의 상품들이나 컨텐츠를 동시에 유저에게 제공하기 때문에, 추천 결과들 간에 무엇이 더 효과적인지 순서를 매겨야합니다. 따라서, Ranking 을 학습하는 것이 매우 중요합니다.
@@ -72,7 +70,7 @@ $$D_S := \left\{ (u,i,j)|i\in I_u^+ \wedge j \in I \backslash I_u^+ \right\}$$
 
 ## BPR-OPT & LearnBPR
 
-이제 위와 같은 problem setting 상황에서, 개인화된 랭킹 문제를 해결하는 일반적인 방법론을 도출해보겠습니다. <br> 첫번째로, 개인화된 랭킹 문제를 해결하는 최적화 기준인 BPR-OPT는 likelihhood 에 해당하는 $p(i >_u j | \Theta)$ 와, parameter의 사전확률에 해당하는 $p(\Theta)$ 들을에 대한 Bayesian 분석을 통해 도출됩니다.
+이제 위와 같은 problem setting 상황에서, 개인화된 랭킹 문제를 해결하는 일반적인 방법론을 도출해보겠습니다. <br>첫번째로, 개인화된 랭킹 문제를 해결하는 최적화 기준인 BPR-OPT는 likelihhood 에 해당하는 $p(i >_u j | \Theta)$ 와, parameter의 사전확률에 해당하는 $p(\Theta)$ 들을에 대한 Bayesian 분석을 통해 도출됩니다.
 
 ### BPR Optimization Criterion
 
