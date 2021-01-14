@@ -87,6 +87,3 @@ $$p(\Theta|>_u) \propto p(>_u|\Theta)p(\Theta)$$
 $$\prod_{u\in U} p(>_u | \Theta) = \prod_{(u,i,j)\in U \times I \times I} p(i >_u j |\Theta)^{\delta((u,i,j)\in D_S)} \\ \dot (1-p(i >_u j |\Theta))^{\delta((u,i,j)\notin D_S)}$$
 
 위에서 함수 $\delta$는 아래와 같은 indicator 함수입니다.
-
-
-$$\delta(b) := \left\{ {1\   \text{if b is true}\\ 0\   \text{else}} \right. $$
