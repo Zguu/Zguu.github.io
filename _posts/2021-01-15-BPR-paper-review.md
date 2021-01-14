@@ -84,6 +84,8 @@ $$p(\Theta|>_u) \propto p(>_u|\Theta)p(\Theta)$$
 
 각각의 유저들에 대한 확률들과, 각 상품의 대소관계는 다른 상품들의 대소관계와 독립적이라고 가정하므로, 아래와 같이 다시 표현할 수 있습니다.
 
-$$\prod_{u\in U} p(>_u | \Theta) = \prod_{(u,i,j)\in U \times I \times I} p(i >_u j |\Theta)^{\delta((u,i,j)\in D_S)} \\ \dot (1-p(i >_u j |\Theta))^{\delta((u,i,j)\notin D_S)}$$
+$$\prod_{u\in U} p(>_u | \Theta) = \prod_{(u,i,j)\in U \times I \times I} p(i >_u j |\Theta)^{\delta((u,i,j)\in D_S)} \\ \times (1-p(i >_u j |\Theta))^{\delta((u,i,j)\notin D_S)}$$
 
 위에서 함수 $\delta$는 아래와 같은 indicator 함수입니다.
+
+$$\delta(b) := \left\{ {1\   \text{if b is true}\\ 0\   \text{else}} \right. $$
