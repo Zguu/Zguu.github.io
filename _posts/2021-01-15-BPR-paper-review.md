@@ -72,7 +72,9 @@ $$D_S := \left\{ (u,i,j)|i\in I_u^+ \wedge j \in I \backslash I_u^+ \right\}$$
 
 ## BPR-OPT & LearnBPR
 
-이제 위와 같은 problem setting 상황에서, 개인화된 랭킹 문제를 해결하는 일반적인 방법론을 도출해보겠습니다. 첫번째로, 개인화된 랭킹 문제를 해결하는 최적화 기준인 BPR-OPT는 likelihhood 에 해당하는 $p(i >_u j | \Theta)$ 와, parameter의 사전확률에 해당하는 $p(\Theta)$ 에 대한 Bayesian 분석을 통해 도출됩니다.
+이제 위와 같은 problem setting 상황에서, 개인화된 랭킹 문제를 해결하는 일반적인 방법론을 도출해보겠습니다.
+
+첫번째로, 개인화된 랭킹 문제를 해결하는 최적화 기준인 BPRopt는 likelihood 에 해당하는 $p(i >_u j | \Theta)$ 와, parameter의 사전확률에 해당하는 $p(\Theta)$ 에 대한 Bayesian 분석을 통해 도출됩니다.
 
 **BPR Optimization Criterion**
 
