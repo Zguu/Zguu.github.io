@@ -6,6 +6,7 @@ tags: RecommenderSystem
 # Personalization & Ranking
 FM에 이은 RENDEL 교수님의 또 다른 논문 BPR을 살펴보겠습니다.<br>
 추천시스템에서 많이 사용되는 MF나 kNN 모두 유저 단위에서 추천을 진행할 수는 있습니다. (즉, 개인화를 추천에 포함시킵니다.)<br>
+
 MF(Matrix Factorization)의 경우, 방법론 이름 그대로 행렬을 분해하는 과정에서, 유저들 간의 관계를 latent factor가 내포할 수 있습니다. 또한, 분해 결과 자체에서도 $U ^{|U| \times |k|}$ 형태의 $\text{user by factors}$ 행렬을 얻기 때문에, 각 유저의 특성에 맞는 추천을 진행한다는 것을 알 수 있습니다.<br>
 
 또한, `kNN`의 경우, user vector 간의 가장 유사한 벡터를 찾아내느냐, item vector 간의 유사한 벡터를 찾아내느냐 크게 두가지 방법이 있습니다. 역시,가장 유사한 user vector를 찾는 과정을 사용할 시에, 나와 비슷한 유저를 찾아내서 추천을 진행하는, 개인화의 방법이 사용된다는 것을 알 수 있습니다.<br>
@@ -76,7 +77,7 @@ $$D_S := \left\{ (u,i,j)|i\in I_u^+ \wedge j \in I \backslash I_u^+ \right\}$$
 
 첫번째로, 개인화된 랭킹 문제를 해결하는 최적화 기준인 BPRopt는 likelihood 에 해당하는 $p(i >_u j | \Theta)$ 와, parameter의 사전확률에 해당하는 $p(\Theta)$ 에 대한 Bayesian 분석을 통해 도출됩니다.
 
-**BPR Optimization Criterion**
+## BPR Optimization Criterion
 
 우리의 목적은 아래의 posterior 확률을 최대화하는 것입니다. 이 posterior 함수는, 상품들 간의 대소관계들이 주어졌을 때, parameter에 해당하는 $\Theta$ 의 확률이며, 이는 앞서 언급했던 likelihhood 와 prior 확률의 곱에 비례합니다.
 
