@@ -71,17 +71,13 @@ $I_u^+$는 유저 $u$가 평가를 남긴 상품들에 대한 pair 집합을 의
 
 $$D_S := \left\{ (u,i,j)|i\in I_u^+ \wedge j \in I \backslash I_u^+ \right\}$$
 
-## BPR-OPT & LearnBPR
+BPR-OPT & LearnBPR
 
-이제 위와 같은 problem setting 상황에서, 개인화된 랭킹 문제를 해결하는 일반적인 방법론을 도출해보겠습니다.
-
-첫번째로, 개인화된 랭킹 문제를 해결하는 최적화 기준인 BPRopt는 likelihood 에 해당하는 $p(i >_u j | \Theta)$ 와, parameter의 사전확률에 해당하는 $p(\Theta)$ 에 대한 Bayesian 분석을 통해 도출됩니다.
+ 이제 위와 같은 problem setting 상황에서, 개인화된 랭킹 문제를 해결하는 일반적인 방법론을 도출해보겠습니다. 첫번째로, 개인화된 랭킹 문제를 해결하는 최적화 기준인 BPRopt는 likelihood 에 해당하는 $p(i >_u j | \Theta)$ 와, parameter의 사전확률에 해당하는 $p(\Theta)$ 에 대한 Bayesian 분석을 통해 도출됩니다.
 
 ## BPR Optimization Criterion
 
 우리의 목적은 아래의 posterior 확률을 최대화하는 것입니다. 이 posterior 함수는, 상품들 간의 대소관계들이 주어졌을 때, parameter에 해당하는 $\Theta$ 의 확률이며, 이는 앞서 언급했던 likelihhood 와 prior 확률의 곱에 비례합니다.
-
-$$p(\Theta|>_u) \propto p(>_u|\Theta)p(\Theta)$$
 
 각각의 유저들에 대한 확률들과, 각 상품의 대소관계는 다른 상품들의 대소관계와 독립적이라고 가정하므로, 아래와 같이 다시 표현할 수 있습니다.
 
