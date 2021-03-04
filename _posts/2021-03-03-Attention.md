@@ -35,7 +35,7 @@ attention layer의 구현은 아래와 같은 4단계로 나눌 수 있습니다
 
 ![Figure1.0](https://i.imgur.com/Rn21qwk.gif)
 
-초록색 원에 해당하는 hidden states들은 encoding 과정에서 얻어집니다. 원 논문의 저자는 encoder에 bidirectional RNN (BiRNN)을 사용한다고 설명하고 있습니다. 즉, forward RNN $\overset{\rightarrow}{f}$ 이 단어들을 $x_1$ 부터 $x_{T_x}$ 까지 읽고 계산하며 얻은 hidden states 값들은 $\overset{\rightarrow}{h}_1$ $, \dots ,$  $\overset{\rightarrow}{h}_{T_x}$ 이 됩니다.
+초록색 원에 해당하는 hidden states들은 encoding 과정에서 얻어집니다. 원 논문의 저자는 encoder에 bidirectional RNN (BiRNN)을 사용한다고 설명하고 있습니다. 즉, forward RNN $\overset{\rightarrow}{f}$ 이 단어들을 $x_1$ 부터 $x_{T_x}$ 까지 읽고 계산하며 얻은 hidden states 값들은 $\overset{\rightarrow}{h}_1$ test $\overset{\rightarrow}{h}_{T_x}$ 이 됩니다.
 
 마찬가지로 backward RNN $\overset{\leftarrow}{f}$ 가 $x_{T_x}$ 부터 $x_1$까지 거꾸로 읽은 결과는 backward hidden states $\overset{\leftarrow}{h}_1$ $, \dots,$ $\overset{\leftarrow}{h}_{T_x}$ 이 됩니다.
 
